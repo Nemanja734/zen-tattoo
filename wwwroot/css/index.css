@@ -66,24 +66,3 @@
     color: var(--body);
 }
 
-/* 4 STEPS */
-.steps {
-    display: grid;
-    grid-template-rows: auto repeat(4, 1fr);
-    gap: var(--grid-gap);
-    text-align: center;
-}
-
-.steps .item {
-    display: grid;
-    justify-items: center;
-    text-align: center;
-    gap: 15px;
-}
-
-.steps .icon {
-    padding: 15px 100px;
-    background-color: var(--primary-tint);
-    border-radius: var(--border-radius-m);
-}
-
