@@ -8,7 +8,7 @@ interface Props {
 
 export default function Text({ level, customs, children }: Props) {
     const styles: Record<string, string> = {
-        lg: "text-base leading-[1.5]"
+        base: "text-base leading-[1.5]"
     }
 
     return(
