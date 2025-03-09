@@ -15,9 +15,9 @@
   /* COLORS */
   --primary: #105dd1;
   --primary-tint: #d5e2fd;
-  --secondary: #d19111;
+  --alarm: #CC3333;
   --foreground: #111111;
-  --shade: #c0c0c0;
+  --shade: #bcc1ca;
   --background: #f0f2ff;
 
   /* TYPOGRAPHY */
@@ -36,7 +36,7 @@
   /* COLORS */
   --color-primary: var(--primary);
   --color-primary-tint: var(--primary-tint);
-  --color-secondary: var(--secondary);
+  --color-alarm: var(--alarm);
   --color-foreground: var(--foreground);
   --color-shade: var(--shade);
   --color-background: var(--background);
@@ -60,6 +60,10 @@ body {
   @apply mb-6 md:mb-8;
 }
 
+.heading-primary-mt {
+  @apply mt-6 md:mt-8;
+}
+
 /* For dropdown menus */
 .dd {
   @apply bg-primary-tint rounded-xl border-1 border-shade shadow-lg;
@@ -74,18 +78,4 @@ body {
 .dd-item {
   padding: 10px 20px;
   display: block;
-}
-
-/* Form fields */
-.form__field {
-  outline: none;
-  width: 100%;
-  border: 2px solid var(--shade);
-  border-radius: 4px;
-  padding: 7px 10px;
-  transition: border-color .3s;
-}
-
-.form__field:focus {
-  border-color: var(--primary);
 }

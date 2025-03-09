@@ -1,4 +1,4 @@
-import LogoMain from "@/components/logo-main";
+import LogoMain from "@/components/logoMain";
 import NavItems from "@/components/artist/navItems";
 import NavArtistProfile from "@/components/artist/profile";
 import Button from "@/components/elements/button";
@@ -10,11 +10,14 @@ import Image from "next/image";
 import NextStep from "@/components/artist/nextStep";
 import FAQItem from "@/components/faqItem";
 import ContactSection from "@/components/artist/contactSection";
+import NavArtist from "@/components/layout/navArtist";
+import Footer from "@/components/layout/footer";
+import { Routes } from "@/lib/routes";
 
 export default function Artist() {
   return (
     <>
-      <Navbar />
+      <NavArtist />
       <HeroSection />
       <BenefitsSection />
       <HowItWorksSection />
@@ -22,26 +25,8 @@ export default function Artist() {
       <NextStepsSection />
       <FAQSection />
       <ContactSection />
+      <Footer />
     </>
-  );
-}
-
-function Navbar() {
-  return (
-    <div
-      className="sticky top-0 bg-background z-100"
-      id="artist"
-    >
-      <div className="container flex justify-between items-center py-3!">
-        <LogoMain />
-        <div className="hidden md:block">
-          <NavItems />
-        </div>
-        <div className="block md:hidden">
-          <NavArtistProfile />
-        </div>
-      </div>
-    </div>
   );
 }
 
@@ -57,11 +42,13 @@ function HeroSection() {
         aus deiner Kunst zu erzielen.
       </Text>
 
-      <Link href="sign-in" className="w-[fit-content] m-auto">
-        <Button level="primary-lg" customs="w-[fit-content] m-auto">
-          Jetzt Registrieren
-        </Button>
-      </Link>
+      <Button
+        href={Routes.signup}
+        level="primary-lg"
+        customs="w-[fit-content] m-auto"
+      >
+        Jetzt Registrieren
+      </Button>
     </div>
   );
 }
@@ -144,9 +131,13 @@ function HowItWorksSection() {
             Rezension auf Zen bitten.
           </Text>
         </div>
-        <Link href="sign-in" className="w-fit h-fit">
-          <Button level="primary-lg">Jetzt Registrieren</Button>
-        </Link>
+        <Button
+          href={Routes.signup}
+          level="primary-lg"
+          customs="w-[fit-content] m-auto"
+        >
+          Jetzt Registrieren
+        </Button>
       </div>
     </div>
   );
@@ -177,9 +168,13 @@ function CustomerSupportSection() {
           dich und deine Kund*innen da, bis auch wirklich der letzte Punkt des
           Tages gestochen wurde.
         </Text>
-        <Link href="sign-in" className="w-fit">
-          <Button level="primary-lg">Jetzt Registrieren</Button>
-        </Link>
+        <Button
+        href={Routes.signup}
+        level="primary-lg"
+        customs="w-[fit-content] m-auto"
+      >
+        Jetzt Registrieren
+      </Button>
       </div>
     </div>
   );
@@ -210,9 +205,13 @@ function NextStepsSection() {
         ))}
       </div>
 
-      <Link href="sign-in" className="w-fit m-auto">
-        <Button level="primary-lg">Jetzt Starten</Button>
-      </Link>
+      <Button
+        href={Routes.signup}
+        level="primary-lg"
+        customs="w-[fit-content] m-auto"
+      >
+        Jetzt Starten
+      </Button>
     </div>
   );
 }
