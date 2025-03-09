@@ -1,12 +1,15 @@
 import LogoMain from "@/components/logo-main";
 import NavItems from "@/components/artist/navItems";
 import NavArtistProfile from "@/components/artist/profile";
-import Button from "@/components/ui/button";
-import Heading from "@/components/ui/heading";
-import Text from "@/components/ui/text";
+import Button from "@/components/elements/button";
+import Heading from "@/components/elements/heading";
+import Text from "@/components/elements/text";
 import Link from "next/link";
 import BenefitsCard from "@/components/artist/benefitsCard";
 import Image from "next/image";
+import NextStep from "@/components/artist/nextStep";
+import FAQItem from "@/components/faqItem";
+import ContactSection from "@/components/artist/contactSection";
 
 export default function Artist() {
   return (
@@ -14,10 +17,11 @@ export default function Artist() {
       <Navbar />
       <HeroSection />
       <BenefitsSection />
-      <div className="container">
-        <HowItWorksSection />
-        <CustomerSupportSection />
-      </div>
+      <HowItWorksSection />
+      <CustomerSupportSection />
+      <NextStepsSection />
+      <FAQSection />
+      <ContactSection />
     </>
   );
 }
@@ -25,15 +29,17 @@ export default function Artist() {
 function Navbar() {
   return (
     <div
-      className="container flex justify-between items-center py-3!"
+      className="sticky top-0 bg-background z-100"
       id="artist"
     >
-      <LogoMain />
-      <div className="hidden md:block">
-        <NavItems />
-      </div>
-      <div className="block md:hidden">
-        <NavArtistProfile />
+      <div className="container flex justify-between items-center py-3!">
+        <LogoMain />
+        <div className="hidden md:block">
+          <NavItems />
+        </div>
+        <div className="block md:hidden">
+          <NavArtistProfile />
+        </div>
       </div>
     </div>
   );
@@ -41,7 +47,7 @@ function Navbar() {
 
 function HeroSection() {
   return (
-    <div className="container mt-18! mb-24! grid gap-6 text-center p-0!">
+    <div className="container grid gap-6 text-center">
       <Heading level="title-secondary" customs="max-w-[1100px] m-auto">
         Mehr Kund*innen erreichen & dein Business mit Zen erweitern
       </Heading>
@@ -64,7 +70,7 @@ function BenefitsSection() {
   const benefits = [
     {
       title: "Wachse mit Zen",
-      text: "Nehme am aktiven Kundenstamm von Zen teil und steigere dadurch die Anzahl deiner Kundenanfragen als selbstständiger Tätowierer. Je besser deine Kunst ist, desto mehr Kundenanfragen erhältst du. Indem du Aufträge abschließt, erhältst du persönliche Bewertungen und baust dir so eine Reputation auf.",
+      text: "Nehme am aktiven Kundenstamm von Zen teil und steigere dadurch die Anzahl deiner Kundenanfragen als selbstständiger Tätowierer. Je besser deine Kunst ist, desto mehr Kundenanfragen erhältst du. Indem du Anfragen abschließt, erhältst du persönliche Bewertungen und baust dir so eine Reputation auf.",
       image: "/benefits-growth.png",
       color: "bg-[#edf6ca]",
     },
@@ -95,7 +101,9 @@ function BenefitsSection() {
               color={benefit.color}
               image={benefit.image}
             >
-              <Heading level="subheading-primary">{benefit.title}</Heading>
+              <Heading level="subheading-primary" customs="mb-3">
+                {benefit.title}
+              </Heading>
               <Text level="text-base">{benefit.text}</Text>
             </BenefitsCard>
           ))}
@@ -107,8 +115,8 @@ function BenefitsSection() {
 
 function HowItWorksSection() {
   return (
-    <div className="mb-[100px] md:mb-[160px] grid gap-8 md:gap-12 md:grid-cols-2 md:items-center">
-      <div className="relative h-[400px] md:h-full rounded-md md:order-2">
+    <div className="container md:pb-0! grid md:grid-cols-2 md:content-center place-items-center md:gap-10">
+      <div className="relative aspect-square md:aspect-auto md:h-[480px] w-full rounded-md mb-8 md:mb-0 md:order-2">
         <Image
           src="/how-it-works.png"
           fill
@@ -117,25 +125,26 @@ function HowItWorksSection() {
         />
       </div>
 
-      <div className="md:ml-10 md:py-10">
+      <div className="md:ml-10">
         <Heading level="heading-primary">
           So funktioniert Zen für Tätowierer
         </Heading>
-        <Text level="text-base" customs="mb-1.5">
-          Ein*e Kund*in durchsucht die Zen App und bucht einen Termin bei dir.
-          Dabei gibt er den Stil, die Größe und das Motiv für sein Tattoo an.
-          Die Buchung erscheint in deinem Zen Profil. Nachdem du den Termin
-          bestätigt hast, ist dein Teil abgeschlossen und der Kunde bekommt den
-          genauen Standort deiner angegebenen Adresse.
-        </Text>
-        <Text level="text-base" customs="mb-6">
-          Am Tag des Termins besucht der Kunde dein Studio. Nachdem das Tattoo
-          fertig ist, fehlt nur noch deine Bestätigung. Trage dazu die Start-
-          und Endzeit in Zen ein, die der Termin in Anspruch genommen hat. Zum
-          Schluss kannst du den Kunden noch freundlich darum bitten, dir eine
-          Rezension auf Zen zu geben.
-        </Text>
-        <Link href="sign-in">
+        <div className="heading-primary-mb">
+          <Text level="text-base" customs="mb-1.5">
+            Ein*e Kund*in durchstöbert die Zen App und bucht einen Termin bei
+            dir. Dabei gibt er den Stil, die Größe und das Motiv des gewünschten
+            Tattoos an. Sobald du den Termin bestätigst, ist dein Part erledigt
+            und der Kunde erhält die genaue Adresse deines Studios.
+          </Text>
+          <Text level="text-base">
+            Am Tag des Termins besucht der Kunde dein Studio. Nach Abschluss des
+            Tattoos fehlt nur noch die Bestätigung. Trage dazu die Start- und
+            Endzeit in deinem Zen-Profil ein, um die genaue Dauer des Termins zu
+            dokumentieren. Abschließend kannst du den Kunden freundlich um eine
+            Rezension auf Zen bitten.
+          </Text>
+        </div>
+        <Link href="sign-in" className="w-fit h-fit">
           <Button level="primary-lg">Jetzt Registrieren</Button>
         </Link>
       </div>
@@ -145,8 +154,8 @@ function HowItWorksSection() {
 
 function CustomerSupportSection() {
   return (
-    <div className="grid gap-8 md:gap-12 md:grid-cols-2 md:items-center">
-      <div className="relative h-[400px] md:h-full rounded-md">
+    <div className="container grid md:grid-cols-2 md:content-center place-items-center md:gap-10">
+      <div className="relative aspect-square md:aspect-auto md:h-[480px] w-full rounded-md mb-8 md:mb-0">
         <Image
           src="/customer-support.png"
           fill={true}
@@ -154,18 +163,106 @@ function CustomerSupportSection() {
           className="object-cover rounded-2xl"
         />
       </div>
-      <div className="md:ml-10 md:py-10">
-        <Heading level="heading-primary" customs="max-w-[500px]">
+      <div className="md:mr-10 grid">
+        <Heading
+          level="heading-primary"
+          customs="max-w-[280px] md:max-w-[500px]"
+        >
           Erstklassiger Kundensupport für deinen Erfolg
         </Heading>
-        <Text level="text-base" customs="mb-6">
+        <Text level="text-base" customs="heading-primary-mb">
           Unser 24/7-Kundensupport antwortet innerhalb weniger Minuten in deiner
-          Landessprache. Wir sind für dich und deine Kund*innen da, bis auch
-          wirklich der letzte Punkt des Tages gestochen wurde.
+          Landessprache. Falls du Fragen hast oder dich über unser Angebot
+          erkundigen möchtest, kannst du uns einfach kontaktieren. Wir sind für
+          dich und deine Kund*innen da, bis auch wirklich der letzte Punkt des
+          Tages gestochen wurde.
         </Text>
-        <Link href="sign-in">
+        <Link href="sign-in" className="w-fit">
           <Button level="primary-lg">Jetzt Registrieren</Button>
         </Link>
+      </div>
+    </div>
+  );
+}
+
+function NextStepsSection() {
+  const steps = [
+    {
+      title: "Reiche deine Bewerbung ein.",
+    },
+    {
+      title: "Werde angenommen.",
+    },
+    {
+      title: "Gewinne neue Kundschaft mit Zen.",
+    },
+  ];
+
+  return (
+    <div className="container text-center">
+      <Heading level="heading-primary">Die nächsten Schritte:</Heading>
+
+      <div className="grid gap-4 md:gap-6 md:grid-cols-3 max-w-[380px] md:max-w-max m-auto heading-primary-mb">
+        {steps.map((step, index) => (
+          <NextStep key={index} index={index}>
+            {step.title}
+          </NextStep>
+        ))}
+      </div>
+
+      <Link href="sign-in" className="w-fit m-auto">
+        <Button level="primary-lg">Jetzt Starten</Button>
+      </Link>
+    </div>
+  );
+}
+
+function FAQSection() {
+  const faqData = [
+    {
+      question: "Wie hoch ist die Provision?",
+      answer:
+        "Zen behält 6 % des Gesamtpreises für die Kundengewinnung und Terminverwaltung ein. Zusätzlich fallen ca. 4 % Transaktionsgebühren für Stripe an. Am Ende bleiben dir also 90 % des Gesamtpreises.",
+      additionTitle: "Frühbucher-Angebot:",
+      additionText:
+        "Für die ersten 20 Registrierungen bei Zen halbieren wir unsere Gebühren! Statt 90 % erhältst du 95 % des Gesamtpreises. Das Angebot gilt nur solange der Vorrat reicht!",
+    },
+    {
+      question: "Was passiert, wenn ein Kunde den Termin absagt?",
+      answer:
+        "Bei Stornierungen wird eine Gebühr von 20 % des Gesamtpreises einbehalten. Der Restbetrag wird dem Kunden zurückerstattet.",
+    },
+    {
+      question: "Gibt es eine Anmeldegebühr?",
+      answer:
+        "Nein, es gibt keine Anmeldegebühr. Zudem kannst du die Partnerschaft mit Zen jederzeit beenden.",
+    },
+    {
+      question: "Was benötige ich für eine Partnerschaft mit Zen?",
+      answer:
+        "Du brauchst lediglich einen Social-Media-Account mit einem Portfolio, das mindestens drei Jahre zurückreicht. Falls du keinen Account hast, aber trotzdem ein talentierter Künstler bist, kannst du dich trotzdem bewerben – wir finden gemeinsam eine Lösung.",
+    },
+    {
+      question: "Wie verläuft die Registrierung bei Zen?",
+      answer:
+        "Zunächst legst du ein Konto mit einer gültigen E-Mail-Adresse an. Danach vervollständigst du dein Profil im Dashboard (Biografie, Stundensatz, Portfolio etc.). Zur Verifikation deines Portfolios senden wir einen Code an deinen Social-Media-Account. Mit diesem kannst du dein Konto freischalten.",
+    },
+    {
+      question: "Welche Anforderungen muss mein Studio erfüllen?",
+      answer:
+        "Dein Studio muss die gesetzlichen Hygienevorschriften erfüllen. Genauere Informationen findest du in unserem Artikel. Abgesehen davon hast du freie Gestaltungsmöglichkeiten.",
+    },
+  ];
+
+  return (
+    <div className="container">
+      <Heading level="heading-primary" customs="text-center">
+        Häufig gestellte Fragen
+      </Heading>
+      <div className="grid gap-2 md:gap-3">
+        {faqData.map((item, index) => (
+          <FAQItem key={index} {...item}></FAQItem>
+        ))}
       </div>
     </div>
   );

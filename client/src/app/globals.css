@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Recursive:wght@300..1000&display=swap');
 
 /* @media (prefers-color-scheme: dark) {
   :root {
@@ -9,64 +8,67 @@
 } */
 
 :root {
+  /* SPACING */
+  --spacing-vert: 70px;
+  --spacing-hor: 12px;
+
+  /* COLORS */
   --primary: #105dd1;
   --primary-tint: #d5e2fd;
-  --secondary: #D19111;
+  --secondary: #d19111;
   --foreground: #111111;
+  --shade: #c0c0c0;
   --background: #f0f2ff;
+
+  /* TYPOGRAPHY */
+  --tracking-1: -0.025rem;
+}
+
+@media (min-width: 767px) {
+  :root {
+    /* SPACING */
+    --spacing-vert: 90px;
+    --spacing-hor: 40px;
+  }
 }
 
 @theme inline {
-  /* SPACING */
-  
-
   /* COLORS */
   --color-primary: var(--primary);
   --color-primary-tint: var(--primary-tint);
   --color-secondary: var(--secondary);
   --color-foreground: var(--foreground);
+  --color-shade: var(--shade);
   --color-background: var(--background);
 
   /* TYPOGRAPHY */
-  --tracking-1: -.025rem;
+  --tracking-1: var(--tracking-1);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: "Recursive", sans-serif;
 }
 
 .container {
-  padding: 60px 12px;
+  padding: var(--spacing-vert) var(--spacing-hor);
   max-width: 1400px;
   margin-inline: auto;
 }
 
-@media (min-width: 767px) {
-  .container {
-    padding: 120px 60px;
-  }
+.heading-primary-mb {
+  @apply mb-6 md:mb-8;
 }
 
 /* For dropdown menus */
 .dd {
+  @apply bg-primary-tint rounded-xl border-1 border-shade shadow-lg;
   background-color: var(--primary-tint);
+  border-radius: 8px;
+  border: 1px solid var(--shade);
   position: absolute;
   right: 0;
-  top: calc(100% + 15px);
-  border-radius: 6px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-
-.dd::after {
-  content: "";
-  position: absolute;
-  top: -7px;
-  right: 12px;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 8px solid var(--primary-tint);
+  top: calc(100% + 10px);
 }
 
 .dd-item {
@@ -74,23 +76,16 @@ body {
   display: block;
 }
 
-.transition-enter {
-  opacity: 0;
-  transform: translateY(10px);
+/* Form fields */
+.form__field {
+  outline: none;
+  width: 100%;
+  border: 2px solid var(--shade);
+  border-radius: 4px;
+  padding: 7px 10px;
+  transition: border-color .3s;
 }
 
-.transition-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-  transition-property: opacity, transform;
-}
-
-.transition-exit-active {
-  opacity: 0;
-  transform: translateY(10px);
-  transition-property: opacity, transform;
-}
-
-.transition-enter-active, .transition-exit-active {
-  transition-duration: 300ms;
+.form__field:focus {
+  border-color: var(--primary);
 }

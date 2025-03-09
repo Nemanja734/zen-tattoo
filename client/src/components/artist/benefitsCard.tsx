@@ -9,8 +9,8 @@ interface Props {
 
 export default function BenefitsCard({ color, image, children }: Props) {
   return (
-    <div className={clsx(color, "p-[20px] pb-[60px] rounded-lg")}>
-      <div className="h-50 w-50 relative m-auto mb-12">
+    <div className={clsx(color, "p-[20px] md:p-[40px] rounded-lg")}>
+      <div className="h-50 w-50 relative m-auto mb-6 md:mb-12">
         <Image
           src={image}
           fill={true}

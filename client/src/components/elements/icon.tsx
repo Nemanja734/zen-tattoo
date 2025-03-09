@@ -1,8 +1,13 @@
 import { IconType } from "react-icons";
 import { CgProfile } from "react-icons/cg";
+import { FaChevronDown } from "react-icons/fa6";
+import { GrMail } from "react-icons/gr";
+
 
 const icons: { [key: string]: IconType } = {
     profile: CgProfile,
+    chevDown: FaChevronDown,
+    mail: GrMail,
 }
 
 interface Props {

@@ -8,9 +8,9 @@ interface Prop {
 
 export default function Heading({ level, customs, children }: Prop) {
   const styles: Record<string, string> = {
-    "title-secondary": "text-[40px] font-bold leading-[1] tracking-1 md:text-[60px]",
-    "heading-primary": "text-[32px] font-bold leading-[1.1] mb-6 tracking-1 md:text-[42px]",
-    "subheading-primary": "text-[22px] font-[800] leading-[1.1] mb-4 md:text-[28px]",
+    "title-secondary": "text-[2.5rem] font-bold leading-[1] tracking-1 md:text-[3.4rem]",
+    "heading-primary": "text-[2rem] font-bold leading-[1.1] tracking-1 md:text-[2.6rem] heading-primary-mb",
+    "subheading-primary": "text-[1.3rem] font-bold leading-[1.1] md:text-[1.7rem]",
   };
 
   return <div className={clsx(styles[level], customs)}>{children}</div>;
