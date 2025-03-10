@@ -81,7 +81,7 @@ function BenefitsSection() {
         <Heading level="heading-primary">
           Warum mit Zen zusammenarbeiten?
         </Heading>
-        <div className="grid gap-3 md:grid-cols-3">
+        <div className="grid gap-3 lg:grid-cols-3">
           {benefits.map((benefit, index) => (
             <BenefitsCard
               key={index}
@@ -112,7 +112,7 @@ function HowItWorksSection() {
         />
       </div>
 
-      <div className="md:ml-10">
+      <div className="lg:ml-10">
         <Heading level="heading-primary">
           So funktioniert Zen für Tätowierer
         </Heading>
@@ -154,7 +154,7 @@ function CustomerSupportSection() {
           className="object-cover rounded-2xl"
         />
       </div>
-      <div className="md:mr-10 grid">
+      <div className="lg:mr-10 grid">
         <Heading
           level="heading-primary"
           customs="max-w-[280px] md:max-w-[500px]"

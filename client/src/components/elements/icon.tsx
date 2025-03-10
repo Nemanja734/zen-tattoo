@@ -13,15 +13,15 @@ const icons: { [key: string]: IconType } = {
 interface Props {
     name: keyof typeof icons,
     size?: number,
-    color?: string
+    color?: string,
+    className?: string
 }
 
-const Icon: React.FC<Props> = ({ name, size = 40, color = "var(--foreground)" }) => {
+export default function Icon({ name, size, color, className}: Props) {
     const SelectedIcon = icons[name];
 
     if (!SelectedIcon) console.log("Icon not found: " + {name});
 
-    return <SelectedIcon size={size} color={color} />
+    return <SelectedIcon size={size} color={color} className={className} />
 }
 
-export default Icon;

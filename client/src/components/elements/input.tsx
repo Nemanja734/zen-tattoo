@@ -29,7 +29,7 @@ export default function Input({
   const errorMessage = errors[name]?.message as string | undefined;
 
   const inputStyle =
-    "outline-none w-full border-2 border-shade rounded-sm px-2 py-2.5 transition-[border-color] duration-400 focus:border-primary bg-background";
+    "outline-none w-full border-2 border-tint rounded-sm px-2 py-2.5 transition-[border-color] duration-400 focus:border-primary bg-background";
 
   return (
     <div>

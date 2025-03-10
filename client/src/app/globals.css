@@ -17,18 +17,27 @@
   --primary-tint: #d5e2fd;
   --alarm: #CC3333;
   --foreground: #111111;
-  --shade: #bcc1ca;
+  --tint: #c2c6cc;
+  --tone: #8d9096;
   --background: #f0f2ff;
 
   /* TYPOGRAPHY */
   --tracking-1: -0.025rem;
 }
 
-@media (min-width: 767px) {
+@media (min-width: 768px) {
   :root {
     /* SPACING */
     --spacing-vert: 90px;
-    --spacing-hor: 40px;
+    --spacing-hor: 35px;
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    /* SPACING */
+    --spacing-vert: 90px;
+    --spacing-hor: 55px;
   }
 }
 
@@ -38,7 +47,8 @@
   --color-primary-tint: var(--primary-tint);
   --color-alarm: var(--alarm);
   --color-foreground: var(--foreground);
-  --color-shade: var(--shade);
+  --color-tint: var(--tint);
+  --color-tone: var(--tone);
   --color-background: var(--background);
 
   /* TYPOGRAPHY */
@@ -66,10 +76,10 @@ body {
 
 /* For dropdown menus */
 .dd {
-  @apply bg-primary-tint rounded-xl border-1 border-shade shadow-lg;
+  @apply bg-primary-tint rounded-xl border-1 border-tint shadow-lg;
   background-color: var(--primary-tint);
   border-radius: 8px;
-  border: 1px solid var(--shade);
+  border: 1px solid var(--tint);
   position: absolute;
   right: 0;
   top: calc(100% + 10px);

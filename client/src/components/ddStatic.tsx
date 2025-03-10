@@ -13,17 +13,17 @@ type Link = {
 };
 
 type Props = {
-  ddButton: string;
+  gap: string,
+  ddButtonWidth: string,
+  ddButtonText: string;
   ddItems: Link[];
-  className?: string;
-  linkClassName?: string;
 };
 
 export default function DdStatic({
-  ddButton,
+  ddButtonWidth,
+  gap,
+  ddButtonText,
   ddItems,
-  className,
-  linkClassName,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -32,18 +32,19 @@ export default function DdStatic({
   };
 
   return (
-    <ul className={className}>
+    <ul className={clsx("overflow-hidden grid", gap)}>
       <li
         aria-label="Navigation Section"
-        className="flex items-center gap-3 cursor-pointer w-fit"
+        className={clsx("flex justify-between cursor-pointer", ddButtonWidth)}
         onClick={toggleDropdown}
       >
         <Text level="base" customs="font-bold">
-          {ddButton}
+          {ddButtonText}
         </Text>
         <motion.div
           animate={{ rotate: isOpen ? "180deg" : 0 }}
           transition={{ duration: 0.3 }}
+          className="w-fit"
         >
           <Icon name="chevDown" color="background" size={18}></Icon>
         </motion.div>
@@ -53,10 +54,10 @@ export default function DdStatic({
         initial={false}
         animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
-        className={clsx("overflow-hidden", className)}
+        className={clsx("overflow-hidden grid", gap)}
       >
         {ddItems.map((item, index) => (
-          <Link key={index} href={item.href} className={linkClassName}>
+          <Link key={index} href={item.href} className="w-fit">
             {item.text}
           </Link>
         ))}

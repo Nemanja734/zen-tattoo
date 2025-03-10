@@ -21,7 +21,7 @@ export default function FAQItem({
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="max-w-[660px] w-full m-auto bg-primary-tint rounded-xl border-1 border-shade">
+    <div className="max-w-[660px] w-full m-auto bg-primary-tint rounded-xl border-1 border-tint">
       <div
         className="flex justify-between items-center gap-6 p-4 md:p-8 cursor-pointer"
         onClick={() => setIsOpen((prev) => !prev)}

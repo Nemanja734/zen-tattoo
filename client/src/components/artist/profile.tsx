@@ -14,7 +14,7 @@ export default function Profile() {
         className="cursor-pointer"
         onClick={() => setShowDd((prev) => !prev)}
       >
-        <Icon name="profile" />
+        <Icon name="profile" size={30} />
       </button>
       <motion.div
         initial={{ opacity: 0 }}

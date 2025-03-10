@@ -3,7 +3,7 @@ export const Routes = {
     artist: "/artist",
     signin: "/sign-in",
     signup: "/sign-up",
-    impressum: "/imprint",
+    imprint: "/imprint",
     privacy: "/privacy",
     terms: "/terms",
     comingSoon: "/coming-soon",

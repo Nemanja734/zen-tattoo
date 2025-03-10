@@ -5,7 +5,7 @@ import NavArtistProfile from "@/components/artist/profile";
 export default function NavArtist() {
   return (
     <div className="sticky top-0 bg-background z-100" id="artist">
-      <div className="container flex justify-between items-center py-3!">
+      <div className="container flex justify-between items-center py-3! md:py-5! lg:py-6!">
         <LogoMain />
         <div className="hidden md:block">
           <NavItems />
