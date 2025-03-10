@@ -1,4 +1,4 @@
-import { Routes } from "@/lib/routes";
+import { Routes } from "@/config/routes";
 import Image from "next/image";
 import Link from "next/link";
 

@@ -1,7 +1,7 @@
 "use client";
 
-import Text from "./elements/text";
-import Icon from "./elements/icon";
+import Text from "../ui/text";
+import Icon from "../ui/icon";
 import { motion } from "motion/react";
 import { useState } from "react";
 import clsx from "clsx";

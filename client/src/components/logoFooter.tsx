@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Routes } from "@/lib/routes";
+import { Routes } from "@/config/routes";
 import clsx from "clsx";
 
 export default function LogoFooter({ width }: { width: string }) {

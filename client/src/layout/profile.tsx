@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Icon from "@/components/elements/icon";
+import Icon from "@/ui/icon";
 import DdAbsolute from "@/components/ddAbsolute";
 import { motion } from "motion/react";
 

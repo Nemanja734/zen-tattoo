@@ -1,11 +1,11 @@
 "use client";
 
-import Heading from "../elements/heading";
-import Text from "../elements/text";
-import Button from "../elements/button";
+import Heading from "../../ui/heading";
+import Text from "../../ui/text";
+import Button from "../../ui/button";
 import { FormProvider, useForm } from "react-hook-form";
-import Icon from "../elements/icon";
-import Input from "../elements/input";
+import Icon from "../../ui/icon";
+import Input from "../../ui/input";
 import { useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 

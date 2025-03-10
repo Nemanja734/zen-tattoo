@@ -1,9 +1,9 @@
 import Image from "next/image";
-import DdStatic from "../ddStatic";
-import Heading from "../elements/heading";
-import LogoFooter from "../logoFooter";
-import Text from "../elements/text";
-import { Routes } from "@/lib/routes";
+import DdStatic from "../components/ddStatic";
+import Heading from "../ui/heading";
+import LogoFooter from "../components/logoFooter";
+import Text from "../ui/text";
+import { Routes } from "@/config/routes";
 import Link from "next/link";
 
 export default function Footer() {
@@ -45,7 +45,7 @@ export default function Footer() {
                   ddItems={section.links}
                 ></DdStatic>
               </div>
-              {/* Table */}
+              {/* Tablet and Desktop */}
               <div className="hidden md:block">
                 <ul className="grid gap-2">
                   <li aria-label="Navigation Section">
@@ -67,19 +67,19 @@ export default function Footer() {
           ))}
         </nav>
 
-        <div className="lg:col-start-1 lg:col-end-4 grid gap-2 lg:flex lg:gap-8">
+        <div className="md:grid-cols-2 lg:col-start-1 lg:col-end-4 grid gap-2 lg:flex lg:gap-8">
           {legal.map((item, index) => (
             <Link
             key={index}
             href={item.href}
-            className="w-fit hover:underline underline-offset-4"
+            className="w-fit hover:underline underline-offset-4 col-1"
           >
             <Text level="base" customs="text-tone font-bold">
               {item.text}
             </Text>
           </Link>
           ))}
-          <Text level="base" customs="text-tone ml-auto">
+          <Text level="base" customs="text-tone md:ml-auto">
             &#169; Zen Tattoo 2025
           </Text>
         </div>

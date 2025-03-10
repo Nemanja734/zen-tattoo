@@ -1,5 +1,5 @@
 import { useClickOutside } from "@/helpers/useClickOutside";
-import { Routes } from "@/lib/routes";
+import { Routes } from "@/config/routes";
 import Link from "next/link";
 import { useRef } from "react";
 

@@ -1,6 +1,6 @@
-import LogoMain from "../logoMain";
-import NavItems from "../artist/navItems";
-import NavArtistProfile from "@/components/artist/profile";
+import LogoMain from "../components/logoMain";
+import NavItems from "./navItems";
+import NavArtistProfile from "@/layout/profile";
 
 export default function NavArtist() {
   return (

@@ -1,4 +1,4 @@
-import Text from "../elements/text";
+import Text from "../../ui/text";
 
 interface Props {
   children: React.ReactNode;

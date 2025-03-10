@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Icon from "./elements/icon";
-import Text from "./elements/text";
+import Icon from "../ui/icon";
+import Text from "../ui/text";
 import { motion } from "motion/react";
 
 interface Props {
@@ -12,7 +12,7 @@ interface Props {
   additionText?: string;
 }
 
-export default function FAQItem({
+export default function FaqItem({
   question,
   answer,
   additionTitle,

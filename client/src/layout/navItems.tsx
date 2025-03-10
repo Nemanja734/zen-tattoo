@@ -1,5 +1,5 @@
-import Button from "@/components/elements/button";
-import { Routes } from "@/lib/routes";
+import Button from "@/ui/button";
+import { Routes } from "@/config/routes";
 import Link from "next/link";
 
 export default function NavItems() {
