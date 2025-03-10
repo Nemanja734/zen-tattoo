@@ -22,7 +22,7 @@ export default function Button({
   children,
   disabled = false,
 }: Props) {
-  const standard = "cursor-pointer";
+  const standard = "cursor-pointer inline-block";
 
   const styles: Record<string, string> = {
     "primary-lg":

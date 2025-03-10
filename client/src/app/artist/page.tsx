@@ -1,5 +1,5 @@
 import ContactSection from "@/components/artist/contactSection";
-import NavArtist from "@/layout/navArtist";
+import Nav, { NavType } from "@/layout/nav";
 import Footer from "@/layout/footer";
 import BenefitsSection from "@/components/artist/benefitsSection"
 import HeroSection from "@/components/artist/heroSection";
@@ -11,7 +11,7 @@ import FaqSection from "@/components/artist/faqSection";
 export default function Artist() {
   return (
     <>
-      <NavArtist />
+      <Nav navType={NavType.Artist} />
       <HeroSection />
       <BenefitsSection />
       <HowItWorksSection />

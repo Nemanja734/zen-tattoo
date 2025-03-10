@@ -2,11 +2,13 @@ import { useFormContext } from "react-hook-form";
 import Text from "./text";
 import { motion, AnimatePresence } from "motion/react";
 import clsx from "clsx";
+import { useState } from "react";
+import { inputStyle } from "@/config/styles";
 
 interface InputProps {
   name: string;
   label: string;
-  type?: string;
+  type: string;
   placeholder: string;
   validation?: Record<string, unknown>;
   multiline?: boolean;
@@ -15,7 +17,7 @@ interface InputProps {
 export default function Input({
   name,
   label,
-  type = "text",
+  type,
   placeholder,
   validation,
   multiline = false,
@@ -25,31 +27,29 @@ export default function Input({
     formState: { errors },
   } = useFormContext();
 
+  // useState() for removing the placeholder on focus
+  const [placeholderState, setPlaceholderState] = useState(placeholder);
+
+  // Properties for both input and textarea
+  const commonProps = {
+    id: name,
+    placeholder: placeholderState,
+    ...register(name, validation),
+    onFocus: () => setPlaceholderState(""),
+    onBlur: () => setPlaceholderState(placeholder),
+    className: clsx(
+      inputStyle,
+      multiline && "min-h-[150px] md:min-h-[15rem] block"
+    ),
+  };
+
   // Extracting error message safely
   const errorMessage = errors[name]?.message as string | undefined;
-
-  const inputStyle =
-    "outline-none w-full border-2 border-tint rounded-sm px-2 py-2.5 transition-[border-color] duration-400 focus:border-primary bg-background";
 
   return (
     <div>
       <label htmlFor={name}>{label}</label>
-      {multiline ? (
-        <textarea
-          {...register(name, validation)}
-          id={name}
-          placeholder={placeholder}
-          className={clsx(inputStyle, "min-h-[150px] md:min-h-[15rem] block")}
-        ></textarea>
-      ) : (
-        <input
-          type={type}
-          id={name}
-          {...register(name, validation)}
-          placeholder={placeholder}
-          className={inputStyle}
-        />
-      )}
+      {multiline ? <textarea {...commonProps}></textarea> : <input type={type} {...commonProps} />}
       <AnimatePresence mode="wait" initial={false}>
         {errorMessage && (
           <motion.div
@@ -68,3 +68,4 @@ export default function Input({
     </div>
   );
 }
+

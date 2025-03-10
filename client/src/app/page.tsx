@@ -1,5 +1,9 @@
+import Nav, { NavType } from "@/layout/nav";
+
 export default function Home() {
   return (
-    <div></div>
+    <>
+    <Nav navType={NavType.Main}></Nav>
+    </>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Icon from "@/ui/icon";
-import DdAbsolute from "@/components/ddAbsolute";
+import DdAbsolute from "@/ui/ddAbsolute";
 import { motion } from "motion/react";
 
 export default function Profile() {

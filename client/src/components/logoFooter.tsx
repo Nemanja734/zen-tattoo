@@ -1,19 +1,15 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Routes } from "@/config/routes";
-import clsx from "clsx";
+import { routes } from "@/config/routes";
 
 export default function LogoFooter({ width }: { width: string }) {
   return (
     <Link
-      href={Routes.home}
+      href={routes.home}
       className="relative"
       style={{ height: `calc(0.416346 * ${width}px)`, width: `${width}px` }}
     >
       <Image src="/ZenLogoFooter.svg" fill={true} alt="Zen Logo" />
     </Link>
   );
-}
-{
-  /* <Image className={className} src="/ZenLogoFooter.svg" width={width} height={0.416346 * width} alt="Zen Logo" /> */
 }

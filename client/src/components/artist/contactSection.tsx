@@ -7,7 +7,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import Icon from "../../ui/icon";
 import Input from "../../ui/input";
 import { useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 
 interface ContactFormInputs {
   name: string;
@@ -55,6 +54,7 @@ export default function ContactSection() {
             <Input
               name="name"
               label="Name"
+              type="text"
               placeholder="Vor- und Nachname"
               validation={{
                 required: {
@@ -84,6 +84,7 @@ export default function ContactSection() {
             <Input
               name="message"
               label="Nachricht"
+              type=""
               multiline
               placeholder="Wie lange dauert es, bis mein Account verifiziert ist?"
               validation={{

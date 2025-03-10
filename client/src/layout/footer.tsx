@@ -1,15 +1,15 @@
 import Image from "next/image";
-import DdStatic from "../components/ddStatic";
+import DdStatic from "../ui/ddStatic";
 import Heading from "../ui/heading";
 import LogoFooter from "../components/logoFooter";
 import Text from "../ui/text";
-import { Routes } from "@/config/routes";
+import { routes } from "@/config/routes";
 import Link from "next/link";
 
 export default function Footer() {
   return (
     <div className="bg-foreground text-background">
-      <div className="container pb-4! lg:pb-[var(--spacing-vert)]! grid grid-cols-1 gap-12 md:gap-20 lg:grid-cols-3">
+      <div className="container pb-4! lg:pb-[var(--spacing-vert)]! grid grid-cols-1 gap-y-12 md:gap-y-20 md:gap-x-14 xl:gap-x-24">
         <div className="grid gap-4">
           <LogoFooter width="180" />
 
@@ -32,7 +32,7 @@ export default function Footer() {
 
         <nav
           aria-label="Footer Navigation"
-          className="grid gap-5 items-start md:flex md:justify-between lg:col-start-2 lg:col-end-4 lg:justify-end lg:gap-30"
+          className="grid gap-5 items-start md:flex md:justify-between lg:col-start-2 lg:justify-end lg:gap-10 xl:gap-20"
         >
           {navigation.map((section, index) => (
             <div key={index}>
@@ -67,7 +67,7 @@ export default function Footer() {
           ))}
         </nav>
 
-        <div className="md:grid-cols-2 lg:col-start-1 lg:col-end-4 grid gap-2 lg:flex lg:gap-8">
+        <div className="md:grid-cols-2 lg:col-span-2 w-full grid gap-2 lg:flex lg:gap-8">
           {legal.map((item, index) => (
             <Link
             key={index}
@@ -113,15 +113,15 @@ const navigation = [
     links: [
       {
         text: "Für Tätowierer",
-        href: Routes.artist,
+        href: routes.artist,
       },
       {
         text: "Für Tattoostudios",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
       {
         text: "Affiliate Marketing",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
     ],
   },
@@ -130,15 +130,15 @@ const navigation = [
     links: [
       {
         text: "Über uns",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
       {
         text: "Unsere Philosophie",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
       {
         text: "Karriere",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
     ],
   },
@@ -147,23 +147,23 @@ const navigation = [
     links: [
       {
         text: "Neues zu Zen",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
       {
         text: "Blog",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
       {
         text: "Häufig gestellte Fragen",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
       {
         text: "Kundenservice",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
       {
         text: "Kontakt",
-        href: Routes.comingSoon,
+        href: routes.comingSoon,
       },
     ],
   },
@@ -172,14 +172,14 @@ const navigation = [
 const legal = [
   {
     text: "Allgemeine Geschäftsbedingungen",
-    href: Routes.terms,
+    href: routes.terms,
   },
   {
     text: "Datenschutz",
-    href: Routes.privacy,
+    href: routes.privacy,
   },
   {
     text: "Impressum",
-    href: Routes.imprint,
+    href: routes.imprint,
   },
 ];

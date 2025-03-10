@@ -1,7 +1,7 @@
 import Heading from "@/ui/heading";
 import Text from "@/ui/text";
 import Button from "@/ui/button";
-import { Routes } from "@/config/routes";
+import { routes } from "@/config/routes";
 
 export default function HeroSection() {
   return (
@@ -16,7 +16,7 @@ export default function HeroSection() {
       </Text>
 
       <Button
-        href={Routes.signup}
+        href={routes.signup}
         level="primary-lg"
         customs="w-[fit-content] m-auto"
       >

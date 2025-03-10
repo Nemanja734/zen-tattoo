@@ -1,7 +1,7 @@
 import Heading from "@/ui/heading";
 import NextStep from "./nextStep";
 import Button from "@/ui/button";
-import { Routes } from "@/config/routes";
+import { routes } from "@/config/routes";
 
 export default function NextStepsSection() {
   const steps = [
@@ -29,7 +29,7 @@ export default function NextStepsSection() {
       </div>
 
       <Button
-        href={Routes.signup}
+        href={routes.signup}
         level="primary-lg"
         customs="w-[fit-content] m-auto"
       >

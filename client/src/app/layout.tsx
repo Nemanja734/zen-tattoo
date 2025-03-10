@@ -1,17 +1,6 @@
 import type { Metadata } from "next";
-import { Geist } from "next/font/google";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-// Not being used
-// const geistMono = Geist_Mono({
-//   variable: "--font-geist-mono",
-//   subsets: ["latin"],
-// });
+import { geistSans } from "@/config/fonts";
 
 export const metadata: Metadata = {
   title: "Zen Tattoo | Das digitale Tattoostudio",
@@ -24,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={geistSans.className}>
+    <html lang="de" className={geistSans.className}>
       <body>
         {children}
       </body>

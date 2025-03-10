@@ -1,12 +1,27 @@
 import Button from "@/ui/button";
-import { Routes } from "@/config/routes";
 import Link from "next/link";
+import { navItems } from "@/config/navItems";
+import clsx from "clsx";
 
-export default function NavItems() {
-    return(
-        <div>
-            <Link href={Routes.signin} className="mr-4 md:mr-6">Anmelden</Link>
-            <Button href={Routes.signup} level="primary-sm">Registrieren</Button>
+interface Props {
+  className: string
+}
+
+export default function NavItems({className}: Props) {
+  // className sets the breakpoint for when the navlinks should be visible
+  return (
+    <div className={clsx("gap-header", className)}>
+      {navItems.map((item, index) => (
+        <div key={index}>
+          {item.type == "link" ? (
+            <Link href={item.link}>{item.text}</Link>
+          ) : (
+            <Button href={item.link} level="primary-sm" customs="w-full text-center">
+              {item.text}
+            </Button>
+          )}
         </div>
-    )
+      ))}
+    </div>
+  );
 }
