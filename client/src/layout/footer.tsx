@@ -1,7 +1,7 @@
 import Image from "next/image";
 import DdStatic from "../ui/ddStatic";
 import Heading from "../ui/heading";
-import LogoFooter from "../components/logoFooter";
+import LogoFooter from "./logoFooter";
 import Text from "../ui/text";
 import { routes } from "@/config/routes";
 import Link from "next/link";

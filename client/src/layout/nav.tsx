@@ -1,4 +1,4 @@
-import LogoMain from "../components/logoMain";
+import LogoMain from "./logoMain";
 import NavArtistProfile from "@/layout/profile";
 import SearchLocation from "@/components/searchLocation";
 import NavItems from "./navItems";
@@ -19,6 +19,7 @@ export default function Nav({ navType }: { navType: NavType }) {
             <SearchLocation />
             {/* Desktop */}
             <NavItems className="hidden lg:flex items-center" />
+            {/* Mobile */}
             <NavAsideToggle className="lg:hidden" />
           </>
         );
@@ -28,7 +29,7 @@ export default function Nav({ navType }: { navType: NavType }) {
           <>
             <LogoMain />
             {/* Tablet */}
-            <NavItems className="md:grid" />
+            <NavItems className="hidden md:flex items-center" />
             {/* Mobile */}
             <div className="block md:hidden">
               <NavArtistProfile />

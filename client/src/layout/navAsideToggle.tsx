@@ -1,6 +1,6 @@
 "use client";
 
-import Overlay from "@/components/overlay";
+import Overlay from "@/layout/overlay";
 import Icon from "@/ui/icon";
 import { useRef, useState } from "react";
 import NavItems from "./navItems";
