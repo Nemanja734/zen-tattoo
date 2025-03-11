@@ -9,7 +9,7 @@ interface Props {
 export default function Text({ level, customs, children }: Props) {
     const styles: Record<string, string> = {
         "2xl": "text-4xl font-semibold",
-        xl: "text-xl font-semibold",
+        xl: "text-2xl font-semibold",
         base: "text-base leading-[1.5]",
         sm: "text-sm leading-[1.5]",
     }

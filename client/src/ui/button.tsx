@@ -26,9 +26,12 @@ export default function Button({
 
   const styles: Record<string, string> = {
     "primary-lg":
-      "bg-primary px-10 py-3 rounded-sm text-background font-semibold shadow-lg shadow-primary/50",
+      "bg-primary px-10 h-[48px] items-center rounded-sm text-background font-semibold shadow-lg shadow-primary/50",
     "primary-sm":
       "bg-primary px-5 py-2 rounded-sm text-background font-semibold shadow-sm shadow-primary/50",
+
+    "stroke-lg":
+      "bg-background px-10 h-[48px] items-center rounded-sm text-foreground font-semibold border-2",
   };
 
   if (href) {

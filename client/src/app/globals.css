@@ -69,11 +69,11 @@ body {
 }
 
 .heading-primary-mb {
-  @apply mb-6 md:mb-8;
+  @apply mb-8 md:mb-10;
 }
 
 .heading-primary-mt {
-  @apply mt-6 md:mt-8;
+  @apply mt-8 md:mt-10;
 }
 
 /* Navigation */
