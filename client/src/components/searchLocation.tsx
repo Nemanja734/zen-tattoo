@@ -111,7 +111,7 @@ export default function SearchLocation() {
         <input
           type="text"
           placeholder={placeholder}
-          className={clsx(inputStyle, "pl-6 sm:pl-10 md:pl-12 text-sm")}
+          className={clsx(inputStyle, "pl-7 sm:pl-10 md:pl-12 text-sm")}
           onFocus={() => setPlaceholder("")}
           onBlur={() => setPlaceholder(defaultPlaceholder)}
           onChange={(e) => onSearch(e)}

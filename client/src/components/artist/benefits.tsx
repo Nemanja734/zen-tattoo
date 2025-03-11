@@ -16,7 +16,7 @@ export default function BenefitsSection() {
               color={benefit.color}
               image={benefit.image}
             >
-              <Heading level="subheading-primary" customs="mb-3">
+              <Heading level="subheading-primary" className="mb-3">
                 {benefit.title}
               </Heading>
               <Text level="text-base">{benefit.text}</Text>

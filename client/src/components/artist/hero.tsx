@@ -6,7 +6,7 @@ import { routes } from "@/config/routes";
 export default function HeroSection() {
   return (
     <div className="container grid gap-6 text-center">
-      <Heading level="title-secondary" customs="max-w-[1100px] m-auto">
+      <Heading level="title-secondary" className="max-w-[1100px] m-auto">
         Mehr Kund*innen erreichen & dein Business mit Zen erweitern
       </Heading>
 

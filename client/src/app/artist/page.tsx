@@ -1,12 +1,12 @@
-import ContactSection from "@/components/artist/contactSection";
+import ContactSection from "@/components/artist/contact";
 import Nav, { NavType } from "@/layout/nav";
 import Footer from "@/layout/footer";
-import BenefitsSection from "@/components/artist/benefitsSection"
-import HeroSection from "@/components/artist/heroSection";
-import HowItWorksSection from "@/components/artist/howItWorksSection";
-import NextStepsSection from "@/components/artist/nextStepsSection";
-import CustomerSupportSection from "@/components/artist/customerSupportSection";
-import FaqSection from "@/components/artist/faqSection";
+import BenefitsSection from "@/components/artist/benefits"
+import HeroSection from "@/components/artist/hero";
+import HowItWorksSection from "@/components/artist/howItWorks";
+import NextStepsSection from "@/components/artist/nextSteps";
+import CustomerSupportSection from "@/components/artist/customerSupport";
+import FaqSection from "@/components/artist/faq";
 
 export default function Artist() {
   return (

@@ -22,7 +22,7 @@ export default function Button({
   children,
   disabled = false,
 }: Props) {
-  const standard = "cursor-pointer inline-block";
+  const standard = "cursor-pointer flex justify-center align-center";
 
   const styles: Record<string, string> = {
     "primary-lg":

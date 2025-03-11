@@ -13,7 +13,7 @@ export default function Footer() {
         <div className="grid gap-4">
           <LogoFooter width="180" />
 
-          <Heading level={"heading-primary"} customs="mb-0!">
+          <Heading level={"heading-primary"} className="mb-0!">
             Mehr als nur ein Tattoostudio.
           </Heading>
 

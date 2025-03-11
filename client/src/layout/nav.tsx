@@ -31,9 +31,7 @@ export default function Nav({ navType }: { navType: NavType }) {
             {/* Tablet */}
             <NavItems className="hidden md:flex items-center" />
             {/* Mobile */}
-            <div className="block md:hidden">
-              <NavArtistProfile />
-            </div>
+            <NavAsideToggle className="md:hidden" />
           </>
         );
     }

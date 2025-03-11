@@ -4,7 +4,7 @@ import FaqItem from "../faqItem";
 export default function FaqSection() {
   return (
     <div className="container">
-      <Heading level="heading-primary" customs="text-center">
+      <Heading level="heading-primary" className="text-center">
         Häufig gestellte Fragen
       </Heading>
       <div className="grid gap-2 md:gap-3">

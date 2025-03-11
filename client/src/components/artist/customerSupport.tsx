@@ -18,7 +18,7 @@ export default function CustomerSupportSection() {
       <div className="lg:mr-10 grid">
         <Heading
           level="heading-primary"
-          customs="max-w-[280px] md:max-w-[500px]"
+          className="max-w-[280px] md:max-w-[500px]"
         >
           Erstklassiger Kundensupport für deinen Erfolg
         </Heading>

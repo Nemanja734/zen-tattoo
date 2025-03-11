@@ -5,8 +5,9 @@ import { GrMail } from "react-icons/gr";
 import { HiSearch } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { IoLocationSharp } from "react-icons/io5";
-import useWindowDimensions from "@/lib/useWindowDimensions";
+import { BsCalendar2CheckFill } from "react-icons/bs";
+import { MdVerifiedUser } from "react-icons/md";
+import { FaBusinessTime } from "react-icons/fa";
 
 const icons: { [key: string]: IconType } = {
   profile: CgProfile,
@@ -15,7 +16,9 @@ const icons: { [key: string]: IconType } = {
   search: HiSearch,
   close: AiOutlineClose,
   menu: RxHamburgerMenu,
-  location: IoLocationSharp,
+  calendar: BsCalendar2CheckFill,
+  verified: MdVerifiedUser,
+  businessTime: FaBusinessTime
 };
 
 interface Props {
@@ -30,13 +33,6 @@ interface Props {
 export default function Icon({ name, size, color, className, onClick }: Props) {
   const SelectedIcon = icons[name];
   if (!SelectedIcon) console.warn("Icon not found: " + { name });
-
-    const {width} = useWindowDimensions();
-
-    if (width! < 768) {
-        size = size * 0.8
-    }
-
 
   return (
     <SelectedIcon
