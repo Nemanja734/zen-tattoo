@@ -16,7 +16,6 @@ export const tattoos = {
       "/mock/artist-2/artist-2-007.jpg",
     ],
     "artist-3": [
-      "/mock/artist-3/artist-3-002.jpg",
       "/mock/artist-3/artist-3-001.jpg",
       "/mock/artist-3/artist-3-003.jpg",
       "/mock/artist-3/artist-3-004.jpg",

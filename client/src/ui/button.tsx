@@ -32,6 +32,8 @@ export default function Button({
 
     "stroke-lg":
       "bg-background px-10 h-[48px] items-center rounded-sm text-foreground font-semibold border-2",
+    "stroke-sm":
+      "bg-background px-4 h-[42px] items-center rounded-sm text-foreground font-semibold border-2",
   };
 
   if (href) {
