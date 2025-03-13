@@ -15,7 +15,7 @@ interface ArtistTileProp {
 
 export default function ArtistTile(prop: ArtistTileProp) {
   return (
-    <div className="bg-background flex flex-col border-1 rounded-lg overflow-hidden h-full">
+    <div className="bg-background flex flex-col border-1 rounded-sm overflow-hidden h-full">
       <div className="grid grid-cols-2 gap-2 h-130">
         <div className="relative h-full w-full">
           <Image
@@ -50,7 +50,7 @@ export default function ArtistTile(prop: ArtistTileProp) {
           />
         </div>
       </div>
-      <div className="grid gap-2 p-4 place-items-start grow-1">
+      <div className="flex flex-col gap-2 p-4 pb-8">
         <Text level="xl" customs="font-normal!">
           {prop.firstName} {prop.lastName}
         </Text>
@@ -58,7 +58,7 @@ export default function ArtistTile(prop: ArtistTileProp) {
           {prop.postalCode}, {prop.city}
         </Text>
         <TattooStyleTags styles={prop.tattooStyle} />
-        <Text level="xl" customs="font-normal! mt-auto">
+        <Text level="xl" customs="font-normal!">
           {prop.hourlyRate} €
         </Text>
         <Button level="stroke-sm" customs="w-fit">

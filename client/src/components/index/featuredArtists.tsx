@@ -30,6 +30,8 @@ export default function FeaturedArtists() {
             translate: ['100%', 0, 0],
           },
         }}
+        observer
+        observeParents
         modules={[EffectCreative, Pagination]}
         spaceBetween={30}
         className="heading-primary-mb"
