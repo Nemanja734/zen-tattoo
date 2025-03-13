@@ -5,7 +5,7 @@ import Link from "next/link";
 
 interface Props {
   level: string;
-  customs?: string;
+  className?: string;
   href?: string;
   onClick?: () => void;
   type?: "submit" | "reset" | "button" | undefined; // Used for forms
@@ -15,7 +15,7 @@ interface Props {
 
 export default function Button({
   level,
-  customs,
+  className,
   href,
   onClick,
   type = "button",
@@ -34,11 +34,14 @@ export default function Button({
       "bg-background px-10 h-[48px] items-center rounded-sm text-foreground font-semibold border-2",
     "stroke-sm":
       "bg-background px-4 h-[42px] items-center rounded-sm text-foreground font-semibold border-2",
+
+    "transparent-sm":
+      "bg-[hsla(212,12%,57%,0.8)] px-5 py-2 rounded-full text-white font-bold",
   };
 
   if (href) {
     return (
-      <Link href={href} className={clsx(standard, styles[level], customs)}>
+      <Link href={href} className={clsx(standard, styles[level], className)}>
         {children}
       </Link>
     );
@@ -47,7 +50,7 @@ export default function Button({
       <button
         onClick={onClick}
         type={type}
-        className={clsx(standard, styles[level], customs)}
+        className={clsx(standard, styles[level], className)}
         disabled={disabled}
       >
         {children}

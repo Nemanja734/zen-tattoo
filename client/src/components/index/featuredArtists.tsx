@@ -6,7 +6,7 @@ import ArtistTile from "../artistTile";
 import Button from "@/ui/button";
 import { routes } from "@/config/routes";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, A11y, Autoplay, EffectCreative } from "swiper/modules";
+import { Pagination, EffectCreative } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -19,6 +19,7 @@ export default function FeaturedArtists() {
       <Swiper
         pagination={{
           dynamicBullets: true,
+          clickable: true,
         }}
         effect={'creative'}
         creativeEffect={{
@@ -32,6 +33,7 @@ export default function FeaturedArtists() {
         }}
         observer
         observeParents
+        
         modules={[EffectCreative, Pagination]}
         spaceBetween={30}
         className="heading-primary-mb"
@@ -43,7 +45,7 @@ export default function FeaturedArtists() {
         ))}
       </Swiper>
 
-      <Button level="primary-lg" customs="w-full" href={routes.showroom}>
+      <Button level="primary-lg" className="w-full" href={routes.showroom}>
         Alle Tätowierer entdecken
       </Button>
     </div>

@@ -29,7 +29,7 @@
   :root {
     /* SPACING */
     --spacing-vert: 90px;
-    --spacing-hor: 35px;
+    --spacing-hor: 30px;
   }
 }
 
@@ -37,7 +37,7 @@
   :root {
     /* SPACING */
     --spacing-vert: 90px;
-    --spacing-hor: 55px;
+    --spacing-hor: 50px;
   }
 }
 
@@ -76,6 +76,10 @@ body {
   @apply mt-8 md:mt-10;
 }
 
+.link {
+  @apply underline underline-offset-2;
+}
+
 /* Navigation */
 .gap-header {
   @apply md:gap-4 xl:gap-8
@@ -95,10 +99,4 @@ body {
 .dd-item {
   padding: 10px 20px;
   display: block;
-}
-
-/* Swiper */
-.swiper {
-  width: 100%;
-  height: 100%;
 }

@@ -31,7 +31,7 @@ export default function NextStepsSection() {
       <Button
         href={routes.signup}
         level="primary-lg"
-        customs="w-[fit-content] m-auto"
+        className="w-[fit-content] m-auto"
       >
         Jetzt Starten
       </Button>

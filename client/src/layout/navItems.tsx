@@ -16,7 +16,7 @@ export default function NavItems({className}: Props) {
           {item.type == "link" ? (
             <Link href={item.link}>{item.text}</Link>
           ) : (
-            <Button href={item.link} level="primary-sm" customs="w-full text-center">
+            <Button href={item.link} level="primary-sm" className="w-full text-center">
               {item.text}
             </Button>
           )}

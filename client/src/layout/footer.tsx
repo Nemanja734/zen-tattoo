@@ -39,7 +39,6 @@ export default function Footer() {
               {/* Mobile */}
               <div className="md:hidden">
                 <DdStatic
-                  gap="gap-2"
                   ddButtonWidth="w-40"
                   ddButtonText={section.heading}
                   ddItems={section.links}
@@ -70,14 +69,14 @@ export default function Footer() {
         <div className="md:grid-cols-2 lg:col-span-2 w-full grid gap-2 lg:flex lg:gap-8">
           {legal.map((item, index) => (
             <Link
-            key={index}
-            href={item.href}
-            className="w-fit hover:underline underline-offset-4 col-1"
-          >
-            <Text level="base" customs="text-tone font-bold">
-              {item.text}
-            </Text>
-          </Link>
+              key={index}
+              href={item.href}
+              className="w-fit hover:underline underline-offset-4 col-1"
+            >
+              <Text level="base" customs="text-tone font-bold">
+                {item.text}
+              </Text>
+            </Link>
           ))}
           <Text level="base" customs="text-tone md:ml-auto">
             &#169; Zen Tattoo 2025

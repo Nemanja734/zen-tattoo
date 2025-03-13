@@ -14,7 +14,7 @@ interface ContactFormInputs {
   message: string;
 }
 
-export default function ContactSection() {
+export default function Contact() {
   const methods = useForm<ContactFormInputs>();
   const { handleSubmit } = methods;
 
@@ -101,11 +101,11 @@ export default function ContactSection() {
 
             <Button
               level="primary-lg"
-              customs="flex items-center justify-center gap-4 m-auto w-full"
+              className="flex items-center justify-center gap-4 m-auto w-full"
               type="submit"
               disabled={methods.formState.isSubmitting}
             >
-              <Icon name="mail" color="background" size={24} /> Senden
+              <Icon name="mail" color="background" size="base" /> Senden
             </Button>
             {submitStatus === "success" && (
               <Text level="base" customs="text-primary mt-2">

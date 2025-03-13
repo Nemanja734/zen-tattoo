@@ -7,7 +7,7 @@ import { motion } from "motion/react";
 
 interface Props {
   question: string;
-  answer: string;
+  answer: React.ReactNode;
   additionTitle?: string;
   additionText?: string;
 }
@@ -15,15 +15,15 @@ interface Props {
 export default function FaqItem({
   question,
   answer,
-  additionTitle,
-  additionText,
+  // additionTitle,
+  // additionText,
 }: Props) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <div className="max-w-[660px] w-full m-auto bg-primary-tint rounded-xl border-1 border-tint">
       <div
-        className="flex justify-between items-center gap-6 p-4 md:p-8 cursor-pointer"
+        className="flex justify-between items-center gap-3 md:gap-6 p-4 md:p-8 cursor-pointer"
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <Text level="base" customs="font-bold">
@@ -33,7 +33,7 @@ export default function FaqItem({
           animate={{ rotate: isOpen ? "180deg" : 0 }}
           transition={{ duration: 0.3 }}
         >
-          <Icon name="chevDown" size={20}></Icon>
+          <Icon name="chevDown" size="sm"></Icon>
         </motion.div>
       </div>
 
@@ -45,16 +45,6 @@ export default function FaqItem({
       >
         <div className="px-4 md:px-8 pb-4 md:pb-8">
           <Text level="base">{answer}</Text>
-          {additionTitle && (
-            <div>
-              <Text level="base" customs="font-bold text-sm mt-4 md:mt-8">
-                {additionTitle}
-              </Text>
-              <Text level="base" customs="font-regular text-sm">
-                {additionText}
-              </Text>
-            </div>
-          )}
         </div>
       </motion.div>
     </div>

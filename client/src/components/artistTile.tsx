@@ -61,7 +61,7 @@ export default function ArtistTile(prop: ArtistTileProp) {
         <Text level="xl" customs="font-normal!">
           {prop.hourlyRate} €
         </Text>
-        <Button level="stroke-sm" customs="w-fit">
+        <Button level="stroke-sm" className="w-fit">
           Portfolio anzeigen
         </Button>
       </div>

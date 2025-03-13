@@ -98,14 +98,14 @@ export default function SearchLocation() {
 
   return (
     <div
-      className="absolute left-1/2 -translate-x-1/2 lg:translate-0 lg:static lg:mr-auto w-fit md:w-72"
+      className="absolute left-1/2 -translate-x-1/2 lg:translate-0 lg:static lg:mr-auto w-fit md:w-70"
       ref={ref}
       onClick={() => setShowSearchResults(true)}
     >
       <div className="relative">
         <Icon
           name="search"
-          size={24}
+          size="base"
           className="absolute left-1.5 sm:left-2.5 md:left-3 top-1/2 -translate-y-1/2 pointer-events-none"
         />
         <input
@@ -125,7 +125,7 @@ export default function SearchLocation() {
                   key={index}
                   className="flex items-center cursor-pointer hover:bg-tint"
                 >
-                  <Icon name="location" size={24} className="ml-2" />
+                  <Icon name="location" size="base" className="ml-2" />
                   {location.street && (
                     <div className="p-2">
                       <Text level="sm bold">{location.street}</Text>

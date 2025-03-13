@@ -8,6 +8,10 @@ import { RxHamburgerMenu } from "react-icons/rx";
 import { BsCalendar2CheckFill } from "react-icons/bs";
 import { MdVerifiedUser } from "react-icons/md";
 import { FaBusinessTime } from "react-icons/fa";
+import { FaPhoenixSquadron } from "react-icons/fa";
+import { AiFillLike } from "react-icons/ai";
+import { IoColorPaletteSharp } from "react-icons/io5";
+import { FaCheckCircle } from "react-icons/fa";
 
 const icons: { [key: string]: IconType } = {
   profile: CgProfile,
@@ -18,13 +22,16 @@ const icons: { [key: string]: IconType } = {
   menu: RxHamburgerMenu,
   calendar: BsCalendar2CheckFill,
   verified: MdVerifiedUser,
-  businessTime: FaBusinessTime
+  businessTime: FaBusinessTime,
+  customize: IoColorPaletteSharp,
+  phoenix: FaPhoenixSquadron,
+  like: AiFillLike,
+  checkCircle: FaCheckCircle,
 };
 
 interface Props {
   name: keyof typeof icons;
-  size: number;
-  sizeMobile?: number;
+  size?: string;
   color?: string;
   className?: string;
   onClick?: () => void;
@@ -32,11 +39,42 @@ interface Props {
 
 export default function Icon({ name, size, color, className, onClick }: Props) {
   const SelectedIcon = icons[name];
+  let sizeComputed;
+
   if (!SelectedIcon) console.warn("Icon not found: " + { name });
+
+  switch (size) {
+    case "sm":
+      sizeComputed = 20;
+      break;
+
+    case "base":
+      sizeComputed = 24;
+      break;
+
+    case "lg":
+      sizeComputed = 30;
+      break;
+
+    case "xl":
+      sizeComputed = 40;
+      break;
+
+    case "2xl":
+      sizeComputed = 50;
+      break;
+
+    case "3xl":
+      sizeComputed = 60;
+      break;
+  
+    default:
+      break;
+  }
 
   return (
     <SelectedIcon
-      size={size}
+      size={sizeComputed}
       color={color}
       className={className}
       onClick={onClick}

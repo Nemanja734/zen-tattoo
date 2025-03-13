@@ -1,4 +1,4 @@
-import ContactSection from "@/components/artist/contact";
+import Contact from "@/components/artist/contact";
 import Nav, { NavType } from "@/layout/nav";
 import Footer from "@/layout/footer";
 import BenefitsSection from "@/components/artist/benefits"
@@ -18,7 +18,7 @@ export default function Artist() {
       <CustomerSupportSection />
       <NextStepsSection />
       <FaqSection />
-      <ContactSection />
+      <Contact />
       <Footer />
     </>
   );

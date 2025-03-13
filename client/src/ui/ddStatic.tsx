@@ -13,15 +13,13 @@ type Link = {
 };
 
 type Props = {
-  gap: string,
-  ddButtonWidth: string,
+  ddButtonWidth: string;
   ddButtonText: string;
   ddItems: Link[];
 };
 
 export default function DdStatic({
   ddButtonWidth,
-  gap,
   ddButtonText,
   ddItems,
 }: Props) {
@@ -32,7 +30,7 @@ export default function DdStatic({
   };
 
   return (
-    <ul className={clsx("overflow-hidden grid", gap)}>
+    <ul className="overflow-hidden">
       <li
         aria-label="Navigation Section"
         className={clsx("flex justify-between cursor-pointer", ddButtonWidth)}
@@ -46,7 +44,7 @@ export default function DdStatic({
           transition={{ duration: 0.3 }}
           className="w-fit"
         >
-          <Icon name="chevDown" color="background" size={18}></Icon>
+          <Icon name="chevDown" color="background" size="sm"></Icon>
         </motion.div>
       </li>
 
@@ -54,13 +52,15 @@ export default function DdStatic({
         initial={false}
         animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
         transition={{ duration: 0.3 }}
-        className={clsx("overflow-hidden grid", gap)}
+        className="overflow-hidden"
       >
-        {ddItems.map((item, index) => (
-          <Link key={index} href={item.href} className="w-fit">
-            {item.text}
-          </Link>
-        ))}
+        <div className="grid gap-2 pt-2">
+          {ddItems.map((item, index) => (
+            <Link key={index} href={item.href} className="w-fit">
+              {item.text}
+            </Link>
+          ))}
+        </div>
       </motion.li>
     </ul>
   );
