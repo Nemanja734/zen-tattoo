@@ -46,7 +46,7 @@ export default function FeaturedArtists() {
         ))}
       </Swiper>
 
-      <div className="hidden md:grid grid-cols-2 gap-5">
+      <div className="hidden md:grid grid-cols-2 xl:grid-cols-4 gap-5">
         {artist.map((artist, index) => (
           <ArtistTileDesktop key={index} {...artist} />
         ))}

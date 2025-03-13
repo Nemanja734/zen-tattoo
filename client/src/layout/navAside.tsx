@@ -3,7 +3,7 @@
 import Overlay from "@/layout/overlay";
 import Icon from "@/ui/icon";
 import { useRef, useState } from "react";
-import NavItems from "./navItems";
+import NavItemsList from "./navItemsList";
 import { useClickOutside } from "@/lib/useClickOutside";
 import { motion, AnimatePresence } from "motion/react";
 
@@ -11,7 +11,7 @@ interface Props {
   className: string;
 }
 
-export default function NavAsideToggle({ className }: Props) {
+export default function NavAside({ className }: Props) {
   const iconSize = 28;
 
   const [showAside, setShowAside] = useState(false);
@@ -31,15 +31,17 @@ export default function NavAsideToggle({ className }: Props) {
       ></Icon>
       <AnimatePresence mode="wait" initial={false}>
         {showAside && (
-          <>
-            <motion.div key="overlay"
-            initial={{opacity: 0}}
-            animate={{opacity: 1}}
-            exit={{opacity: 0}}
-            transition={{duration: .3}}
+          <div>
+            <motion.div
+              key="overlay"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
             >
               <Overlay />
             </motion.div>
+
             <motion.div
               key="aside"
               initial={{ x: "100%" }}
@@ -55,9 +57,9 @@ export default function NavAsideToggle({ className }: Props) {
                 className="ml-auto cursor-pointer"
                 onClick={() => setShowAside(false)}
               ></Icon>
-              <NavItems className="grid gap-9! mt-10" />
+              <NavItemsList className="grid gap-9! mt-10" />
             </motion.div>
-          </>
+          </div>
         )}
       </AnimatePresence>
     </div>

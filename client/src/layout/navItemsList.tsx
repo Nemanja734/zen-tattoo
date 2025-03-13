@@ -1,0 +1,18 @@
+import { navItems } from "@/config/navItems";
+import clsx from "clsx";
+import NavItems from "./navItems";
+
+interface Props {
+  className: string;
+}
+
+export default function NavItemsList({ className }: Props) {
+  // className sets the breakpoint for when the navlinks should be visible
+  return (
+    <div className={clsx("gap-header", className)}>
+      {navItems.map((item, index) => (
+        <NavItems key={index} text={item.text} type={item.type} link={item.link} />
+      ))}
+    </div>
+  );
+}

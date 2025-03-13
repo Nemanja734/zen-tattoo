@@ -77,7 +77,7 @@ export default function Icon({
         break;
 
       default:
-        break;
+        sizeComputed = 24;
     }
   }
 

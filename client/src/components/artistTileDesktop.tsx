@@ -1,9 +1,10 @@
-import Button from "@/ui/button";
-import TattooStyleTags from "@/ui/tattooStyleTags";
-import Text from "@/ui/text";
 import Image from "next/image";
-import { EffectCreative, Pagination } from "swiper/modules";
+import { A11y, EffectCreative, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import ArtistTileInformation from "./artistTileInformation";
+import SwiperNavButtons from "@/ui/swiperNavButtons";
+import "swiper/css";
+import "swiper/css/pagination";
 
 interface ArtistTileProp {
   portfolio: string[];
@@ -18,6 +19,7 @@ interface ArtistTileProp {
 export default function ArtistTileDesktop(prop: ArtistTileProp) {
   return (
     <div className="bg-background flex flex-col border-1 rounded-sm overflow-hidden h-full">
+
       <div className="aspect-8/9">
         <Swiper
           pagination={{ dynamicBullets: true, clickable: true }}
@@ -31,8 +33,7 @@ export default function ArtistTileDesktop(prop: ArtistTileProp) {
               translate: ["100%", 0, 0],
             },
           }}
-          loop={true}
-          modules={[Pagination, EffectCreative]}
+          modules={[Pagination, Navigation, EffectCreative, A11y]}
           className="h-full w-full"
         >
           {prop.portfolio.map((tattoo, index) => (
@@ -45,23 +46,12 @@ export default function ArtistTileDesktop(prop: ArtistTileProp) {
               />
             </SwiperSlide>
           ))}
+
+          <SwiperNavButtons />
         </Swiper>
       </div>
-      <div className="flex flex-col gap-2 p-4 pb-8">
-        <Text level="xl" customs="font-normal!">
-          {prop.firstName} {prop.lastName}
-        </Text>
-        <Text level="base">
-          {prop.postalCode}, {prop.city}
-        </Text>
-        <TattooStyleTags styles={prop.tattooStyle} />
-        <Text level="xl" customs="font-normal!">
-          {prop.hourlyRate} €
-        </Text>
-        <Button level="stroke-sm" className="w-fit">
-          Portfolio anzeigen
-        </Button>
-      </div>
+
+      <ArtistTileInformation {...prop} />
     </div>
   );
 }

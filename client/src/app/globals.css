@@ -20,6 +20,8 @@
   --tint: #d7dbe2;
   --tone: #8d9096;
   --background: #f0f2ff;
+  --tint-transparent: hsla(212,12%,87%,0.6);
+  --tone-transparent: hsla(212,12%,57%,0.8);
 
   /* TYPOGRAPHY */
   --tracking-1: -0.025rem;
@@ -56,6 +58,8 @@
   --color-tint: var(--tint);
   --color-tone: var(--tone);
   --color-background: var(--background);
+  --color-tint-transparent: var(--tint-transparent);
+  --color-tone-transparent: var(--tone-transparent);
 
   /* TYPOGRAPHY */
   --tracking-1: var(--tracking-1);
@@ -67,7 +71,6 @@ body {
 }
 
 /* Reusable classes */
-
 .container {
   padding: var(--spacing-vert) var(--spacing-hor);
   max-width: 1400px;
@@ -91,7 +94,7 @@ body {
   @apply md:gap-4 xl:gap-8
 }
 
-/* For dropdown menus */
+/* Dropdown menus */
 .dd {
   @apply bg-primary-tint rounded-xl border-1 border-tint shadow-lg;
   background-color: var(--primary-tint);
@@ -105,4 +108,14 @@ body {
 .dd-item {
   padding: 10px 20px;
   display: block;
+}
+
+/* Swiper */
+.swiper-pagination-bullet {
+  background: var(--tint-transparent) !important;
+  opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+  background: var(--primary) !important;
 }

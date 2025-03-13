@@ -1,8 +1,7 @@
 import LogoMain from "./logoMain";
-import NavArtistProfile from "@/layout/profile";
 import SearchLocation from "@/components/searchLocation";
-import NavItems from "./navItems";
-import NavAsideToggle from "./navAsideToggle";
+import NavItemsList from "./navItemsList";
+import NavAside from "./navAside";
 
 export enum NavType {
   Main = "landingPage",
@@ -18,9 +17,9 @@ export default function Nav({ navType }: { navType: NavType }) {
             <LogoMain />
             <SearchLocation />
             {/* Mobile */}
-            <NavAsideToggle className="lg:hidden" />
+            <NavAside className="lg:hidden" />
             {/* Desktop */}
-            <NavItems className="hidden lg:flex items-center" />
+            <NavItemsList className="hidden lg:flex items-center" />
           </>
         );
 
@@ -29,9 +28,9 @@ export default function Nav({ navType }: { navType: NavType }) {
           <>
             <LogoMain />
             {/* Mobile */}
-            <NavAsideToggle className="md:hidden" />
+            <NavAside className="md:hidden" />
             {/* Tablet */}
-            <NavItems className="hidden md:flex items-center" />
+            <NavItemsList className="hidden md:flex items-center" />
           </>
         );
     }

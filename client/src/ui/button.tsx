@@ -36,7 +36,7 @@ export default function Button({
       "bg-background px-4 h-[42px] items-center rounded-sm text-foreground font-semibold border-2",
 
     "transparent-sm":
-      "bg-[hsla(212,12%,57%,0.8)] px-5 py-2 rounded-full text-white font-bold",
+      "bg-tone-transparent px-5 py-2 rounded-full text-white font-bold",
   };
 
   if (href) {
