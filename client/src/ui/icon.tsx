@@ -32,44 +32,53 @@ const icons: { [key: string]: IconType } = {
 interface Props {
   name: keyof typeof icons;
   size?: string;
+  sizeComputed?: number;
   color?: string;
   className?: string;
   onClick?: () => void;
 }
 
-export default function Icon({ name, size, color, className, onClick }: Props) {
+export default function Icon({
+  name,
+  size,
+  sizeComputed,
+  color,
+  className,
+  onClick,
+}: Props) {
   const SelectedIcon = icons[name];
-  let sizeComputed;
 
   if (!SelectedIcon) console.warn("Icon not found: " + { name });
 
-  switch (size) {
-    case "sm":
-      sizeComputed = 20;
-      break;
+  if (!sizeComputed) {
+    switch (size) {
+      case "sm":
+        sizeComputed = 20;
+        break;
 
-    case "base":
-      sizeComputed = 24;
-      break;
+      case "base":
+        sizeComputed = 24;
+        break;
 
-    case "lg":
-      sizeComputed = 30;
-      break;
+      case "lg":
+        sizeComputed = 30;
+        break;
 
-    case "xl":
-      sizeComputed = 40;
-      break;
+      case "xl":
+        sizeComputed = 40;
+        break;
 
-    case "2xl":
-      sizeComputed = 50;
-      break;
+      case "2xl":
+        sizeComputed = 50;
+        break;
 
-    case "3xl":
-      sizeComputed = 60;
-      break;
-  
-    default:
-      break;
+      case "3xl":
+        sizeComputed = 60;
+        break;
+
+      default:
+        break;
+    }
   }
 
   return (

@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function Footer() {
   return (
     <div className="bg-foreground text-background">
-      <div className="container pb-4! lg:pb-[var(--spacing-vert)]! grid grid-cols-1 gap-y-12 md:gap-y-20 md:gap-x-14 xl:gap-x-24">
+      <div className="container grid grid-cols-1 gap-y-12 md:gap-y-20 md:gap-x-14 xl:gap-x-24">
         <div className="grid gap-4">
           <LogoFooter width="180" />
 

@@ -12,7 +12,7 @@ interface Props {
 }
 
 export default function NavAsideToggle({ className }: Props) {
-  const iconSize = 30;
+  const iconSize = 28;
 
   const [showAside, setShowAside] = useState(false);
 
@@ -25,7 +25,7 @@ export default function NavAsideToggle({ className }: Props) {
     <div className={className}>
       <Icon
         name="menu"
-        size={iconSize}
+        sizeComputed={iconSize}
         className="cursor-pointer"
         onClick={() => setShowAside(!showAside)}
       ></Icon>
@@ -51,7 +51,7 @@ export default function NavAsideToggle({ className }: Props) {
             >
               <Icon
                 name="close"
-                size={iconSize}
+                sizeComputed={iconSize}
                 className="ml-auto cursor-pointer"
                 onClick={() => setShowAside(false)}
               ></Icon>

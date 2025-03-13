@@ -17,10 +17,10 @@ export default function Nav({ navType }: { navType: NavType }) {
           <>
             <LogoMain />
             <SearchLocation />
-            {/* Desktop */}
-            <NavItems className="hidden lg:flex items-center" />
             {/* Mobile */}
             <NavAsideToggle className="lg:hidden" />
+            {/* Desktop */}
+            <NavItems className="hidden lg:flex items-center" />
           </>
         );
 
@@ -28,10 +28,10 @@ export default function Nav({ navType }: { navType: NavType }) {
         return (
           <>
             <LogoMain />
-            {/* Tablet */}
-            <NavItems className="hidden md:flex items-center" />
             {/* Mobile */}
             <NavAsideToggle className="md:hidden" />
+            {/* Tablet */}
+            <NavItems className="hidden md:flex items-center" />
           </>
         );
     }

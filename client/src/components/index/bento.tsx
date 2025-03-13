@@ -6,8 +6,8 @@ import Image from "next/image";
 
 export default function Bento() {
   return (
-    <div className="container grid grid-rows-[auto_1fr_1fr] h-[1200px] gap-4">
-      <div className="relative grid place-items-center text-center p-8 gap-8">
+    <div className="container grid grid-rows-3 md:grid-rows-2 md:grid-cols-2 h-[1200px] md:h-[800px] gap-4">
+      <div className="relative grid place-items-center text-center p-8 gap-8 md:col-span-2">
         <Image
           src="/home_bento-3.jpg"
           alt="Tattoo artist at an appointment"
@@ -17,7 +17,7 @@ export default function Bento() {
         <Heading level="subheading-primary" className="text-white self-end">
           Für Künstler*innen
         </Heading>
-        <Heading level="heading-primary" className="text-white mb-0!">
+        <Heading level="heading-primary" className="text-white mb-0! max-w-[800px]">
           80% weniger Gebühren für die ersten 20 Anmeldungen
         </Heading>
         <Button

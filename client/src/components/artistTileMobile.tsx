@@ -13,7 +13,7 @@ interface ArtistTileProp {
   hourlyRate: string;
 }
 
-export default function ArtistTile(prop: ArtistTileProp) {
+export default function ArtistTileMobile(prop: ArtistTileProp) {
   return (
     <div className="bg-background flex flex-col border-1 rounded-sm overflow-hidden h-full">
       <div className="grid grid-cols-2 gap-2 h-130">

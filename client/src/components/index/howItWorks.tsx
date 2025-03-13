@@ -8,12 +8,12 @@ export default function HowItWorks() {
       <Heading level="heading-primary" className="text-center">
         4 Schritte zum Traumtattoo
       </Heading>
-      <div className="grid gap-4 heading-primary-mb">
+      <div className="grid gap-4 heading-primary-mb md:grid-cols-2">
         {items.map((item, index) => (
           <HowItWorksItem key={index} {...item} index={index} />
         ))}
       </div>
-      <Button level="primary-lg" className="w-full">
+      <Button level="primary-lg" className="w-full sm:w-fit sm:mx-auto">
         Entdecke Tätowierer
       </Button>
     </div>

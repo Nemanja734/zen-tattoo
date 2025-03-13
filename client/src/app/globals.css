@@ -25,10 +25,16 @@
   --tracking-1: -0.025rem;
 }
 
+@media (min-width: 640px) {
+  :root {
+    /* SPACING */
+    --spacing-hor: 30px;
+  }
+}
+
 @media (min-width: 768px) {
   :root {
     /* SPACING */
-    --spacing-vert: 90px;
     --spacing-hor: 30px;
   }
 }
@@ -69,11 +75,11 @@ body {
 }
 
 .heading-primary-mb {
-  @apply mb-8 md:mb-10;
+  @apply mb-6 md:mb-8;
 }
 
 .heading-primary-mt {
-  @apply mt-8 md:mt-10;
+  @apply mt-6 md:mt-8;
 }
 
 .link {

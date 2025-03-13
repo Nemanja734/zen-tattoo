@@ -2,13 +2,14 @@
 
 import Heading from "@/ui/heading";
 import { artist } from "@/config/mock/artistsFeatured";
-import ArtistTile from "../artistTile";
+import ArtistTileMobile from "../artistTileMobile";
 import Button from "@/ui/button";
 import { routes } from "@/config/routes";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectCreative } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import ArtistTileDesktop from "../artistTileDesktop";
 
 export default function FeaturedArtists() {
   return (
@@ -16,6 +17,7 @@ export default function FeaturedArtists() {
       <Heading level="heading-primary" className="text-center">
         Unsere vorgestellten Tätowierer
       </Heading>
+
       <Swiper
         pagination={{
           dynamicBullets: true,
@@ -33,19 +35,24 @@ export default function FeaturedArtists() {
         }}
         observer
         observeParents
-        
-        modules={[EffectCreative, Pagination]}
         spaceBetween={30}
-        className="heading-primary-mb"
+        modules={[EffectCreative, Pagination]}
+        className="md:hidden!"
       >
         {artist.map((artist, index) => (
           <SwiperSlide className="h-auto!">
-            <ArtistTile key={index} {...artist} />
+            <ArtistTileMobile key={index} {...artist} />
           </SwiperSlide>
         ))}
       </Swiper>
 
-      <Button level="primary-lg" className="w-full" href={routes.showroom}>
+      <div className="hidden md:grid grid-cols-2 gap-5">
+        {artist.map((artist, index) => (
+          <ArtistTileDesktop key={index} {...artist} />
+        ))}
+      </div>
+
+      <Button level="primary-lg" className="w-full sm:w-fit sm:mx-auto heading-primary-mt" href={routes.showroom}>
         Alle Tätowierer entdecken
       </Button>
     </div>
