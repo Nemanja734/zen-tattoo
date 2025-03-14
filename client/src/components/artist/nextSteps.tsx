@@ -1,7 +1,7 @@
 import Heading from "@/ui/heading";
 import NextStep from "./nextStep";
 import Button from "@/ui/button";
-import { routes } from "@/config/routes";
+import { routes } from "@/config/data/routes";
 
 export default function NextStepsSection() {
   const steps = [

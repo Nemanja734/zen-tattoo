@@ -4,35 +4,43 @@ import { useRef, useState } from "react";
 import FilterButton from "./filterButton";
 import Sort from "./sort";
 import { useClickOutside } from "@/lib/useClickOutside";
+import { Artist } from "@/config/interfaces/artist";
 
-export default function Filters() {
+interface Props {
+  update: (filteredArtists: Artist[]) => void;
+}
+
+export default function Filters({ update }: Props) {
   const [showSort, setShowSort] = useState(false);
-  const [showStyle, setShowStyle] = useState(false);
-  const [showLocation, setShowLocation] = useState(false);
-  const [showPrice, setShowPrice] = useState(false);
+  // const [showStyle, setShowStyle] = useState(false);
+  // const [showLocation, setShowLocation] = useState(false);
+  // const [showPrice, setShowPrice] = useState(false);
 
-  const toggleFilter = (filter: any) => {
-    filter((prev: boolean) => !prev);
+  const toggleFilter = (
+    filter: React.Dispatch<React.SetStateAction<boolean>>
+  ) => {
+    filter((prev) => !prev);
   };
 
   // refs for closing on click outside
   const sortRef = useRef(null);
   useClickOutside(sortRef, () => setShowSort(false));
 
-  const closeAllFilters = () => {
-    setShowSort(false);
-    setShowStyle(false);
-    setShowLocation(false);
-    setShowPrice(false);
+  const removeAllFilters = () => {
+    // Todo
   };
 
   return (
     <div className="heading-primary-mb flex gap-4">
       <div ref={sortRef}>
-        <Sort show={showSort} onClick={() => toggleFilter(setShowSort)} />
+        <Sort
+          show={showSort}
+          onClick={() => toggleFilter(setShowSort)}
+          update={update}
+        />
       </div>
 
-      <div>
+      {/* <div>
         <FilterButton onClick={() => toggleFilter(setShowStyle)}>
           Tattoostil
         </FilterButton>
@@ -48,10 +56,10 @@ export default function Filters() {
         <FilterButton onClick={() => toggleFilter(setShowPrice)}>
           Preis
         </FilterButton>
-      </div>
+      </div> */}
 
       <div className="ml-auto">
-        <FilterButton reset onClick={closeAllFilters}></FilterButton>
+        <FilterButton reset onClick={removeAllFilters}></FilterButton>
       </div>
     </div>
   );

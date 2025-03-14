@@ -7,6 +7,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { debounce } from "lodash";
 import Text from "@/ui/text";
 import { useClickOutside } from "@/lib/useClickOutside";
+import { NominatimData } from "@/config/interfaces/nominatim";
 
 interface Address {
   country?: string;
@@ -29,8 +30,8 @@ export default function SearchLocation() {
   useClickOutside(ref, () => setShowSearchResults(false));
 
   // extract addresses from nominatim data
-  const extractAddress = (data: any) => {
-    return data.map((location: any) => {
+  const extractAddress = (data: NominatimData[]) => {
+    return data.map((location: NominatimData) => {
       const addr = location.address;
 
       return {

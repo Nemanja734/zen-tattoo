@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { geistSans } from "@/config/fonts";
+import { geistSans } from "@/config/data/fonts";
 
 export const metadata: Metadata = {
   title: "Zen Tattoo | Das digitale Tattoostudio",

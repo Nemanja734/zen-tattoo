@@ -15,13 +15,13 @@
   /* COLORS */
   --primary: #105dd1;
   --primary-tint: #d5e2fd;
-  --alarm: #CC3333;
+  --alarm: #cc3333;
   --foreground: #111111;
   --tint: #d7dbe2;
   --tone: #8d9096;
   --background: #f0f2ff;
-  --tint-transparent: hsla(212,12%,87%,0.6);
-  --tone-transparent: hsla(212,12%,57%,0.8);
+  --tint-transparent: hsla(212, 12%, 87%, 0.6);
+  --tone-transparent: hsla(212, 12%, 57%, 0.8);
 
   /* TYPOGRAPHY */
   --tracking-1: -0.025rem;
@@ -91,7 +91,7 @@ body {
 
 /* Navigation */
 .gap-header {
-  @apply md:gap-4 xl:gap-8
+  @apply md:gap-4 xl:gap-8;
 }
 
 /* Dropdown menus */
@@ -123,4 +123,3 @@ body {
 .swiper-pagination-bullet-active {
   background: var(--primary) !important;
 }
-

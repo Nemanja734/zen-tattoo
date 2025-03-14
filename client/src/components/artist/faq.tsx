@@ -2,7 +2,7 @@ import Heading from "@/ui/heading";
 import FaqItem from "../faqItem";
 import Text from "@/ui/text";
 import Link from "next/link";
-import { routes } from "@/config/routes";
+import { routes } from "@/config/data/routes";
 
 export default function FaqSection() {
   return (

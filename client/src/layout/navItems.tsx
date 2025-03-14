@@ -3,7 +3,6 @@
 import { usePathname } from "next/navigation";
 import Button from "@/ui/button";
 import Link from "next/link";
-import { useState } from "react";
 import clsx from "clsx";
 
 interface Props {

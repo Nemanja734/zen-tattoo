@@ -4,7 +4,7 @@ import Heading from "@/ui/heading";
 import { artist } from "@/config/mock/artistsFeatured";
 import ArtistTileSquared from "../artistCardSquared";
 import Button from "@/ui/button";
-import { routes } from "@/config/routes";
+import { routes } from "@/config/data/routes";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectCreative } from "swiper/modules";
 import "swiper/css";
@@ -40,8 +40,8 @@ export default function FeaturedArtists() {
         className="md:hidden!"
       >
         {artist.map((artist, index) => (
-          <SwiperSlide className="h-auto!">
-            <ArtistTileSquared key={index} {...artist} />
+          <SwiperSlide key={index} className="h-auto!">
+            <ArtistTileSquared {...artist} />
           </SwiperSlide>
         ))}
       </Swiper>

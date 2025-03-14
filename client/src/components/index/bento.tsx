@@ -1,4 +1,4 @@
-import { routes } from "@/config/routes";
+import { routes } from "@/config/data/routes";
 import Button from "@/ui/button";
 import Heading from "@/ui/heading";
 import Text from "@/ui/text";

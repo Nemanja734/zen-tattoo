@@ -1,4 +1,4 @@
-import { navItems } from "@/config/navItems";
+import { navItems } from "@/config/data/navItems";
 import clsx from "clsx";
 import NavItems from "./navItems";
 

@@ -15,7 +15,7 @@ interface ArtistTileProp {
   postalCode: string;
   city: string;
   tattooStyle: string[];
-  hourlyRate: string;
+  hourlyRate: number;
 }
 
 export default function ArtistCardSwiper(prop: ArtistTileProp) {
