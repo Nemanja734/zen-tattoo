@@ -1,7 +1,9 @@
+"use client"
+
 import Image from "next/image";
 import { A11y, EffectCreative, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import ArtistTileInformation from "./artistTileInformation";
+import ArtistTileInformation from "./artistCardInformation";
 import SwiperNavButtons from "@/ui/swiperNavButtons";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -16,7 +18,7 @@ interface ArtistTileProp {
   hourlyRate: string;
 }
 
-export default function ArtistTileDesktop(prop: ArtistTileProp) {
+export default function ArtistCardSwiper(prop: ArtistTileProp) {
   return (
     <div className="bg-background flex flex-col border-1 rounded-sm overflow-hidden h-full">
 

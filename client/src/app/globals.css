@@ -9,7 +9,7 @@
 
 :root {
   /* SPACING */
-  --spacing-vert: 70px;
+  --spacing-vert: 50px;
   --spacing-hor: 12px;
 
   /* COLORS */
@@ -44,7 +44,7 @@
 @media (min-width: 1024px) {
   :root {
     /* SPACING */
-    --spacing-vert: 90px;
+    --spacing-vert: 70px;
     --spacing-hor: 50px;
   }
 }
@@ -110,6 +110,10 @@ body {
   display: block;
 }
 
+.p-filter {
+  @apply p-4;
+}
+
 /* Swiper */
 .swiper-pagination-bullet {
   background: var(--tint-transparent) !important;
@@ -119,3 +123,4 @@ body {
 .swiper-pagination-bullet-active {
   background: var(--primary) !important;
 }
+

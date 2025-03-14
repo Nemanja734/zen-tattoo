@@ -6,7 +6,7 @@ import Image from "next/image";
 
 export default function Bento() {
   return (
-    <div className="container grid grid-rows-3 md:grid-rows-2 md:grid-cols-2 h-[1200px] md:h-[800px] gap-4">
+    <div className="container grid grid-rows-3 md:grid-rows-[1.4fr_1fr] md:grid-cols-2 h-[1200px] md:h-[800px] lg:h-[1000px] gap-4">
       <div className="relative grid place-items-center text-center p-8 gap-8 md:col-span-2">
         <Image
           src="/home_bento-3.jpg"

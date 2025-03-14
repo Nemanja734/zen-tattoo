@@ -1,11 +1,15 @@
 import WhyZenCard from "./whyZenCard";
 
 export default function WhyZen() {
-  return <div className="container bg-tint grid gap-5 md:grid-cols-3">
+  return (
+    <div className="bg-tint">
+      <div className="container grid gap-5 md:grid-cols-3">
     {cards.map((card, index) => (
         <WhyZenCard key={index} icon={card.icon} title={card.title} text={card.text} />
     ))}
-  </div>;
+  </div>
+    </div>
+  );
 }
 
 const cards = [

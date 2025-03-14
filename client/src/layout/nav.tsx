@@ -28,9 +28,9 @@ export default function Nav({ navType }: { navType: NavType }) {
           <>
             <LogoMain />
             {/* Mobile */}
-            <NavAside className="md:hidden" />
+            <NavAside className="lg:hidden" />
             {/* Tablet */}
-            <NavItemsList className="hidden md:flex items-center" />
+            <NavItemsList className="hidden lg:flex items-center" />
           </>
         );
     }

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import ArtistTileInformation from "./artistTileInformation";
+import ArtistTileInformation from "./artistCardInformation";
 
 interface ArtistTileProp {
   portfolio: string[];
@@ -11,7 +11,7 @@ interface ArtistTileProp {
   hourlyRate: string;
 }
 
-export default function ArtistTileMobile(prop: ArtistTileProp) {
+export default function ArtistCardSquared(prop: ArtistTileProp) {
   return (
     <div className="bg-background flex flex-col border-1 rounded-sm overflow-hidden h-full">
       <div className="grid grid-cols-2 gap-2 h-130">

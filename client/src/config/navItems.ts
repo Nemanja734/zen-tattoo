@@ -2,6 +2,12 @@ import { routes } from "./routes";
 
 export const navItems = [
   {
+    text: "Start",
+    type: "link",
+    link: routes.home,
+    mobile: true,
+  },
+  {
     text: "Für Künstler",
     type: "link",
     link: routes.artist,

@@ -31,9 +31,12 @@ export default function Button({
       "bg-primary px-5 py-2 rounded-sm text-background font-semibold shadow-sm shadow-primary/50",
 
     "stroke-lg":
-      "bg-background px-10 h-[48px] items-center rounded-sm text-foreground font-semibold border-2",
+      "bg-background px-8 h-[48px] items-center rounded-sm text-foreground font-semibold border-2",
     "stroke-sm":
-      "bg-background px-4 h-[42px] items-center rounded-sm text-foreground font-semibold border-2",
+      "bg-background px-4 h-[42px] items-center rounded-sm text-foreground border-2",
+
+    "black-lg":
+    "bg-foreground px-8 h-[48px] items-center rounded-sm text-white font-semibold border-2 border-black",
 
     "transparent-sm":
       "bg-tone-transparent px-5 py-2 rounded-full text-white font-bold",

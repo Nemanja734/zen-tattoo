@@ -218,3 +218,7 @@ export const artists = [
     hourlyRate: "120,00",
   },
 ];
+
+export const tattooStyles = Array.from(
+  new Set(artists.flatMap(artist => artist.tattooStyle))
+)

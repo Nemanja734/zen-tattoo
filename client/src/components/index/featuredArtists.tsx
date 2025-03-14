@@ -2,14 +2,14 @@
 
 import Heading from "@/ui/heading";
 import { artist } from "@/config/mock/artistsFeatured";
-import ArtistTileMobile from "../artistTileMobile";
+import ArtistTileSquared from "../artistCardSquared";
 import Button from "@/ui/button";
 import { routes } from "@/config/routes";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectCreative } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
-import ArtistTileDesktop from "../artistTileDesktop";
+import ArtistTileDesktop from "../artistCardSwiper";
 
 export default function FeaturedArtists() {
   return (
@@ -41,7 +41,7 @@ export default function FeaturedArtists() {
       >
         {artist.map((artist, index) => (
           <SwiperSlide className="h-auto!">
-            <ArtistTileMobile key={index} {...artist} />
+            <ArtistTileSquared key={index} {...artist} />
           </SwiperSlide>
         ))}
       </Swiper>

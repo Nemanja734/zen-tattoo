@@ -19,7 +19,7 @@ export default function NavItems({text, type, link}: Props) {
   return(
     <div>
     {type == "link" ? (
-      <Link href={link} className={clsx("hover:text-primary", (isActive && "text-primary border-b-1 border-primary"))}>
+      <Link href={link} className={clsx("hover:text-primary", (isActive && "text-primary underline underline-offset-2"))}>
         {text}
       </Link>
     ) : (

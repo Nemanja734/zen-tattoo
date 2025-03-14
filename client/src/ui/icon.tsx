@@ -12,6 +12,7 @@ import { FaPhoenixSquadron } from "react-icons/fa";
 import { AiFillLike } from "react-icons/ai";
 import { IoColorPaletteSharp } from "react-icons/io5";
 import { FaCheckCircle } from "react-icons/fa";
+import { FaLocationDot } from "react-icons/fa6";
 
 const icons: { [key: string]: IconType } = {
   profile: CgProfile,
@@ -27,6 +28,7 @@ const icons: { [key: string]: IconType } = {
   phoenix: FaPhoenixSquadron,
   like: AiFillLike,
   checkCircle: FaCheckCircle,
+  location: FaLocationDot,
 };
 
 interface Props {
@@ -52,6 +54,10 @@ export default function Icon({
 
   if (!sizeComputed) {
     switch (size) {
+      case "xs":
+        sizeComputed = 16;
+        break;
+
       case "sm":
         sizeComputed = 20;
         break;

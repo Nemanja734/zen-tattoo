@@ -8,7 +8,7 @@ export default function HowItWorks() {
       <Heading level="heading-primary" className="text-center">
         4 Schritte zum Traumtattoo
       </Heading>
-      <div className="grid gap-4 heading-primary-mb md:grid-cols-2">
+      <div className="grid gap-2 heading-primary-mb md:grid-cols-2 xl:grid-cols-4">
         {items.map((item, index) => (
           <HowItWorksItem key={index} {...item} index={index} />
         ))}

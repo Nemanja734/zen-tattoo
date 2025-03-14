@@ -11,7 +11,7 @@ interface Prop {
   hourlyRate: string;
 }
 
-export default function ArtistTileInformation(prop: Prop) {
+export default function ArtistCardInformation(prop: Prop) {
   return (
     <div className="flex flex-col gap-2 p-4 pb-8 md:pb-4">
       <div>

@@ -11,7 +11,13 @@ export default function NavItemsList({ className }: Props) {
   return (
     <div className={clsx("gap-header", className)}>
       {navItems.map((item, index) => (
-        <NavItems key={index} text={item.text} type={item.type} link={item.link} />
+        <div key={index} className={clsx(item.mobile && "lg:hidden")}>
+          <NavItems
+            text={item.text}
+            type={item.type}
+            link={item.link}
+          />
+        </div>
       ))}
     </div>
   );

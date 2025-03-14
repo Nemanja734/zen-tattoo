@@ -68,11 +68,12 @@ export default function SearchLocation() {
         headers: { "User-Agent": "ZenTattooApp (contact@zen-tattoo.de)" },
       });
       const data = await response.json();
+
       setSearchResults(extractAddress(data));
-      setLoading(false);
-      console.log(data);
     } catch (error) {
       console.error("Error fetching location data:", error);
+    } finally {
+      setLoading(false);
     }
   }, []);
 
@@ -84,8 +85,16 @@ export default function SearchLocation() {
   // Handle input change
   const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
+
     setLoading(true);
     setSearch(value);
+
+    if (!value) {
+      setSearchResults([]);
+      setLoading(false);
+      return;
+    }
+
     debouncedSearchRequest(value);
   };
 
@@ -118,7 +127,7 @@ export default function SearchLocation() {
           aria-label="Standort suchen"
         />
         {showSearchResults && (
-          <div className="absolute w-full">
+          <div className="absolute w-full bg-background">
             {searchResults &&
               searchResults.map((location, index) => (
                 <div
