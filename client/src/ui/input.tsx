@@ -49,7 +49,13 @@ export default function Input({
   return (
     <div>
       <label htmlFor={name}>{label}</label>
-      {multiline ? <textarea {...commonProps}></textarea> : <input type={type} {...commonProps} />}
+      
+      {multiline ? (
+        <textarea {...commonProps}></textarea>
+      ) : (
+        <input type={type} {...commonProps} />
+      )}
+
       <AnimatePresence mode="wait" initial={false}>
         {errorMessage && (
           <motion.div
@@ -68,4 +74,3 @@ export default function Input({
     </div>
   );
 }
-

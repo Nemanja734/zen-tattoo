@@ -2,6 +2,7 @@ import Heading from "@/ui/heading";
 import Image from "next/image";
 import Text from "@/ui/text";
 import Button from "@/ui/button";
+import { routes } from "@/config/data/routes";
 
 export default function Hero() {
   return (
@@ -11,7 +12,7 @@ export default function Hero() {
           Das digitale Tattoostudio
         </Heading>
         <Text level="base" customs="max-w-80 sm:max-w-none">Entdecke talentierte Tätowierer aus ganz Deutschland, vergleiche ihre Portfolios und buche dein Wunsch-Tattoo bequem über das Internet.</Text>
-        <Button level="primary-lg" className="w-fit">Entdecke Tätowierer</Button>
+        <Button level="primary-lg" className="w-fit" href={routes.showroom}>Entdecke Tätowierer</Button>
       </div>
 
       <div className="absolute top-0 right-0 md:static md:-translate-y-13 lg:-translate-y-11">

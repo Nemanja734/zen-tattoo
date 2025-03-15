@@ -4,21 +4,20 @@ import Icon from "@/ui/icon";
 import ApplyFilter from "./applyFilter";
 import FilterButton from "./filterButton";
 import clsx from "clsx";
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import { sorts } from "@/config/data/filter";
 import { artists } from "@/config/mock/artists";
 import { Artist } from "@/config/interfaces/artist";
 
 interface Props {
   show: boolean;
+  sort: { text: string; isActive: boolean }[];
+  setSort: Dispatch<SetStateAction<{ text: string; isActive: boolean }[]>>;
   onClick: () => void;
   update: (artists: Artist[]) => void;
 }
 
-export default function Sort({ show, onClick, update }: Props) {
-  // Initialize the array of possible sorts
-  const [sort, setSort] = useState(sorts);
-
+export default function Sort({ show, sort, setSort, onClick, update }: Props) {
   // Handle sort change on click
   const handleSortChange = (index: number) => {
     setSort((prevOptions) =>
@@ -44,22 +43,22 @@ export default function Sort({ show, onClick, update }: Props) {
     const activeSort = sort.filter((option) => option.isActive === true);
 
     // Sort "Am Beliebtesten"
-    if (activeSort[0].text === "Am Beliebtesten") {
+    if (activeSort[0].text === sorts[0].text) {
       update([...artists]);
     }
 
     // Sort "Neuersteinungen"
-    if (activeSort[0].text === "Neuerscheinungen") {
+    if (activeSort[0].text === sorts[1].text) {
       // Todo
     }
 
     // Sort "Niedrigster Preis"
-    if (activeSort[0].text === "Niedrigster Preis") {
+    if (activeSort[0].text === sorts[2].text) {
       update([...artists].sort((a, b) => a.hourlyRate - b.hourlyRate));
     }
 
     // Sort "Höchster Preis"
-    if (activeSort[0].text === "Höchster Preis") {
+    if (activeSort[0].text === sorts[3].text) {
       update([...artists].sort((a, b) => b.hourlyRate - a.hourlyRate));
     }
   };

@@ -2,10 +2,10 @@
 
 import Overlay from "@/layout/overlay";
 import Icon from "@/ui/icon";
-import { useRef, useState } from "react";
+import { RefObject, useRef, useState } from "react";
 import NavItemsList from "./navItemsList";
-import { useClickOutside } from "@/lib/useClickOutside";
 import { motion, AnimatePresence } from "motion/react";
+import { useOnClickOutside } from "usehooks-ts";
 
 interface Props {
   className: string;
@@ -17,9 +17,9 @@ export default function NavAside({ className }: Props) {
   const [showAside, setShowAside] = useState(false);
 
   // Ref for closing the menu container on outside click
-  const menuRef = useRef(null);
+  const menuRef = useRef<HTMLDivElement>(null);
 
-  useClickOutside(menuRef, () => setShowAside(false));
+  useOnClickOutside(menuRef as RefObject<HTMLDivElement>, () => setShowAside(false));
 
   return (
     <div className={className}>

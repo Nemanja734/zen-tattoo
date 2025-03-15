@@ -3,11 +3,11 @@
 import Icon from "@/ui/icon";
 import { inputStyle } from "@/config/styles";
 import clsx from "clsx";
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { debounce } from "lodash";
 import Text from "@/ui/text";
-import { useClickOutside } from "@/lib/useClickOutside";
 import { NominatimData } from "@/config/interfaces/nominatim";
+import { useOnClickOutside } from "usehooks-ts";
 
 interface Address {
   country?: string;
@@ -24,10 +24,10 @@ export default function SearchLocation() {
   const [searchResults, setSearchResults] = useState<Address[] | null>();
   const [showSearchResults, setShowSearchResults] = useState(false);
   const [loading, setLoading] = useState(false);
-  const ref = useRef<HTMLInputElement | null>(null);
+  const ref = useRef<HTMLDivElement | null>(null);
 
   // Hide search results when clicking outside
-  useClickOutside(ref, () => setShowSearchResults(false));
+  useOnClickOutside(ref as RefObject<HTMLDivElement>, () => setShowSearchResults(false));
 
   // extract addresses from nominatim data
   const extractAddress = (data: NominatimData[]) => {
@@ -79,6 +79,7 @@ export default function SearchLocation() {
   }, []);
 
   // Memoize the debounce function
+  // You can also use "useDebounce" from use-debounce library
   const debouncedSearchRequest = useMemo(() => {
     return debounce(searchRequest, 800);
   }, [searchRequest]);

@@ -1,17 +1,19 @@
 import Button from "@/ui/button";
 import Icon from "@/ui/icon";
+import clsx from "clsx";
 
 interface Props {
-  children?: React.ReactNode;
+  isActive?: boolean;
   reset?: boolean;
   onClick: () => void;
+  children?: React.ReactNode;
 }
 
-export default function FilterButton({ children, reset = false, onClick }: Props) {
+export default function FilterButton({ isActive = false, reset = false, onClick, children }: Props) {
   return (
     <>
       {!reset ? (
-        <Button level="stroke-lg" onClick={onClick}>
+        <Button level="stroke-lg" onClick={onClick} className={clsx(isActive && "bg-tint font-semibold")}>
           {children} &ensp;
           <Icon name="chevDown" size="xs" />
         </Button>
