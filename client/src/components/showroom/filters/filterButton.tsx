@@ -9,16 +9,27 @@ interface Props {
   children?: React.ReactNode;
 }
 
-export default function FilterButton({ isActive = false, reset = false, onClick, children }: Props) {
+export default function FilterButton({
+  isActive = false,
+  reset = false,
+  onClick,
+  children,
+}: Props) {
   return (
     <>
-      {!reset ? (
-        <Button level="stroke-lg" onClick={onClick} className={clsx(isActive && "bg-tint font-semibold")}>
+      {reset ? (
+        <Button level="black-lg" onClick={onClick}>
+          Filter Zurücksetzen
+        </Button>
+      ) : (
+        <Button
+          level="stroke-lg"
+          onClick={onClick}
+          className={clsx(isActive && "bg-tint font-semibold")}
+        >
           {children} &ensp;
           <Icon name="chevDown" size="xs" />
         </Button>
-      ) : (
-        <Button level="black-lg" onClick={onClick}>Filter Zurücksetzen</Button>
       )}
     </>
   );

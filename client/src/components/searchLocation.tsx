@@ -3,11 +3,10 @@
 import Icon from "@/ui/icon";
 import { inputStyle } from "@/config/styles";
 import clsx from "clsx";
-import { RefObject, useCallback, useEffect, useMemo, useRef, useState } from "react";
-import { debounce } from "lodash";
+import { useCallback, useEffect, useRef, useState } from "react";
 import Text from "@/ui/text";
 import { NominatimData } from "@/config/interfaces/nominatim";
-import { useOnClickOutside } from "usehooks-ts";
+import { useDebounce } from "use-debounce";
 
 interface Address {
   country?: string;
@@ -21,13 +20,10 @@ export default function SearchLocation() {
   const defaultPlaceholder = "Suche nach Standort";
   const [placeholder, setPlaceholder] = useState(defaultPlaceholder);
   const [search, setSearch] = useState("");
+  const [debouncedSearch] = useDebounce(search, 500);
   const [searchResults, setSearchResults] = useState<Address[] | null>();
-  const [showSearchResults, setShowSearchResults] = useState(false);
   const [loading, setLoading] = useState(false);
   const ref = useRef<HTMLDivElement | null>(null);
-
-  // Hide search results when clicking outside
-  useOnClickOutside(ref as RefObject<HTMLDivElement>, () => setShowSearchResults(false));
 
   // extract addresses from nominatim data
   const extractAddress = (data: NominatimData[]) => {
@@ -47,27 +43,28 @@ export default function SearchLocation() {
         postalCode: addr.postcode || "",
         street:
           (addr.road ||
-          addr.pedestrian ||
-          addr.footway ||
-          addr.path ||
-          addr.square ||
-          "") + (addr.house_number ? ` ${addr.house_number}` : ""),
+            addr.pedestrian ||
+            addr.footway ||
+            addr.path ||
+            addr.square ||
+            "") + (addr.house_number ? ` ${addr.house_number}` : ""),
       };
     });
   };
 
   // Search in nominatim
-  const searchRequest = useCallback(async (search: string) => {
-    if (!search.trim()) return;
+  const searchRequest = useCallback(async () => {
+    if (!debouncedSearch.trim()) return;
 
     const request = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(
-      search
+      debouncedSearch
     )}&countrycodes=DE&addressdetails=1&layer=address&format=json`;
 
     try {
       const response = await fetch(request, {
         headers: { "User-Agent": "ZenTattooApp (contact@zen-tattoo.de)" },
       });
+
       const data = await response.json();
 
       setSearchResults(extractAddress(data));
@@ -76,42 +73,29 @@ export default function SearchLocation() {
     } finally {
       setLoading(false);
     }
-  }, []);
+  }, [debouncedSearch]);
 
-  // Memoize the debounce function
-  // You can also use "useDebounce" from use-debounce library
-  const debouncedSearchRequest = useMemo(() => {
-    return debounce(searchRequest, 800);
-  }, [searchRequest]);
+  useEffect(() => {
+    if (debouncedSearch.trim()) {
+      searchRequest();
+    }
+  }, [debouncedSearch]);
 
   // Handle input change
-  const onSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const value = e.target.value;
-
+  const onSearch = (text: string) => {
     setLoading(true);
-    setSearch(value);
+    setSearch(() => text);
 
-    if (!value) {
+    if (!text) {
       setSearchResults([]);
       setLoading(false);
-      return;
     }
-
-    debouncedSearchRequest(value);
   };
-
-  // Cleanup debounce on unmount
-  useEffect(() => {
-    return () => {
-      debouncedSearchRequest.cancel();
-    };
-  }, [debouncedSearchRequest]);
 
   return (
     <div
       className="absolute left-1/2 -translate-x-1/2 lg:translate-0 lg:static lg:mr-auto w-fit md:w-70"
       ref={ref}
-      onClick={() => setShowSearchResults(true)}
     >
       <div className="relative">
         <Icon
@@ -125,10 +109,10 @@ export default function SearchLocation() {
           className={clsx(inputStyle, "pl-7 sm:pl-10 md:pl-12 text-sm")}
           onFocus={() => setPlaceholder("")}
           onBlur={() => setPlaceholder(defaultPlaceholder)}
-          onChange={(e) => onSearch(e)}
+          onChange={(e) => onSearch(e.target.value)}
           aria-label="Standort suchen"
         />
-        {showSearchResults && (
+        {placeholder === "" && (
           <div className="absolute w-full bg-background">
             {searchResults &&
               searchResults.map((location, index) => (

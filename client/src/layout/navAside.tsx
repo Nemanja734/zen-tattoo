@@ -5,7 +5,7 @@ import Icon from "@/ui/icon";
 import { RefObject, useRef, useState } from "react";
 import NavItemsList from "./navItemsList";
 import { motion, AnimatePresence } from "motion/react";
-import { useOnClickOutside } from "usehooks-ts";
+import { useOnClickOutside } from "@/lib/useOnClickOutside";
 
 interface Props {
   className: string;
@@ -19,7 +19,7 @@ export default function NavAside({ className }: Props) {
   // Ref for closing the menu container on outside click
   const menuRef = useRef<HTMLDivElement>(null);
 
-  useOnClickOutside(menuRef as RefObject<HTMLDivElement>, () => setShowAside(false));
+  useOnClickOutside(menuRef, () => setShowAside(false));
 
   return (
     <div className={className}>
