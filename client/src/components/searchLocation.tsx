@@ -1,34 +1,28 @@
 "use client";
 
-import Icon from "@/ui/icon";
-import { inputStyle } from "@/config/styles";
-import clsx from "clsx";
 import { useCallback, useEffect, useRef, useState } from "react";
-import Text from "@/ui/text";
-import { NominatimData } from "@/config/interfaces/nominatim";
+import { Address, NominatimData } from "@/config/models/geolocation";
 import { useDebounce } from "use-debounce";
-
-interface Address {
-  country?: string;
-  county?: string;
-  city?: string;
-  postalCode?: string;
-  street?: string;
-}
+import SearchLocationResults from "./searchLocationResults";
+import InputText from "@/ui/inputText";
+import { useOnClickOutside } from "@/lib/useOnClickOutside";
 
 export default function SearchLocation() {
-  const defaultPlaceholder = "Suche nach Standort";
-  const [placeholder, setPlaceholder] = useState(defaultPlaceholder);
   const [search, setSearch] = useState("");
   const [debouncedSearch] = useDebounce(search, 500);
-  const [searchResults, setSearchResults] = useState<Address[] | null>();
+  const [searchResults, setSearchResults] = useState<Address[] | null>(null);
   const [loading, setLoading] = useState(false);
-  const ref = useRef<HTMLDivElement | null>(null);
+
+  const [showSearchResults, setShowSearchResults] = useState(false);
+  const searchResultsRef = useRef<HTMLDivElement | null>(null);
+  useOnClickOutside(searchResultsRef, () => setShowSearchResults(false));
 
   // extract addresses from nominatim data
   const extractAddress = (data: NominatimData[]) => {
     return data.map((location: NominatimData) => {
       const addr = location.address;
+
+      console.log(location);
 
       return {
         country: addr.country,
@@ -67,6 +61,7 @@ export default function SearchLocation() {
 
       const data = await response.json();
 
+      // Extract address from nominatim data and save into useState
       setSearchResults(extractAddress(data));
     } catch (error) {
       console.error("Error fetching location data:", error);
@@ -93,70 +88,23 @@ export default function SearchLocation() {
   };
 
   return (
-    <div
-      className="absolute left-1/2 -translate-x-1/2 lg:translate-0 lg:static lg:mr-auto w-fit md:w-70"
-      ref={ref}
-    >
-      <div className="relative">
-        <Icon
-          name="search"
-          size="base"
-          className="absolute left-1.5 sm:left-2.5 md:left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+    <div className="absolute left-1/2 -translate-x-1/2 lg:translate-0 lg:static lg:mr-auto w-fit md:w-70">
+      <div
+        ref={searchResultsRef}
+        className="relative"
+        onClick={() => setShowSearchResults(true)}
+      >
+        <InputText
+          defaultPlaceholder="Suche nach Standort"
+          onChange={(value) => onSearch(value)}
+          ariaLabel="Standort suchen"
         />
-        <input
-          type="text"
-          placeholder={placeholder}
-          className={clsx(inputStyle, "pl-7 sm:pl-10 md:pl-12 text-sm")}
-          onFocus={() => setPlaceholder("")}
-          onBlur={() => setPlaceholder(defaultPlaceholder)}
-          onChange={(e) => onSearch(e.target.value)}
-          aria-label="Standort suchen"
+        <SearchLocationResults
+          search={search}
+          searchResults={searchResults}
+          showSearchResults={showSearchResults}
+          loading={loading}
         />
-        {placeholder === "" && (
-          <div className="absolute w-full bg-background">
-            {searchResults &&
-              searchResults.map((location, index) => (
-                <div
-                  key={index}
-                  className="flex items-center cursor-pointer hover:bg-tint"
-                >
-                  <Icon name="location" size="base" className="ml-2" />
-                  {location.street && (
-                    <div className="p-2">
-                      <Text level="sm bold">{location.street}</Text>
-                      <Text level="sm">
-                        {location.city}, {location.country}
-                      </Text>
-                    </div>
-                  )}
-                  {!location.street && location.city && (
-                    <div className="p-2">
-                      <Text level="sm bold">{location.city}</Text>
-                      <Text level="sm">
-                        {location.postalCode
-                          ? location.postalCode
-                          : location.county}
-                        {location.postalCode || location.county ? ", " : ""}
-                        {location.country}
-                      </Text>
-                    </div>
-                  )}
-                  {!location.street && !location.city && (
-                    <div className="p-2">
-                      <Text level="sm bold">{location.county}</Text>
-                      <Text level="sm">{location.country}</Text>
-                    </div>
-                  )}
-                </div>
-              ))}
-
-            {searchResults?.length == 0 && search && !loading && (
-              <div className="p-2 text-center">
-                <Text level="sm">Keine Ergebnisse gefunden</Text>
-              </div>
-            )}
-          </div>
-        )}
       </div>
     </div>
   );

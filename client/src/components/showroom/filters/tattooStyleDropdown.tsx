@@ -1,26 +1,27 @@
-import { Artist } from "@/config/interfaces/artist";
 import ApplyFilter from "./applyFilter";
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
-import { artists, tattooStyles } from "@/config/mock/artists";
+import { useEffect, useRef, useState } from "react";
+import { tattooStyles } from "@/config/mock/artists";
 import FilterButton from "./filterButton";
 import clsx from "clsx";
 import Icon from "@/ui/icon";
 import { useOnClickOutside } from "@/lib/useOnClickOutside";
+import { dropdownOption } from "@/config/styles";
 
 interface Props {
   tattooStyle: string[];
   handleTattooStyleChange: (style: string) => void;
   reset: () => void;
-  applyTattooStyle: any;
+  applyTattooStyle: () => void;
 }
 
-export default function TattooStyle({
+export default function TattooStyleDropdown({
   tattooStyle,
   handleTattooStyleChange,
   reset,
   applyTattooStyle,
 }: Props) {
   const [show, setShow] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
   // Toggle dropdown
@@ -51,9 +52,15 @@ export default function TattooStyle({
     return !(tattooStyle.length === tattooStyles.length);
   };
 
+  // Change the button style if the filter is active
+  useEffect(() => {
+    if (styleSelected()) setIsActive(true);
+    else setIsActive(false);
+  }, [tattooStyle]);
+
   return (
     <div ref={ref} className="relative">
-      <FilterButton onClick={toggleSort}>Tattoostil</FilterButton>
+      <FilterButton isActive={isActive} onClick={toggleSort}>Tattoostil</FilterButton>
 
       {show && (
         <ul className="absolute rounded-sm -bottom-2 translate-y-full w-max z-10 bg-background border-2">
@@ -64,7 +71,8 @@ export default function TattooStyle({
               key={index}
               onClick={() => handleTattooStyleChange(option)}
               className={clsx(
-                "p-4 hover:bg-tint cursor-pointer [&:not(:nth-last-child(-n+1))]:border-b border-tone flex justify-between items-center",
+                dropdownOption,
+                "p-4 hover:bg-tint cursor-pointer border-tone flex justify-between items-center [&:not(:nth-last-child(-n+1))]:border-b",
                 tattooStyle.includes(option) && styleSelected() && "font-bold"
               )}
             >

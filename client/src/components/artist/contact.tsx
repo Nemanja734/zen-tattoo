@@ -5,7 +5,7 @@ import Text from "../../ui/text";
 import Button from "../../ui/button";
 import { FormProvider, useForm } from "react-hook-form";
 import Icon from "../../ui/icon";
-import Input from "../../ui/input";
+import FormInput from "../../ui/formInput";
 import { useState } from "react";
 
 interface ContactFormInputs {
@@ -51,7 +51,7 @@ export default function Contact() {
             noValidate
             className="max-w-[500px] m-auto w-full grid gap-3"
           >
-            <Input
+            <FormInput
               name="name"
               label="Name"
               type="text"
@@ -64,7 +64,7 @@ export default function Contact() {
               }}
             />
 
-            <Input
+            <FormInput
               name="email"
               label="E-Mail"
               type="email"
@@ -81,7 +81,7 @@ export default function Contact() {
               }}
             />
 
-            <Input
+            <FormInput
               name="message"
               label="Nachricht"
               type=""

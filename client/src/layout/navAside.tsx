@@ -2,7 +2,7 @@
 
 import Overlay from "@/layout/overlay";
 import Icon from "@/ui/icon";
-import { RefObject, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import NavItemsList from "./navItemsList";
 import { motion, AnimatePresence } from "motion/react";
 import { useOnClickOutside } from "@/lib/useOnClickOutside";

@@ -3,7 +3,7 @@ import Text from "./text";
 import { motion, AnimatePresence } from "motion/react";
 import clsx from "clsx";
 import { useState } from "react";
-import { inputStyle } from "@/config/styles";
+import { input } from "@/config/styles";
 
 interface InputProps {
   name: string;
@@ -14,7 +14,7 @@ interface InputProps {
   multiline?: boolean;
 }
 
-export default function Input({
+export default function FormInput({
   name,
   label,
   type,
@@ -37,10 +37,7 @@ export default function Input({
     ...register(name, validation),
     onFocus: () => setPlaceholderState(""),
     onBlur: () => setPlaceholderState(placeholder),
-    className: clsx(
-      inputStyle,
-      multiline && "min-h-[150px] md:min-h-[15rem] block"
-    ),
+    className: clsx(input, multiline && "min-h-[150px] md:min-h-[15rem] block"),
   };
 
   // Extracting error message safely
@@ -49,7 +46,7 @@ export default function Input({
   return (
     <div>
       <label htmlFor={name}>{label}</label>
-      
+
       {multiline ? (
         <textarea {...commonProps}></textarea>
       ) : (

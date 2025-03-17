@@ -89,6 +89,12 @@ body {
   @apply underline underline-offset-2;
 }
 
+.ellipsis-text {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 /* Navigation */
 .gap-header {
   @apply md:gap-4 xl:gap-8;
@@ -123,3 +129,4 @@ body {
 .swiper-pagination-bullet-active {
   background: var(--primary) !important;
 }
+

@@ -6,9 +6,11 @@ import Heading from "@/ui/heading";
 import { useState } from "react";
 import FilterButton from "./filters/filterButton";
 import SortDropdown from "./filters/sortDropdown";
-import TattooStyle from "./filters/tattooStyle";
+import TattooStyleDropdown from "./filters/tattooStyleDropdown";
 import { sorts } from "@/config/data/filter";
-import { Artist } from "@/config/interfaces/artist";
+import { Artist } from "@/config/models/artist";
+import LocationDropdown from "./filters/locationDropdown";
+import { Coordinates } from "@/config/models/geolocation";
 
 export default function Wrapper() {
   // array of currently displayed artists
@@ -18,6 +20,8 @@ export default function Wrapper() {
 
   const [sort, setSort] = useState(sorts);
   const [tattooStyle, setTattooStyle] = useState(tattooStyles);
+  const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
+  const [radius, setRadius] = useState(300);
 
   // Handle sort change on click
   const handleSortChange = (index: number) => {
@@ -27,6 +31,30 @@ export default function Wrapper() {
         isActive: i === index,
       }))
     );
+  };
+
+  // Apply sort
+  const applySort = (artists: Artist[]) => {
+    const activeSort = sort.find((option) => option.isActive === true);
+
+    switch (activeSort!.text) {
+      case "Am Beliebtesten":
+        // Todo
+        return artists;
+
+      case "Neuerscheinungen":
+        // Todo
+        return artists;
+
+      case "Niedrigster Preis":
+        return artists.sort((a, b) => a.hourlyRate - b.hourlyRate);
+
+      case "Höchster Preis":
+        return artists.sort((a, b) => b.hourlyRate - a.hourlyRate);
+
+      default:
+        return artists;
+    }
   };
 
   // Toggle tattoo style on click
@@ -69,29 +97,14 @@ export default function Wrapper() {
     );
   };
 
-  // Apply sort
-  const applySort = (artists: Artist[]) => {
-    const activeSort = sort.find((option) => option.isActive === true);
-
-    switch (activeSort!.text) {
-      case "Am Beliebtesten":
-        // Todo
-        return artists;
-
-      case "Neuerscheinungen":
-        // Todo
-        return artists;
-
-      case "Niedrigster Preis":
-        return artists.sort((a, b) => a.hourlyRate - b.hourlyRate);
-
-      case "Höchster Preis":
-        return artists.sort((a, b) => b.hourlyRate - a.hourlyRate);
-
-      default:
-        return artists;
-    }
+  // Change the coordinates for location filter
+  const handleCoordinatesChange = (coordinates: Coordinates) => {
+    setCoordinates(coordinates);
   };
+
+  const handleRadiusChange = (radius: number) => {
+    setRadius(radius);
+  }
 
   // Run every filter criterion to create an updated list of artists
   const applyAllFilter = () => {
@@ -123,11 +136,18 @@ export default function Wrapper() {
           handleSortChange={handleSortChange}
           applySort={applyAllFilter}
         />
-        <TattooStyle
+        <TattooStyleDropdown
           tattooStyle={tattooStyle}
           handleTattooStyleChange={handleTattooStyleChange}
           reset={resetTattooStyle}
           applyTattooStyle={applyAllFilter}
+        />
+        <LocationDropdown
+          coordinates={coordinates}
+          handleCoordinatesChange={handleCoordinatesChange}
+          radius={radius}
+          handleRadiusChange={handleRadiusChange}
+          applyLocationFilter={applyAllFilter}
         />
 
         <div className="ml-auto">

@@ -6,7 +6,8 @@ import FilterButton from "./filterButton";
 import clsx from "clsx";
 import { useEffect, useRef, useState } from "react";
 import { useOnClickOutside } from "@/lib/useOnClickOutside";
-import { Sort } from "@/config/interfaces/filter";
+import { Sort } from "@/config/models/filter";
+import { dropdownOption } from "@/config/styles";
 
 interface Props {
   sort: Sort[];
@@ -20,6 +21,7 @@ export default function SortDropdown({
   applySort,
 }: Props) {
   const [show, setShow] = useState(false);
+  const [isActive, setIsActive] = useState(false);
   const sortRef = useRef<HTMLDivElement>(null);
 
   // Toggle dropdown
@@ -50,9 +52,17 @@ export default function SortDropdown({
     applySort();
   };
 
+  // Change the button style if a sort is active
+  useEffect(() => {
+    if (!sort[0].isActive) setIsActive(true);
+    else setIsActive(false);
+  }, [sort]);
+
   return (
     <div ref={sortRef} className="relative">
-      <FilterButton onClick={() => toggleSort()}>Sortieren</FilterButton>
+      <FilterButton isActive={isActive} onClick={() => toggleSort()}>
+        Sortieren
+      </FilterButton>
 
       {show && (
         <ul className="absolute rounded-sm -bottom-2 translate-y-full w-max z-10 bg-background border-2">
@@ -61,7 +71,8 @@ export default function SortDropdown({
               key={index}
               onClick={() => handleSortChange(index)}
               className={clsx(
-                "p-4 hover:bg-tint cursor-pointer [&:not(:nth-last-child(-n+2))]:border-b border-tone flex justify-between items-center",
+                dropdownOption,
+                "[&:not(:nth-last-child(-n+2))]:border-b",
                 option.isActive && "font-bold"
               )}
             >
