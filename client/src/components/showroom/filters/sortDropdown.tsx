@@ -65,9 +65,9 @@ export default function SortDropdown({
       </FilterButton>
 
       {show && (
-        <ul className="absolute rounded-sm -bottom-2 translate-y-full w-max z-10 bg-background border-2">
+        <div className="absolute rounded-sm -bottom-2 translate-y-full w-max z-10 bg-background border-2">
           {sort.map((option, index) => (
-            <li
+            <div
               key={index}
               onClick={() => handleSortChange(index)}
               className={clsx(
@@ -78,11 +78,11 @@ export default function SortDropdown({
             >
               {option.text}
               {option.isActive && <Icon name="checkCircle" size="base" />}
-            </li>
+            </div>
           ))}
 
           <ApplyFilter handleReset={reset} handleApply={handleApply} />
-        </ul>
+        </div>
       )}
     </div>
   );

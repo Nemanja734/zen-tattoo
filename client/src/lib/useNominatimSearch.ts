@@ -14,8 +14,8 @@ export const useNominatimSearch = () => {
       const addr = location.address;
 
       return {
-        country: addr.country,
-        county: addr.county,
+        country: addr.country || "",
+        county: addr.county || "",
         city:
           addr.city ||
           addr.town ||
@@ -25,12 +25,15 @@ export const useNominatimSearch = () => {
           "",
         postalCode: addr.postcode || "",
         street:
-          (addr.road ||
-            addr.pedestrian ||
-            addr.footway ||
-            addr.path ||
-            addr.square ||
-            "") + (addr.house_number ? ` ${addr.house_number}` : ""),
+          addr.road ||
+          addr.pedestrian ||
+          addr.footway ||
+          addr.path ||
+          addr.square ||
+          "",
+        house_number: addr.house_number || "",
+        lat: parseFloat(location.lat),
+        lon: parseFloat(location.lon),
       };
     });
   };
@@ -67,13 +70,13 @@ export const useNominatimSearch = () => {
 
   // Turn loading to true and reset searchResults when initiating new search
   useEffect(() => {
-      setLoading(true);
-      setSearchResults([]);
-      
-      if (!search.trim()) {
-        setLoading(false);
-      }
+    setLoading(true);
+    setSearchResults([]);
+
+    if (!search.trim()) {
+      setLoading(false);
+    }
   }, [search]);
 
-  return { search, debouncedSearch, setSearch, searchResults, loading };
+  return { search, setSearch, debouncedSearch, searchResults, loading };
 };

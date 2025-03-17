@@ -6,4 +6,6 @@ export interface Artist {
     city: string
     tattooStyle: string[]
     hourlyRate: number
+    latitude: number
+    longitude: number
 }

@@ -1,5 +1,7 @@
 export interface NominatimData {
   address: NominatimAddress;
+  lat: string,
+  lon: string,
 }
 
 export interface NominatimAddress {
@@ -21,14 +23,17 @@ export interface NominatimAddress {
 }
 
 export type Address = {
-  country?: string;
-  county?: string;
-  city?: string;
-  postalCode?: string;
-  street?: string;
+  country: string;
+  county: string;
+  city: string;
+  postalCode: string;
+  street: string;
+  house_number: string;
+  lat: number,
+  lon: number,
 }
 
 export type Coordinates = {
-  latitude: number;
-  longitude: number;
+  lat: number;
+  lon: number;
 };

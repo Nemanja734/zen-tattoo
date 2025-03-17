@@ -8,6 +8,7 @@ type Props = {
   searchResults: Address[] | null;
   showSearchResults: boolean;
   loading: boolean;
+  handleClick: (index: number) => void;
 };
 
 export default function SearchLocationResults({
@@ -16,17 +17,18 @@ export default function SearchLocationResults({
   searchResults,
   showSearchResults,
   loading,
+  handleClick,
 }: Props) {
   return (
     <div className="absolute w-full bg-background">
-      {search && (
+      {search && showSearchResults && (
         <>
-          {showSearchResults &&
-            searchResults &&
+          {searchResults &&
             searchResults.map((location, index) => (
               <div
                 key={index}
                 className="flex items-center cursor-pointer hover:bg-tint"
+                onClick={() => handleClick(index)}
               >
                 <Icon name="location" size="base" className="ml-2" />
                 <div className="p-2 w-full whitespace-nowrap overflow-hidden">
@@ -36,7 +38,7 @@ export default function SearchLocationResults({
                         level="sm bold"
                         customs="text-ellipsis overflow-hidden"
                       >
-                        {location.street}
+                        {location.street} {location.house_number}
                       </Text>
                       <Text level="sm" customs="text-ellipsis overflow-hidden">
                         {location.postalCode} {location.city},{" "}

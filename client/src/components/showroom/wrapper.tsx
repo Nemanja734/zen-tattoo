@@ -10,7 +10,9 @@ import TattooStyleDropdown from "./filters/tattooStyleDropdown";
 import { sorts } from "@/config/data/filter";
 import { Artist } from "@/config/models/artist";
 import LocationDropdown from "./filters/locationDropdown";
-import { Coordinates } from "@/config/models/geolocation";
+import { Address, Coordinates } from "@/config/models/geolocation";
+import { useCalculateDistance } from "@/lib/useCalculateDistance";
+import PriceDropdown from "./filters/priceDropdown";
 
 export default function Wrapper() {
   // array of currently displayed artists
@@ -20,8 +22,12 @@ export default function Wrapper() {
 
   const [sort, setSort] = useState(sorts);
   const [tattooStyle, setTattooStyle] = useState(tattooStyles);
+
   const [coordinates, setCoordinates] = useState<Coordinates | null>(null);
-  const [radius, setRadius] = useState(300);
+  const [radius, setRadius] = useState<number | null>(null);
+
+  const [minPrice, setMinPrice] = useState("");
+  const [maxPrice, setMaxPrice] = useState("");
 
   // Handle sort change on click
   const handleSortChange = (index: number) => {
@@ -98,13 +104,54 @@ export default function Wrapper() {
   };
 
   // Change the coordinates for location filter
-  const handleCoordinatesChange = (coordinates: Coordinates) => {
-    setCoordinates(coordinates);
+  const handleCoordinatesChange = (address: Address) => {
+    setCoordinates({ lat: address.lat, lon: address.lon });
   };
 
-  const handleRadiusChange = (radius: number) => {
-    setRadius(radius);
-  }
+  const resetLocation = () => {
+    setCoordinates(null);
+    setRadius(null);
+  };
+
+  // Change the radius for location filter
+  const handleRadiusChange = (radius: string) => {
+    console.log(parseInt(radius));
+    setRadius(parseInt(radius));
+  };
+
+  const filterByLocation = (artists: Artist[]) => {
+    if (!coordinates || !radius) return artists;
+
+    return artists.filter((artist) => {
+      const distance = useCalculateDistance({
+        lat1: artist.latitude,
+        lon1: artist.longitude,
+        lat2: coordinates.lat,
+        lon2: coordinates.lon,
+      });
+
+      console.log(distance, radius);
+
+      return distance <= radius;
+    });
+  };
+
+  const resetPrice = () => {
+    setMinPrice("");
+    setMaxPrice("");
+  };
+
+  const filterByPrice = (artists: Artist[]) => {
+    if (!minPrice && !maxPrice) return artists;
+    console.log(minPrice, maxPrice);
+
+    return artists.filter((artist) => {
+      return (
+        (minPrice === "" || parseInt(minPrice) <= artist.hourlyRate) &&
+        (maxPrice === "" || parseInt(maxPrice) >= artist.hourlyRate)
+      );
+    });
+  };
 
   // Run every filter criterion to create an updated list of artists
   const applyAllFilter = () => {
@@ -113,6 +160,8 @@ export default function Wrapper() {
 
     // Apply all filters and the sort at last
     updatedArtists = filterByTattooStyle(updatedArtists);
+    updatedArtists = filterByLocation(updatedArtists);
+    updatedArtists = filterByPrice(updatedArtists);
     updatedArtists = applySort(updatedArtists);
 
     // Update the displayed list of artists
@@ -122,7 +171,9 @@ export default function Wrapper() {
   // Reset the list of artists to the default list and reset the filters
   const resetAllFilter = () => {
     setFilteredArtists(artists);
-    setTattooStyle(tattooStyles);
+    resetTattooStyle();
+    resetLocation();
+    resetPrice();
     setSort(sorts);
   };
 
@@ -139,8 +190,8 @@ export default function Wrapper() {
         <TattooStyleDropdown
           tattooStyle={tattooStyle}
           handleTattooStyleChange={handleTattooStyleChange}
-          reset={resetTattooStyle}
           applyTattooStyle={applyAllFilter}
+          reset={resetTattooStyle}
         />
         <LocationDropdown
           coordinates={coordinates}
@@ -148,6 +199,15 @@ export default function Wrapper() {
           radius={radius}
           handleRadiusChange={handleRadiusChange}
           applyLocationFilter={applyAllFilter}
+          reset={resetLocation}
+        />
+        <PriceDropdown
+          minPrice={minPrice}
+          setMinPrice={(value) => setMinPrice(value)}
+          maxPrice={maxPrice}
+          setMaxPrice={(value) => setMaxPrice(value)}
+          reset={resetPrice}
+          handleApply={applyAllFilter}
         />
 
         <div className="ml-auto">
