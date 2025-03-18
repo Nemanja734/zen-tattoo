@@ -3,7 +3,7 @@
 import { artists, tattooStyles } from "@/config/mock/artists";
 import ArtistCardSwiper from "../artistCardSwiper";
 import Heading from "@/ui/heading";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import FilterButton from "./filterButton";
 import SortDropdown from "./sortDropdown";
 import TattooStyleDropdown from "./tattooStyleDropdown";
@@ -150,7 +150,7 @@ export default function Wrapper() {
   };
 
   // Run every filter criterion to create an updated list of artists
-  const applyAllFilter = () => {
+  const applyAllFilter = useCallback(() => {
     // Create a new fresh array of artists
     let updatedArtists = [...artists];
 
@@ -162,7 +162,7 @@ export default function Wrapper() {
 
     // Update the displayed list of artists
     setFilteredArtists(updatedArtists);
-  };
+  }, []);
 
   // Reset the list of artists to the default list and reset the filters
   const resetAllFilter = () => {

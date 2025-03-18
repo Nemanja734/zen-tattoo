@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "cj8UuUcnong=",
+  "success": true,
+  "projectFilePath": "/home/nemo/Desktop/workspace/zen-tattoo/API/API.csproj",
+  "expectedPackageFiles": [
+    "/home/nemo/.nuget/packages/microsoft.aspnetcore.openapi/9.0.3/microsoft.aspnetcore.openapi.9.0.3.nupkg.sha512",
+    "/home/nemo/.nuget/packages/microsoft.openapi/1.6.17/microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}

@@ -4,11 +4,7 @@ import Text from "@/ui/text";
 import TattooStyleTags from "@/ui/tattooStyleTags";
 import Button from "@/ui/button";
 
-type Props = {
-  params: Promise<{ id: number }>;
-};
-
-export default function Page({ params }: Props) {
+export default function Page() {
   const artist = artists[0];
   const rate = artist.hourlyRate.toFixed(2).replace(".", ",");
 

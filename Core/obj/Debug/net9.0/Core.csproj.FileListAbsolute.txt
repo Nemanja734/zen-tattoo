@@ -1,0 +1,12 @@
+/home/nemo/Desktop/workspace/zen-tattoo/Core/bin/Debug/net9.0/Core.deps.json
+/home/nemo/Desktop/workspace/zen-tattoo/Core/bin/Debug/net9.0/Core.dll
+/home/nemo/Desktop/workspace/zen-tattoo/Core/bin/Debug/net9.0/Core.pdb
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/Core.GeneratedMSBuildEditorConfig.editorconfig
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/Core.AssemblyInfoInputs.cache
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/Core.AssemblyInfo.cs
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/Core.csproj.CoreCompileInputs.cache
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/Core.sourcelink.json
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/Core.dll
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/refint/Core.dll
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/Core.pdb
+/home/nemo/Desktop/workspace/zen-tattoo/Core/obj/Debug/net9.0/ref/Core.dll
