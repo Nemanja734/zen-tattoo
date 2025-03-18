@@ -9,7 +9,7 @@ import Footer from "@/layout/footer";
 import Bento from "@/components/index/bento";
 import Contact from "@/components/artist/contact";
 
-export default function Home() {
+export default function Page() {
   return (
     <>
     <Nav navType={NavType.Main}></Nav>

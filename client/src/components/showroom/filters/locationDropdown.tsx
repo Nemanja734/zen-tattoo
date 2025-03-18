@@ -45,7 +45,7 @@ export default function LocationDropdown({
   return (
     <div ref={ref} className="relative">
       <FilterButton isActive={isActive} onClick={() => toggleLocation()}>
-        Sortieren
+        Standort
       </FilterButton>
 
       {show && (

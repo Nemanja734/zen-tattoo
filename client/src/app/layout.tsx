@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { geistSans } from "@/config/data/fonts";
+import Nav from "@/layout/nav";
+import Footer from "@/layout/footer";
 
 export const metadata: Metadata = {
   title: "Zen Tattoo | Das digitale Tattoostudio",
@@ -15,7 +17,9 @@ export default function RootLayout({
   return (
     <html lang="de" className={geistSans.className}>
       <body>
+        <Nav />
         {children}
+        <Footer />
       </body>
     </html>
   );

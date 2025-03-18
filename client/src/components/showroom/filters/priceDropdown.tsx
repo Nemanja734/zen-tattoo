@@ -29,31 +29,35 @@ export default function PriceDropdown({
 
   useEffect(() => {
     if (!show) handleApply();
-  }, [show])
+  }, [show]);
 
   useEffect(() => {
     if (minPrice.trim() || maxPrice.trim()) setIsActive(true);
     else setIsActive(false);
-  }, [minPrice, maxPrice])
+  }, [minPrice, maxPrice]);
 
   return (
     <div ref={ref} className="relative">
-      <FilterButton isActive={isActive} onClick={() => setShow(!show)}>Sortieren</FilterButton>
+      <FilterButton isActive={isActive} onClick={() => setShow(!show)}>
+        Preis
+      </FilterButton>
 
       {show && (
         <div className="absolute rounded-sm -bottom-2 translate-y-full w-max z-10 bg-background border-2 max-w-[300px]">
-          <InputNumber
-            value={minPrice}
-            defaultPlaceholder="Von"
-            onChange={(value) => setMinPrice(value)}
-            ariaLabel="Preisuntergrenze"
-          />
-          <InputNumber
-            value={maxPrice}
-            defaultPlaceholder="Bis"
-            onChange={(value) => setMaxPrice(value)}
-            ariaLabel="Preisobergrenze"
-          />
+          <div className="p-4 grid gap-4">
+            <InputNumber
+              value={minPrice}
+              defaultPlaceholder="Von"
+              onChange={(value) => setMinPrice(value)}
+              ariaLabel="Preisuntergrenze"
+            />
+            <InputNumber
+              value={maxPrice}
+              defaultPlaceholder="Bis"
+              onChange={(value) => setMaxPrice(value)}
+              ariaLabel="Preisobergrenze"
+            />
+          </div>
           <ApplyFilter handleReset={reset} handleApply={handleApply} />
         </div>
       )}

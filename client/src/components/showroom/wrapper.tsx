@@ -115,7 +115,6 @@ export default function Wrapper() {
 
   // Change the radius for location filter
   const handleRadiusChange = (radius: string) => {
-    console.log(parseInt(radius));
     setRadius(parseInt(radius));
   };
 
@@ -130,8 +129,6 @@ export default function Wrapper() {
         lon2: coordinates.lon,
       });
 
-      console.log(distance, radius);
-
       return distance <= radius;
     });
   };
@@ -143,7 +140,6 @@ export default function Wrapper() {
 
   const filterByPrice = (artists: Artist[]) => {
     if (!minPrice && !maxPrice) return artists;
-    console.log(minPrice, maxPrice);
 
     return artists.filter((artist) => {
       return (

@@ -1,22 +1,19 @@
+"use client"
+
 import LogoMain from "./logoMain";
 import NavItemsList from "./navItemsList";
 import NavAside from "./navAside";
 import CrossLocationSearch from "@/components/crossLocationSearch";
+import { usePathname } from "next/navigation";
 
-export enum NavType {
-  Main = "landingPage",
-  Artist = "artist",
-}
-
-export default function Nav({ navType }: { navType: NavType }) {
+export default function Nav() {
+  const pathname = usePathname();
 
   return (
     <div className="sticky top-0 bg-background z-100">
       <div className="container flex gap-header justify-between items-center py-3! md:py-5!">
         <LogoMain />
-        {navType === NavType.Main && (
-          <CrossLocationSearch />
-        )}
+        {!pathname.startsWith("/artist") && <CrossLocationSearch />}
         {/* Mobile */}
         <NavAside className="lg:hidden" />
         {/* Desktop */}
@@ -25,32 +22,3 @@ export default function Nav({ navType }: { navType: NavType }) {
     </div>
   );
 }
-
-
-
-// function getNavContent() {
-//   switch (navType) {
-//     case NavType.Main:
-//       return (
-//         <>
-//           <LogoMain />
-//           <SearchLocation handleClick={(address: Address) => handleSearch(address)} />
-//           {/* Mobile */}
-//           <NavAside className="lg:hidden" />
-//           {/* Desktop */}
-//           <NavItemsList className="hidden lg:flex items-center" />
-//         </>
-//       );
-
-//     case NavType.Artist:
-//       return (
-//         <>
-//           <LogoMain />
-//           {/* Mobile */}
-//           <NavAside className="lg:hidden" />
-//           {/* Tablet */}
-//           <NavItemsList className="hidden lg:flex items-center" />
-//         </>
-//       );
-//   }
-// }

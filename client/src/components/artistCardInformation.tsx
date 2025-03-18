@@ -1,6 +1,7 @@
 import Button from "@/ui/button";
 import Text from "@/ui/text";
 import TattooStyleTags from "@/ui/tattooStyleTags";
+import { routes } from "@/config/data/routes";
 
 interface Prop {
   firstName: string;
@@ -28,7 +29,7 @@ export default function ArtistCardInformation(prop: Prop) {
       <Text level="xl" customs="font-normal!">
         {rate} €
       </Text>
-      <Button level="stroke-sm" className="w-fit">
+      <Button level="stroke-sm" className="w-fit" href={routes.showroom + "/2"}>
         Portfolio anzeigen
       </Button>
     </div>
