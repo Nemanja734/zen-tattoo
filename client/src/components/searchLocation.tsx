@@ -12,7 +12,7 @@ type Props = {
 };
 
 export default function SearchLocation({ handleClick }: Props) {
-  const { search, debouncedSearch, setSearch, searchResults, loading } =
+  const { search, setSearch, searchResults, loading } =
     useNominatimSearch();
   const [showSearchResults, setShowSearchResults] = useState(false);
   const searchResultsRef = useRef<HTMLDivElement | null>(null);
@@ -46,7 +46,6 @@ export default function SearchLocation({ handleClick }: Props) {
         />
         <SearchLocationResults
           search={search}
-          debouncedSearch={debouncedSearch}
           searchResults={searchResults}
           showSearchResults={showSearchResults}
           loading={loading}

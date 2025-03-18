@@ -4,7 +4,7 @@ import Icon from "@/ui/icon";
 import ApplyFilter from "./applyFilter";
 import FilterButton from "./filterButton";
 import clsx from "clsx";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useOnClickOutside } from "@/lib/useOnClickOutside";
 import { Sort } from "@/config/models/filter";
 import { dropdownOption } from "@/config/styles";
@@ -36,21 +36,21 @@ export default function SortDropdown({
     }
   });
 
-  // Run the sort everytime the dropdown toggles
-  useEffect(() => {
-    if (!show) handleApply();
-  }, [show]);
-
   // Reset sort to default value
   const reset = () => {
     handleSortChange(0);
   };
 
   // Stop showing the sort and utilize the callback function
-  const handleApply = () => {
+  const handleApply = useCallback(() => {
     setShow(false);
     applySort();
-  };
+  }, [applySort]);
+
+  // Run the sort everytime the dropdown toggles
+  useEffect(() => {
+    if (!show) handleApply();
+  }, [show, handleApply]);
 
   // Change the button style if a sort is active
   useEffect(() => {

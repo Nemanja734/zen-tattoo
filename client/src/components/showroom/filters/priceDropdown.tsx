@@ -29,7 +29,7 @@ export default function PriceDropdown({
 
   useEffect(() => {
     if (!show) handleApply();
-  }, [show]);
+  }, [show, handleApply]);
 
   useEffect(() => {
     if (minPrice.trim() || maxPrice.trim()) setIsActive(true);

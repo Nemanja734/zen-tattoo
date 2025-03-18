@@ -1,5 +1,5 @@
 import ApplyFilter from "./applyFilter";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { tattooStyles } from "@/config/mock/artists";
 import FilterButton from "./filterButton";
 import clsx from "clsx";
@@ -36,52 +36,53 @@ export default function TattooStyleDropdown({
     }
   });
 
+  // Stop showing the sort and utilize the callback function
+  const handleApply = useCallback(() => {
+    setShow(false);
+    applyTattooStyle();
+  }, [applyTattooStyle]);
+
+  // Helper function to check if any style is selected in the first place
+  const styleSelected = useCallback(() => {
+    return !(tattooStyle.length === tattooStyles.length);
+  }, [tattooStyle.length]);
+
   // Run the filter everytime the dropdown toggles
   useEffect(() => {
     if (!show) handleApply();
-  }, [show]);
-
-  // Stop showing the sort and utilize the callback function
-  const handleApply = () => {
-    setShow(false);
-    applyTattooStyle();
-  };
-
-  // Helper function to check if any style is selected in the first place
-  const styleSelected = () => {
-    return !(tattooStyle.length === tattooStyles.length);
-  };
+  }, [show, handleApply]);
 
   // Change the button style if the filter is active
   useEffect(() => {
     if (styleSelected()) setIsActive(true);
     else setIsActive(false);
-  }, [tattooStyle]);
+  }, [tattooStyle, styleSelected]);
 
   return (
     <div ref={ref} className="relative">
-      <FilterButton isActive={isActive} onClick={toggleSort}>Tattoostil</FilterButton>
+      <FilterButton isActive={isActive} onClick={toggleSort}>
+        Tattoostil
+      </FilterButton>
 
       {show && (
         <ul className="absolute rounded-sm -bottom-2 translate-y-full w-max z-10 bg-background border-2">
           <div className="h-[420px] overflow-y-scroll">
-
-          {tattooStyles.map((option, index) => (
-            <li
-              key={index}
-              onClick={() => handleTattooStyleChange(option)}
-              className={clsx(
-                dropdownOption,
-                "p-4 hover:bg-tint cursor-pointer border-tone flex justify-between items-center [&:not(:nth-last-child(-n+1))]:border-b",
-                tattooStyle.includes(option) && styleSelected() && "font-bold"
-              )}
-            >
-              {option}
-              {tattooStyle.includes(option) && styleSelected() && (
-                <Icon name="checkCircle" size="base" />
-              )}
-            </li>
-          ))}
+            {tattooStyles.map((option, index) => (
+              <li
+                key={index}
+                onClick={() => handleTattooStyleChange(option)}
+                className={clsx(
+                  dropdownOption,
+                  "p-4 hover:bg-tint cursor-pointer border-tone flex justify-between items-center [&:not(:nth-last-child(-n+1))]:border-b",
+                  tattooStyle.includes(option) && styleSelected() && "font-bold"
+                )}
+              >
+                {option}
+                {tattooStyle.includes(option) && styleSelected() && (
+                  <Icon name="checkCircle" size="base" />
+                )}
+              </li>
+            ))}
           </div>
 
           <ApplyFilter handleReset={reset} handleApply={handleApply} />

@@ -11,7 +11,7 @@ import { sorts } from "@/config/data/filter";
 import { Artist } from "@/config/models/artist";
 import LocationDropdown from "./filters/locationDropdown";
 import { Address, Coordinates } from "@/config/models/geolocation";
-import { useCalculateDistance } from "@/lib/useCalculateDistance";
+import { calculateDistance } from "@/lib/useCalculateDistance";
 import PriceDropdown from "./filters/priceDropdown";
 
 export default function Wrapper() {
@@ -70,7 +70,7 @@ export default function Wrapper() {
       const isSelected = currentStyles.includes(style);
 
       // Select or unselect the style based on its current value
-      let newStyles = isSelected
+      const newStyles = isSelected
         ? currentStyles.filter((s) => s !== style)
         : [...currentStyles, style];
 
@@ -122,7 +122,7 @@ export default function Wrapper() {
     if (!coordinates || !radius) return artists;
 
     return artists.filter((artist) => {
-      const distance = useCalculateDistance({
+      const distance = calculateDistance({
         lat1: artist.latitude,
         lon1: artist.longitude,
         lat2: coordinates.lat,

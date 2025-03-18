@@ -6,7 +6,7 @@ type Props = {
 };
 
 // Function to calculate distance with the Haversine Method
-export const useCalculateDistance = ({
+export const calculateDistance = ({
   lat1,
   lon1,
   lat2,

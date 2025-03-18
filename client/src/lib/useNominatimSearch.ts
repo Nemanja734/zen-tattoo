@@ -78,5 +78,5 @@ export const useNominatimSearch = () => {
     }
   }, [search]);
 
-  return { search, setSearch, debouncedSearch, searchResults, loading };
+  return { search, setSearch, searchResults, loading };
 };

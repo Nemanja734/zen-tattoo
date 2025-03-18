@@ -4,7 +4,6 @@ import Text from "@/ui/text";
 
 type Props = {
   search: string;
-  debouncedSearch: string;
   searchResults: Address[] | null;
   showSearchResults: boolean;
   loading: boolean;
@@ -13,7 +12,6 @@ type Props = {
 
 export default function SearchLocationResults({
   search,
-  debouncedSearch,
   searchResults,
   showSearchResults,
   loading,
@@ -80,7 +78,7 @@ export default function SearchLocationResults({
               </div>
             ))}
 
-          {searchResults?.length == 0 && debouncedSearch && !loading && (
+          {searchResults?.length == 0 && search && !loading && (
             <div className="p-2 w-full">
               <Text level="sm">Keine Ergebnisse gefunden</Text>
             </div>
