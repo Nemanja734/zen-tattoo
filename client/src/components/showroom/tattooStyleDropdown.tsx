@@ -1,3 +1,5 @@
+"use client"
+
 import ApplyFilter from "./applyFilter";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { tattooStyles } from "@/config/mock/artists";

@@ -4,15 +4,15 @@ import { artists, tattooStyles } from "@/config/mock/artists";
 import ArtistCardSwiper from "../artistCardSwiper";
 import Heading from "@/ui/heading";
 import { useState } from "react";
-import FilterButton from "./filters/filterButton";
-import SortDropdown from "./filters/sortDropdown";
-import TattooStyleDropdown from "./filters/tattooStyleDropdown";
+import FilterButton from "./filterButton";
+import SortDropdown from "./sortDropdown";
+import TattooStyleDropdown from "./tattooStyleDropdown";
 import { sorts } from "@/config/data/filter";
 import { Artist } from "@/config/models/artist";
-import LocationDropdown from "./filters/locationDropdown";
+import LocationDropdown from "./locationDropdown";
 import { Address, Coordinates } from "@/config/models/geolocation";
 import { calculateDistance } from "@/lib/useCalculateDistance";
-import PriceDropdown from "./filters/priceDropdown";
+import PriceDropdown from "./priceDropdown";
 
 export default function Wrapper() {
   // array of currently displayed artists
