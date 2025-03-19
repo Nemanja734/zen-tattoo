@@ -2,5 +2,4 @@
 Next.js
 
 # Back-End
-ASP.NET Core
-MySQL
+ASP.NET Core, MySQL
