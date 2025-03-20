@@ -14,17 +14,24 @@ public class AccountController(UserManager<AppUser> userManager, IEmailService e
     {
         var existingUser = await userManager.FindByEmailAsync(email);
         
-        if (existingUser != null) return BadRequest("Email already taken");
+        if (existingUser?.FirstName != null) 
+        {
+            return BadRequest("Email already taken");
+        }
 
         var appUser = new AppUser
         {
             Email = email,
+            UserName = email,
         };
 
-        await emailService.SendRegistrationLink(appUser);
-
         // Todo: Logging when the user was created
-        await userManager.CreateAsync(appUser);
+        if (existingUser == null) 
+        {
+            await userManager.CreateAsync(appUser);
+        }
+
+        await emailService.SendRegistrationLink(appUser);
 
         return Ok();
     }
