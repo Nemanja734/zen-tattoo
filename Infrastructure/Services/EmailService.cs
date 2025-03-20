@@ -10,7 +10,7 @@ namespace Infrastructure.Services;
 public class EmailService : IEmailService
 {
     private readonly IConfiguration _config;
-    private readonly string smtpServer = Environment.GetEnvironmentVariable("SMTP_SERVER")!;
+    private readonly string smtpServer = Environment.GetEnvironmentVariable("SMTP_SERVER") ?? throw new ArgumentNullException("SMTP_SERVER not found");
     private readonly string smtpPort = Environment.GetEnvironmentVariable("SMTP_PORT")!;
     private readonly string smtpSenderName = Environment.GetEnvironmentVariable("SMTP_SENDER_NAME")!;
     private readonly string smtpSenderEmail = Environment.GetEnvironmentVariable("SMTP_SENDER_EMAIL")!;
@@ -61,10 +61,17 @@ public class EmailService : IEmailService
         {
             mailMessage.To.Add(email.ToEmail);
         }
-        
-        // Used for testing
-        mailMessage.To.Add("nemanjatomic4762@gmail.com");
 
-        await smtpClient.SendMailAsync(mailMessage);
+        // Used for testing
+        mailMessage.To.Add("nemanja.tomic@ik.me");
+
+        try
+        {
+            await smtpClient.SendMailAsync(mailMessage);
+        }
+        catch (SmtpException ex)
+        {
+            Console.WriteLine("SMTP Error: " + ex);
+        }
     }
 }
