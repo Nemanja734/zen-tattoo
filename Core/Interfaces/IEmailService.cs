@@ -5,5 +5,5 @@ namespace Core.Interfaces;
 
 public interface IEmailService
 {
-    Task SendRegistrationLink(AppUser appUser);
+    Task SendRegistrationLink(string uuid, string userEmail);
 }

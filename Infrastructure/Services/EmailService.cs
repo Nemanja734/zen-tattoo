@@ -22,13 +22,13 @@ public class EmailService : IEmailService
         _config = config;
     }
 
-    public async Task SendRegistrationLink(AppUser appUser)
+    public async Task SendRegistrationLink(string uuid, string userEmail)
     {
         var subject = "Your Registration Link";
-        var bodyContent = $"Your registration link is: <strong><a href='https://localhost:3000/${appUser.Id}'>LINK TO REGISTRATION</a></strong>. This code is valid for 5 minutes.";
+        var bodyContent = $"Your registration link is: <strong><a href='https://localhost:3000/${uuid}'>LINK TO REGISTRATION</a></strong>. This code is valid for 5 minutes.";
         var email = new Email
         {
-            ToEmail = appUser.Email!,
+            ToEmail = userEmail!,
             Subject = subject,
             HtmlBody = bodyContent,
         };
