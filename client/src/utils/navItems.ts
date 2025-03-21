@@ -1,4 +1,23 @@
-import { routes } from "../routes";
+import { routes } from "./routes";
+
+export const sortOptions = [
+  {
+    text: "Am Beliebtesten",
+    isActive: true,
+  },
+  {
+    text: "Neuerscheinungen",
+    isActive: false,
+  },
+  {
+    text: "Niedrigster Preis",
+    isActive: false,
+  },
+  {
+    text: "Höchster Preis",
+    isActive: false,
+  },
+];
 
 export const navItems = [
   {

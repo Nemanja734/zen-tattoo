@@ -10,7 +10,9 @@ import Text from "../../shared/ui/text";
 import Heading from "../../shared/ui/heading";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
 import InputEmail from "../../shared/ui/form/inputEmail";
-import { apiUrl } from "@/environment";
+import { apiUrl } from "@/utils/environment";
+import { createEmail } from "@/utils/statusHandler";
+import Snack from "@/shared/ui/snack";
 
 type Props = {
   buttonLevel: string;
@@ -40,16 +42,10 @@ export default function EmailRegistrationModal({
       body: JSON.stringify({ email: data.email }),
     });
 
-    const handler = statusHandlers[response.status] || statusHandlers.default;
-
-    if (!response.ok) {
-      console.log("Response status: ", response.status);
-      // Todo: "Etwas ist schiefgelaufen... snack"
-    } else if (response.status == 409) {
-      console.log("Success");
-    } else {
-      // Todo: "Schau in deinem Postfach nach!"
-    }
+    // Error handling
+    const statusHandler = createEmail();
+    const handler = statusHandler[response.status] || statusHandler.default;
+    handler();
   };
 
   // Reset form if submit is successful
@@ -107,6 +103,8 @@ export default function EmailRegistrationModal({
       <Button onClick={() => setShowModal(!showModal)} level={buttonLevel}>
         {children}
       </Button>
+
+      <Snack color="alarm">Diese Email ist bereits vergeben. Bitte verwende eine andere.</Snack>
     </div>
   );
 }

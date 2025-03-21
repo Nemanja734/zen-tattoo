@@ -4,8 +4,8 @@ import clsx from "clsx";
 import Link from "next/link";
 
 interface Props {
-  level: string;
   className?: string;
+  level: string;
   href?: string;
   onClick?: () => void;
   type?: "submit" | "reset" | "button" | undefined; // Used for forms
@@ -14,8 +14,8 @@ interface Props {
 }
 
 export default function Button({
-  level,
   className,
+  level,
   href,
   onClick,
   type = "button",

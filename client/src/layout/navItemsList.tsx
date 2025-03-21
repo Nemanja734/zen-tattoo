@@ -1,4 +1,4 @@
-import { navItems } from "@/utils/data-objects/navItems";
+import { navItems } from "@/utils/navItems";
 import clsx from "clsx";
 import NavItems from "./navItems";
 import Button from "@/shared/ui/button";
