@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { artists } from "@/config/mock/artists";
-import Text from "@/ui/text";
-import TattooStyleTags from "@/ui/tattooStyleTags";
-import Button from "@/ui/button";
+import { artists } from "@/utils/mock/artists";
+import Text from "@/shared/ui/text";
+import TattooStyleTags from "@/shared/ui/tattooStyleTags";
+import Button from "@/shared/ui/button";
 
 export default function Page() {
   const artist = artists[0];

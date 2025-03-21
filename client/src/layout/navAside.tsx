@@ -1,11 +1,11 @@
 "use client";
 
 import Modal from "@/layout/modal";
-import Icon from "@/ui/icon";
+import Icon from "@/shared/ui/icon";
 import { useRef, useState } from "react";
 import NavItemsList from "./navItemsList";
 import { motion, AnimatePresence } from "motion/react";
-import { useOnClickOutside } from "@/lib/useOnClickOutside";
+import { useOnClickOutside } from "@/shared/lib/useOnClickOutside";
 
 interface Props {
   className: string;

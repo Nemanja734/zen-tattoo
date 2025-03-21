@@ -3,7 +3,7 @@ import Text from "./text";
 import { motion, AnimatePresence } from "motion/react";
 import clsx from "clsx";
 import { useState } from "react";
-import { input } from "@/config/styles";
+import { input } from "@/utils/styles";
 
 interface InputProps {
   name: string;

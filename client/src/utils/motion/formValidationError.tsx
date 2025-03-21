@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "motion/react";
-import Text from "@/ui/text";
+import Text from "@/shared/ui/text";
 
 type Props = {
     errorMessage: string | undefined,

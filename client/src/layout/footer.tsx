@@ -1,9 +1,9 @@
 import Image from "next/image";
-import DdStatic from "../ui/ddStatic";
-import Heading from "../ui/heading";
+import DdStatic from "../shared/ui/ddStatic";
+import Heading from "../shared/ui/heading";
 import LogoFooter from "./logoFooter";
-import Text from "../ui/text";
-import { routes } from "@/config/data/routes";
+import Text from "../shared/ui/text";
+import { routes } from "@/utils/routes";
 import Link from "next/link";
 
 export default function Footer() {
@@ -19,13 +19,14 @@ export default function Footer() {
 
           <div className="grid grid-flow-col justify-start gap-3">
             {paymentIcons.map((icon, index) => (
+              <div key={index} className="w-[60px] h-[40px] relative">
               <Image
-                key={index}
                 src={icon.src}
                 alt={icon.alt}
-                height={40}
-                width={60}
+                fill
+                className="object-contain"
               />
+            </div>
             ))}
           </div>
         </div>

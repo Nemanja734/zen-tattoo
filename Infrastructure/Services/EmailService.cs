@@ -63,7 +63,7 @@ public class EmailService : IEmailService
         }
 
         // Used for testing
-        mailMessage.To.Add("nemanja.tomic@ik.me");
+        mailMessage.To.Add("nemanjatomic4762@gmail.com");
 
         try
         {

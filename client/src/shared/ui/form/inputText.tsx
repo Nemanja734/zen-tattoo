@@ -1,19 +1,23 @@
-import { input } from "@/config/styles";
+import { input } from "@/utils/styles";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
-import FormValidationError from "@/components/motion/formValidationError";
+import FormValidationError from "@/utils/motion/formValidationError";
 
 type Props = {
   className?: string;
+  label: string;
+  placeholder: string;
+  inputName: string;
+  ariaLabel: string;
 };
 
-export default function InputEmail({
+export default function InputText({
   className,
+  label,
+  placeholder,
+  inputName,
+  ariaLabel,
 }: Props) {
-    const label = "E-Mail";
-    const placeholder = "E-Mail-Addresse"
-    const inputName = "email";
-    const ariaLabel = "Deine E-Mail-Addressse"
   const [placeholderState, setPlaceholderState] = useState(placeholder);
 
   const {
@@ -28,15 +32,11 @@ export default function InputEmail({
       <label htmlFor={inputName}>{label}</label>
 
       <input
-        type="email"
+        type="text"
         className={input}
         placeholder={placeholderState}
         {...register(inputName, {
           required: { value: true, message: `${label} ist ein Pflichtfeld` },
-          pattern: {
-            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            message: "Gib eine gültige E-Mail-Addresse ein",
-          },
         })}
         onFocus={() => setPlaceholderState("")}
         onBlur={() => setPlaceholderState(placeholder)}

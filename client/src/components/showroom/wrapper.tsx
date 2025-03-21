@@ -1,10 +1,10 @@
 "use client";
 
-import { artists } from "@/config/mock/artists";
+import { artists } from "@/utils/mock/artists";
 import ArtistCardSwiper from "../artistCardSwiper";
-import Heading from "@/ui/heading";
+import Heading from "@/shared/ui/heading";
 import { useState } from "react";
-import { Artist } from "@/config/models/artist";
+import { Artist } from "@/shared/models/artist";
 
 export default function Wrapper() {
   // array of currently displayed artists

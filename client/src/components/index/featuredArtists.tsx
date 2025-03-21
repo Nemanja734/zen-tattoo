@@ -1,10 +1,10 @@
 "use client";
 
-import Heading from "@/ui/heading";
-import { artist } from "@/config/mock/artistsFeatured";
+import Heading from "@/shared/ui/heading";
+import { artist } from "@/utils/mock/artistsFeatured";
 import ArtistTileSquared from "../artistCardSquared";
-import Button from "@/ui/button";
-import { routes } from "@/config/data/routes";
+import Button from "@/shared/ui/button";
+import { routes } from "@/utils/routes";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, EffectCreative } from "swiper/modules";
 import "swiper/css";

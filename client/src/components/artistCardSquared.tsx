@@ -20,6 +20,7 @@ export default function ArtistCardSquared(prop: ArtistTileProp) {
             <Image
               src={image}
               fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               alt={`Tattoo image ${index + 1}`}
               className="object-cover"
             />

@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Icon from "../ui/icon";
-import Text from "../ui/text";
+import Icon from "../shared/ui/icon";
+import Text from "../shared/ui/text";
 import { motion } from "motion/react";
 
 interface Props {

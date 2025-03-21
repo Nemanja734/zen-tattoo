@@ -1,6 +1,6 @@
-import Heading from "@/ui/heading";
-import Text from "@/ui/text";
-import Icon from "@/ui/icon";
+import Heading from "@/shared/ui/heading";
+import Text from "@/shared/ui/text";
+import Icon from "@/shared/ui/icon";
 
 interface Props {
   icon: string;

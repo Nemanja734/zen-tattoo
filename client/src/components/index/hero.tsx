@@ -1,8 +1,8 @@
-import Heading from "@/ui/heading";
+import Heading from "@/shared/ui/heading";
 import Image from "next/image";
-import Text from "@/ui/text";
-import Button from "@/ui/button";
-import { routes } from "@/config/data/routes";
+import Text from "@/shared/ui/text";
+import Button from "@/shared/ui/button";
+import { routes } from "@/utils/routes";
 
 export default function Hero() {
   return (
@@ -17,7 +17,7 @@ export default function Hero() {
 
       <div className="absolute top-0 right-0 md:static md:-translate-y-13 lg:-translate-y-11">
         <div className="relative w-50 h-50 sm:h-65 sm:w-65 ml-auto md:mx-auto">
-          <Image src="/enso.png" alt="Enso Kreis" fill />
+          <Image src="/enso.png" alt="Enso Kreis" fill sizes="60vw" />
           <Heading level="title-primary" className="absolute inset-0 m-auto grid place-items-center">
             Zen.
           </Heading>

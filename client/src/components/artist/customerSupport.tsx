@@ -1,8 +1,8 @@
 import Image from "next/image";
-import Heading from "@/ui/heading";
-import Text from "@/ui/text";
-import Button from "@/ui/button";
-import { routes } from "@/config/data/routes";
+import Heading from "@/shared/ui/heading";
+import Text from "@/shared/ui/text";
+import Button from "@/shared/ui/button";
+import { routes } from "@/utils/routes";
 
 export default function CustomerSupportSection() {
   return (

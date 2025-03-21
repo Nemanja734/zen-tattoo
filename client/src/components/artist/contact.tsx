@@ -1,11 +1,11 @@
 "use client";
 
-import Heading from "../../ui/heading";
-import Text from "../../ui/text";
-import Button from "../../ui/button";
+import Heading from "../../shared/ui/heading";
+import Text from "../../shared/ui/text";
+import Button from "../../shared/ui/button";
 import { FormProvider, useForm } from "react-hook-form";
-import Icon from "../../ui/icon";
-import FormInput from "../../ui/formInput";
+import Icon from "../../shared/ui/icon";
+import FormInput from "../../shared/ui/formInput";
 import { useState } from "react";
 
 interface ContactFormInputs {

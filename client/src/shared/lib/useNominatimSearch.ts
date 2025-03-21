@@ -1,4 +1,4 @@
-import { Address, NominatimData } from "@/config/models/geolocation";
+import { Address, NominatimData } from "@/shared/models/geolocation";
 import { useCallback, useEffect, useState } from "react";
 import { useDebounce } from "use-debounce";
 

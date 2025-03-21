@@ -1,25 +1,19 @@
-import { input } from "@/config/styles";
-import { AnimatePresence, motion } from "motion/react";
+import { input } from "@/utils/styles";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
-import Text from "../text";
-import FormValidationError from "@/components/motion/formValidationError";
+import FormValidationError from "@/utils/motion/formValidationError";
 
 type Props = {
   className?: string;
-  label: string;
-  placeholder: string;
-  inputName: string;
-  ariaLabel: string;
 };
 
-export default function InputText({
+export default function InputEmail({
   className,
-  label,
-  placeholder,
-  inputName,
-  ariaLabel,
 }: Props) {
+    const label = "E-Mail";
+    const placeholder = "E-Mail-Addresse"
+    const inputName = "email";
+    const ariaLabel = "Deine E-Mail-Addressse"
   const [placeholderState, setPlaceholderState] = useState(placeholder);
 
   const {
@@ -34,11 +28,15 @@ export default function InputText({
       <label htmlFor={inputName}>{label}</label>
 
       <input
-        type="text"
+        type="email"
         className={input}
         placeholder={placeholderState}
         {...register(inputName, {
           required: { value: true, message: `${label} ist ein Pflichtfeld` },
+          pattern: {
+            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+            message: "Gib eine gültige E-Mail-Addresse ein",
+          },
         })}
         onFocus={() => setPlaceholderState("")}
         onBlur={() => setPlaceholderState(placeholder)}

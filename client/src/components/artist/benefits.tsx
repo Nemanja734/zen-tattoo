@@ -1,6 +1,6 @@
-import Heading from "@/ui/heading";
+import Heading from "@/shared/ui/heading";
 import BenefitsCard from "./benefitsCard";
-import Text from "@/ui/text";
+import Text from "@/shared/ui/text";
 
 export default function BenefitsSection() {
   return (

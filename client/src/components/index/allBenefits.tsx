@@ -1,6 +1,6 @@
-import Heading from "@/ui/heading";
-import Text from "@/ui/text";
-import Icon from "@/ui/icon";
+import Heading from "@/shared/ui/heading";
+import Text from "@/shared/ui/text";
+import Icon from "@/shared/ui/icon";
 import Image from "next/image";
 
 export default function AllBenefits() {
@@ -21,7 +21,7 @@ export default function AllBenefits() {
         </div>
       </div>
       <div className="hidden md:block h-full relative rounded-2xl overflow-hidden">
-        <Image src="/home_allBenefits.jpg" alt="Tattoo on forearm" fill className="object-cover" />
+        <Image src="/home_allBenefits.jpg" sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" alt="Tattoo on forearm" fill className="object-cover" />
       </div>
     </div>
   );

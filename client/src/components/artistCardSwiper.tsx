@@ -4,7 +4,7 @@ import Image from "next/image";
 import { A11y, EffectCreative, Navigation, Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import ArtistTileInformation from "./artistCardInformation";
-import SwiperNavButtons from "@/ui/swiperNavButtons";
+import SwiperNavButtons from "@/shared/ui/swiperNavButtons";
 import "swiper/css";
 import "swiper/css/pagination";
 
@@ -44,6 +44,7 @@ export default function ArtistCardSwiper(prop: ArtistTileProp) {
                 src={tattoo}
                 alt="Portfolio image of tattoo artist"
                 fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 className="object-cover"
               />
             </SwiperSlide>

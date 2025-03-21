@@ -1,7 +1,7 @@
-import { routes } from "@/config/data/routes";
-import Button from "@/ui/button";
-import Heading from "@/ui/heading";
-import Text from "@/ui/text";
+import { routes } from "@/utils/routes";
+import Button from "@/shared/ui/button";
+import Heading from "@/shared/ui/heading";
+import Text from "@/shared/ui/text";
 import Image from "next/image";
 
 export default function Bento() {
@@ -12,6 +12,7 @@ export default function Bento() {
           src="/home_bento-3.jpg"
           alt="Tattoo artist at an appointment"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover rounded-lg -z-10"
         />
         <Heading level="subheading-primary" className="text-white self-end">
@@ -34,6 +35,7 @@ export default function Bento() {
           src="/home_bento-2.jpg"
           alt="Man with colored full body tattoo"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover rounded-lg -z-10"
         />
         <Heading level="subheading-primary" className="text-white mb-3">
@@ -57,6 +59,7 @@ export default function Bento() {
           src="/home_bento-1.jpg"
           alt="Close up image of tattoo needle in action"
           fill
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           className="object-cover rounded-lg -z-10"
         />
         <Heading level="subheading-primary" className="text-white mb-3">

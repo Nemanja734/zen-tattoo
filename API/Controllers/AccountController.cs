@@ -1,4 +1,5 @@
 using System;
+using API.DTOs;
 using Core.Entities;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Identity;
@@ -9,35 +10,28 @@ namespace API.Controllers;
 public class AccountController(UserManager<AppUser> userManager, IEmailService emailService) : BaseApiController
 {
     // Todo: Implement rate limits
-    [HttpPost("email-confirmation")]
-    public async Task<ActionResult> SendRegistrationLink(string email)
+    [HttpPost("email")]
+    public async Task<ActionResult<string>> CreateEmail([FromBody] CreateEmailDto email)
     {
-        var existingUser = await userManager.FindByEmailAsync(email);
+        var user = await userManager.FindByEmailAsync(email.Email);
+
+        if (user != null) return Conflict("Email already taken");
         
-        if (existingUser?.FirstName != null)
-        {
-            return BadRequest("Email already taken");
-        }
-
-        if (existingUser != null)
-        {
-            await emailService.SendRegistrationLink(existingUser.Id, existingUser.Email!);
-            return Ok();
-        }
-
         // Todo: Logging when the user was created
-        var appUser = new AppUser
+        var newUser = new AppUser
         {
-            Email = email,
-            UserName = email,
+            Email = email.Email,
+            UserName = email.Email,
         };
 
-        await userManager.CreateAsync(appUser);
+        await userManager.CreateAsync(newUser);
 
-        await emailService.SendRegistrationLink(appUser.Id, appUser.Email);
-        
+        await emailService.SendRegistrationLink(newUser.Id, newUser.Email);
+
         return Ok();
     }
+
+    // Todo: Resend registration link
 
     // Todo: Sign-up with custom password validation
 }

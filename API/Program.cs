@@ -10,18 +10,29 @@ var builder = WebApplication.CreateBuilder(args);
 
 Env.Load();
 
-var connectionString = Environment.GetEnvironmentVariable("DEFAULT_CONNECTION");
+var ConnectionString = Environment.GetEnvironmentVariable("DEFAULT_CONNECTION");
 
+var CorsClient = "_client";
+
+// http://localhost:5000/scalar/
 builder.Services.AddOpenApi();
 
 builder.Services.AddDbContext<DatabaseContext>(opt =>
 {
-    // Todo: Enable logging
-    opt.UseMySql(connectionString, ServerVersion.AutoDetect(connectionString));
+    opt.UseMySql(ConnectionString, ServerVersion.AutoDetect(ConnectionString));
 });
 
-//builder.Services.AddAuthorization();
 builder.Services.AddIdentityApiEndpoints<AppUser>().AddEntityFrameworkStores<DatabaseContext>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(
+        name: CorsClient,
+        policy =>
+        {
+            policy.WithOrigins("http://localhost:3000", "https://zen-tattoo.de").AllowAnyHeader().AllowAnyMethod();
+        });
+});
 
 builder.Services.AddControllers();
 
@@ -29,7 +40,6 @@ builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -38,8 +48,7 @@ if (app.Environment.IsDevelopment())
 
 // Todo: app.UseHttpsRedirection();
 
-// app.UseAuthorization();
-// app.UseAuthorization();
+app.UseCors(CorsClient);
 
 app.MapControllers();
 

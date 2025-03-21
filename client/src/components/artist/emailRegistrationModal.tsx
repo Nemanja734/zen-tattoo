@@ -1,38 +1,63 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import Button from "./button";
+import Button from "../../shared/ui/button";
 import { AnimatePresence, motion } from "motion/react";
 import Modal from "@/layout/modal";
-import Icon from "./icon";
-import { useOnClickOutside } from "@/lib/useOnClickOutside";
-import Text from "./text";
-import Heading from "./heading";
+import Icon from "../../shared/ui/icon";
+import { useOnClickOutside } from "@/shared/lib/useOnClickOutside";
+import Text from "../../shared/ui/text";
+import Heading from "../../shared/ui/heading";
 import { FieldValues, FormProvider, useForm } from "react-hook-form";
-import InputText from "./form/inputText";
-import InputEmail from "./form/inputEmail";
+import InputEmail from "../../shared/ui/form/inputEmail";
+import { apiUrl } from "@/environment";
 
 type Props = {
   buttonLevel: string;
   children: React.ReactNode;
 };
 
-export default function ButtonEmailRegistration({
+export default function EmailRegistrationModal({
   buttonLevel,
   children,
 }: Props) {
-  const [showModal, setShowModal] = useState(true);
+  const [showModal, setShowModal] = useState(false);
   const ref = useRef(null);
+  const methods = useForm();
+  const {
+    reset,
+    formState: { isSubmitSuccessful },
+  } = methods;
+
   useOnClickOutside(ref, () => setShowModal(false));
 
-  const methods = useForm();
-  const onSubmit = (data: FieldValues) => console.log(data.email);
+  const onSubmit = async (data: FieldValues) => {
+    const response = await fetch(apiUrl + "account/email", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ email: data.email }),
+    });
 
-  useEffect(() => {
-    if (methods.formState.isSubmitSuccessful) {
-        methods.reset();
+    const handler = statusHandlers[response.status] || statusHandlers.default;
+
+    if (!response.ok) {
+      console.log("Response status: ", response.status);
+      // Todo: "Etwas ist schiefgelaufen... snack"
+    } else if (response.status == 409) {
+      console.log("Success");
+    } else {
+      // Todo: "Schau in deinem Postfach nach!"
     }
-  }, [methods.formState])
+  };
+
+  // Reset form if submit is successful
+  useEffect(() => {
+    if (isSubmitSuccessful) {
+      reset();
+    }
+  }, [isSubmitSuccessful, reset]);
 
   return (
     <div>

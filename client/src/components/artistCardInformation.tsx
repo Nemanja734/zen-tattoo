@@ -1,7 +1,7 @@
-import Button from "@/ui/button";
-import Text from "@/ui/text";
-import TattooStyleTags from "@/ui/tattooStyleTags";
-import { routes } from "@/config/data/routes";
+import Button from "@/shared/ui/button";
+import Text from "@/shared/ui/text";
+import TattooStyleTags from "@/shared/ui/tattooStyleTags";
+import { routes } from "@/utils/routes";
 
 interface Prop {
   firstName: string;

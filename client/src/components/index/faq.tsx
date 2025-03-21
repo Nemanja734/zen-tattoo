@@ -1,7 +1,7 @@
-import Heading from "@/ui/heading";
+import Heading from "@/shared/ui/heading";
 import FaqItem from "../faqItem";
 import Link from "next/link";
-import { routes } from "@/config/data/routes";
+import { routes } from "@/utils/routes";
 
 export default function Faq() {
   return (

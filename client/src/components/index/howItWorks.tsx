@@ -1,6 +1,6 @@
-import Heading from "@/ui/heading";
+import Heading from "@/shared/ui/heading";
 import HowItWorksItem from "./howItWorksItem";
-import Button from "@/ui/button";
+import Button from "@/shared/ui/button";
 
 export default function HowItWorks() {
   return (

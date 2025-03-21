@@ -1,6 +1,6 @@
 "use client";
 
-import { input } from "@/config/styles";
+import { input } from "@/utils/styles";
 import clsx from "clsx";
 import { useState } from "react";
 

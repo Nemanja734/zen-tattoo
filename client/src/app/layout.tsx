@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { geistSans } from "@/config/data/fonts";
+import { geistSans } from "@/utils/fonts";
 import Nav from "@/layout/nav";
 import Footer from "@/layout/footer";
 

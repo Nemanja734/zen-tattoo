@@ -1,4 +1,4 @@
-import Heading from "@/ui/heading";
+import Heading from "@/shared/ui/heading";
 
 export default function NotFound() {
     return(
