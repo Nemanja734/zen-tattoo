@@ -28,18 +28,18 @@ export default function Button({
     "primary-lg":
       "bg-primary px-10 h-[48px] items-center rounded-sm text-background font-semibold shadow-lg shadow-primary/50",
     "primary-sm":
-      "bg-primary px-5 py-2 rounded-sm text-background font-semibold shadow-sm shadow-primary/50",
+      "bg-primary px-6 py-2 rounded-sm text-background font-semibold shadow-sm shadow-primary/50",
 
     "stroke-lg":
-      "bg-background px-8 h-[48px] items-center rounded-sm text-foreground border-2",
+      "bg-background px-10 h-[48px] items-center rounded-sm text-foreground border-2",
     "stroke-sm":
-      "bg-background px-4 h-[42px] items-center rounded-sm text-foreground border-2",
+      "bg-background px-6 h-[42px] items-center rounded-sm text-foreground border-2",
 
     "black-lg":
-    "bg-foreground px-8 h-[48px] items-center rounded-sm text-white border-2 border-black",
+    "bg-foreground px-10 h-[48px] items-center rounded-sm text-white border-2 border-black",
 
     "transparent-sm":
-      "bg-tone-transparent px-5 py-2 rounded-full text-white font-bold",
+      "bg-tone-transparent px-6 py-2 rounded-full text-white font-bold",
   };
 
   if (href) {

@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="de" className={geistSans.className}>
-      <body>
+      <body className="min-h-dvh flex flex-col">
         <Nav />
         {children}
         <Footer />

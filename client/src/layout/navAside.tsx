@@ -1,6 +1,6 @@
 "use client";
 
-import Overlay from "@/layout/overlay";
+import Modal from "@/layout/modal";
 import Icon from "@/ui/icon";
 import { useRef, useState } from "react";
 import NavItemsList from "./navItemsList";
@@ -25,22 +25,14 @@ export default function NavAside({ className }: Props) {
     <div className={className}>
       <Icon
         name="menu"
-        sizeComputed={iconSize}
+        size="lg"
         className="cursor-pointer"
         onClick={() => setShowAside(!showAside)}
       ></Icon>
       <AnimatePresence mode="wait" initial={false}>
         {showAside && (
           <div>
-            <motion.div
-              key="overlay"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.3 }}
-            >
-              <Overlay />
-            </motion.div>
+            <Modal />
 
             <motion.div
               key="aside"
@@ -53,7 +45,7 @@ export default function NavAside({ className }: Props) {
             >
               <Icon
                 name="close"
-                sizeComputed={iconSize}
+                size="lg"
                 className="ml-auto cursor-pointer"
                 onClick={() => setShowAside(false)}
               ></Icon>
