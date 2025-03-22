@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Heading from "@/shared/ui/heading";
 import Text from "@/shared/ui/text";
-import Button from "@/shared/ui/button";
-import { routes } from "@/utils/routes";
+import ButtonEmailRegistration from "@/shared/ui/buttonEmailRegistration";
 
 export default function CustomerSupportSection() {
   return (
@@ -22,20 +21,15 @@ export default function CustomerSupportSection() {
         >
           Erstklassiger Kundensupport für deinen Erfolg
         </Heading>
-        <Text level="text-base" customs="heading-primary-mb">
+        <Text level="text-base" className="heading-primary-mb">
           Unser 24/7-Kundensupport antwortet innerhalb weniger Minuten in deiner
           Landessprache. Falls du Fragen hast oder dich über unser Angebot
           erkundigen möchtest, kannst du uns einfach kontaktieren. Wir sind für
           dich und deine Kund*innen da, bis auch wirklich der letzte Punkt des
           Tages gestochen wurde.
         </Text>
-        <Button
-        href={routes.signup}
-        level="primary-lg"
-        className="w-[fit-content] m-auto"
-      >
-        Jetzt Registrieren
-      </Button>
+
+        <ButtonEmailRegistration buttonLevel="primary-lg">Jetzt Registrieren</ButtonEmailRegistration>
       </div>
     </div>
   );

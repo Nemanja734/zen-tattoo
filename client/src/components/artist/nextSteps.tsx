@@ -1,7 +1,6 @@
 import Heading from "@/shared/ui/heading";
 import NextStep from "./nextStep";
-import Button from "@/shared/ui/button";
-import { routes } from "@/utils/routes";
+import Overlay from "@/layout/overlay";
 
 export default function NextStepsSection() {
   const steps = [
@@ -27,14 +26,6 @@ export default function NextStepsSection() {
           </NextStep>
         ))}
       </div>
-
-      <Button
-        href={routes.signup}
-        level="primary-lg"
-        className="w-[fit-content] m-auto"
-      >
-        Jetzt Starten
-      </Button>
     </div>
   );
 }

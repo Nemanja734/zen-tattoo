@@ -27,10 +27,10 @@ const faqData = [
         Zen behält 6 % des Gesamtpreises für die Kundengewinnung und
         Terminverwaltung ein. Zusätzlich fallen ca. 4 % Transaktionsgebühren für
         Stripe an. Am Ende bleiben dir also 90 % des Gesamtpreises.
-        <Text level="base" customs="font-bold text-sm mt-4 md:mt-8">
+        <Text level="base" className="font-bold text-sm mt-4 md:mt-8">
           Frühbucher-Angebot:
         </Text>
-        <Text level="base" customs="font-regular text-sm">
+        <Text level="base" className="font-regular text-sm">
           Für die ersten 20 Registrierungen bei Zen halbieren wir unsere
           Gebühren! Statt 90 % erhältst du 95 % des Gesamtpreises. Das Angebot
           gilt nur solange der Vorrat reicht!

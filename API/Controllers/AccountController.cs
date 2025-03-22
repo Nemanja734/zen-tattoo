@@ -1,6 +1,9 @@
 using System;
+using System.Reflection.Metadata.Ecma335;
+using System.Text.RegularExpressions;
 using API.DTOs;
 using Core.Entities;
+using Core.Exceptions;
 using Core.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -11,20 +14,23 @@ public class AccountController(UserManager<AppUser> userManager, IEmailService e
 {
     // Todo: Implement rate limits
     [HttpPost("email")]
-    public async Task<ActionResult<string>> CreateEmail([FromBody] CreateEmailDto email)
+    public async Task<ActionResult> CreateEmail([FromBody] CreateEmailDto email)
     {
         var user = await userManager.FindByEmailAsync(email.Email);
 
-        if (user != null) return Conflict("Email already taken");
+        if (user != null) throw new ConflictException("Email already taken");
         
-        // Todo: Logging when the user was created
         var newUser = new AppUser
         {
             Email = email.Email,
-            UserName = email.Email,
+            UserName = Regex.Replace(email.Email, "[^a-zA-Z0-9]", ""),
         };
 
-        await userManager.CreateAsync(newUser);
+        var result = await userManager.CreateAsync(newUser);
+
+        if (!result.Succeeded) return BadRequest(result.Errors);
+
+        // Todo: Logging when the user was created
 
         await emailService.SendRegistrationLink(newUser.Id, newUser.Email);
 
@@ -33,5 +39,11 @@ public class AccountController(UserManager<AppUser> userManager, IEmailService e
 
     // Todo: Resend registration link
 
-    // Todo: Sign-up with custom password validation
+    [HttpPost("register/artist")]
+    public async Task<ActionResult> RegisterArtist(RegisterArtistDto artist)
+    {
+        var user = await userManager.FindByIdAsync(artist.Id) ?? throw new NotFoundException("User not found");
+
+        return Ok();
+    }
 }

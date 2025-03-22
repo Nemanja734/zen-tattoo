@@ -25,7 +25,7 @@ public class EmailService : IEmailService
     public async Task SendRegistrationLink(string uuid, string userEmail)
     {
         var subject = "Your Registration Link";
-        var bodyContent = $"Your registration link is: <strong><a href='https://localhost:3000/${uuid}'>LINK TO REGISTRATION</a></strong>. This code is valid for 5 minutes.";
+        var bodyContent = $"Your registration link is: <strong><a href='http://localhost:3000/register/{uuid}'>LINK TO REGISTRATION</a></strong>. This code is valid for 5 minutes.";
         var email = new Email
         {
             ToEmail = userEmail!,

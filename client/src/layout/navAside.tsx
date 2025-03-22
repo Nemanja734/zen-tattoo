@@ -1,6 +1,6 @@
 "use client";
 
-import Modal from "@/layout/modal";
+import Overlay from "@/layout/overlay";
 import Icon from "@/shared/ui/icon";
 import { useRef, useState } from "react";
 import NavItemsList from "./navItemsList";
@@ -32,7 +32,7 @@ export default function NavAside({ className }: Props) {
       <AnimatePresence mode="wait" initial={false}>
         {showAside && (
           <div>
-            <Modal />
+            <Overlay />
 
             <motion.div
               key="aside"
@@ -41,7 +41,7 @@ export default function NavAside({ className }: Props) {
               exit={{ x: "100%" }}
               transition={{ duration: 0.3 }}
               ref={menuRef}
-              className="bg-background z-10 fixed right-0 top-0 w-full h-[100dvh] sm:w-[300px] p-10"
+              className="bg-background z-30 fixed right-0 top-0 w-full h-[100dvh] sm:w-[300px] p-10"
             >
               <Icon
                 name="close"

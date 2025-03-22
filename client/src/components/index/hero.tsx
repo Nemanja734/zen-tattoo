@@ -11,7 +11,7 @@ export default function Hero() {
         <Heading level="title-primary" className="max-w-[250px] sm:max-w-none">
           Das digitale Tattoostudio
         </Heading>
-        <Text level="base" customs="max-w-80 sm:max-w-none">Entdecke talentierte Tätowierer aus ganz Deutschland, vergleiche ihre Portfolios und buche dein Wunsch-Tattoo bequem über das Internet.</Text>
+        <Text level="base" className="max-w-80 sm:max-w-none">Entdecke talentierte Tätowierer aus ganz Deutschland, vergleiche ihre Portfolios und buche dein Wunsch-Tattoo bequem über das Internet.</Text>
         <Button level="primary-lg" className="w-fit" href={routes.showroom}>Entdecke Tätowierer</Button>
       </div>
 

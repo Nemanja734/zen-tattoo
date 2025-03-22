@@ -49,7 +49,7 @@ export default function Footer() {
               <div className="hidden md:block">
                 <ul className="grid gap-2">
                   <li aria-label="Navigation Section">
-                    <Text level="base" customs="font-bold">
+                    <Text level="base" className="font-bold">
                       {section.heading}
                     </Text>
                   </li>
@@ -74,12 +74,12 @@ export default function Footer() {
               href={item.href}
               className="w-fit hover:underline underline-offset-4 col-1"
             >
-              <Text level="base" customs="text-tone font-bold">
+              <Text level="base" className="text-tone font-bold">
                 {item.text}
               </Text>
             </Link>
           ))}
-          <Text level="base" customs="text-tone md:ml-auto">
+          <Text level="base" className="text-tone md:ml-auto">
             &#169; Zen Tattoo 2025
           </Text>
         </div>

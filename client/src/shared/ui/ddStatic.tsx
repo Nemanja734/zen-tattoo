@@ -36,7 +36,7 @@ export default function DdStatic({
         className={clsx("flex justify-between cursor-pointer", ddButtonWidth)}
         onClick={toggleDropdown}
       >
-        <Text level="base" customs="font-bold">
+        <Text level="base" className="font-bold">
           {ddButtonText}
         </Text>
         <motion.div

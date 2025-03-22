@@ -18,7 +18,7 @@ export default function ArtistCardInformation(prop: Prop) {
   return (
     <div className="flex flex-col gap-2 p-4 pb-8 md:pb-4">
       <div>
-        <Text level="xl" customs="font-normal!">
+        <Text level="xl" className="font-normal!">
           {prop.firstName} {prop.lastName}
         </Text>
         <Text level="base">
@@ -26,7 +26,7 @@ export default function ArtistCardInformation(prop: Prop) {
         </Text>
       </div>
       <TattooStyleTags styles={prop.tattooStyle} />
-      <Text level="xl" customs="font-normal!">
+      <Text level="xl" className="font-normal!">
         {rate} €
       </Text>
       <Button level="stroke-sm" className="w-fit" href={routes.showroom + "/2"}>

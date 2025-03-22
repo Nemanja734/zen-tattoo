@@ -27,10 +27,10 @@ export default function Page() {
           <Text level="base">
             {artist.postalCode} - {artist.city}
           </Text>
-          <Text level="base" customs="italic">
+          <Text level="base" className="italic">
             Todo: Rating
           </Text>
-          <Text level="base" customs="line-clamp-2">
+          <Text level="base" className="line-clamp-2">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Totam
             fugiat repudiandae sit blanditiis veniam sunt laboriosam, cumque
             doloremque labore molestias tenetur! Tenetur asperiores delectus
@@ -38,7 +38,7 @@ export default function Page() {
             velit amet consequatur sequi vitae, sed minus.
           </Text>
           <TattooStyleTags styles={artist.tattooStyle} />
-          <Text level="xl" customs="font-normal!">
+          <Text level="xl" className="font-normal!">
             {rate} €
           </Text>
           <Button level="primary-lg">Konfiguriere dein Tattoo</Button>

@@ -2,11 +2,11 @@ import clsx from "clsx"
 
 interface Props {
     level: string,
-    customs?: string,
+    className?: string,
     children: React.ReactNode
 }
 
-export default function Text({ level, customs, children }: Props) {
+export default function Text({ level, className, children }: Props) {
     const styles: Record<string, string> = {
         "2xl": "text-4xl font-semibold",
         xl: "text-2xl font-semibold",
@@ -15,6 +15,6 @@ export default function Text({ level, customs, children }: Props) {
     }
 
     return(
-        <div className={clsx(styles[level], customs)}>{children}</div>
+        <div className={clsx(styles[level], className)}>{children}</div>
     )
 }

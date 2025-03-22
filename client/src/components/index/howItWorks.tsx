@@ -1,6 +1,7 @@
 import Heading from "@/shared/ui/heading";
 import HowItWorksItem from "./howItWorksItem";
 import Button from "@/shared/ui/button";
+import { routes } from "@/utils/routes";
 
 export default function HowItWorks() {
   return (
@@ -13,7 +14,7 @@ export default function HowItWorks() {
           <HowItWorksItem key={index} {...item} index={index} />
         ))}
       </div>
-      <Button level="primary-lg" className="w-full sm:w-fit sm:mx-auto">
+      <Button level="primary-lg" className="w-full sm:w-fit sm:mx-auto" href={routes.showroom}>
         Entdecke Tätowierer
       </Button>
     </div>

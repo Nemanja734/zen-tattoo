@@ -1,8 +1,7 @@
 import Image from "next/image";
 import Heading from "@/shared/ui/heading";
 import Text from "@/shared/ui/text";
-import Button from "@/shared/ui/button";
-import { routes } from "@/utils/routes";
+import ButtonEmailRegistration from "@/shared/ui/buttonEmailRegistration";
 
 export default function HowItWorksSection() {
   return (
@@ -21,7 +20,7 @@ export default function HowItWorksSection() {
           So funktioniert Zen für Tätowierer
         </Heading>
         <div className="heading-primary-mb">
-          <Text level="text-base" customs="mb-1.5">
+          <Text level="text-base" className="mb-1.5">
             Ein*e Kund*in durchstöbert die Zen App und bucht einen Termin bei
             dir. Dabei gibt er den Stil, die Größe und das Motiv des gewünschten
             Tattoos an. Sobald du den Termin bestätigst, ist dein Part erledigt
@@ -35,13 +34,8 @@ export default function HowItWorksSection() {
             Rezension auf Zen bitten.
           </Text>
         </div>
-        <Button
-          href={routes.signup}
-          level="primary-lg"
-          className="w-[fit-content] m-auto"
-        >
-          Jetzt Registrieren
-        </Button>
+
+        <ButtonEmailRegistration buttonLevel="primary-lg">Jetzt Registrieren</ButtonEmailRegistration>
       </div>
     </div>
   );

@@ -1,11 +1,10 @@
+import ButtonEmailRegistration from "@/shared/ui/buttonEmailRegistration";
 import Heading from "@/shared/ui/heading";
 import Text from "@/shared/ui/text";
-import Button from "@/shared/ui/button";
-import { routes } from "@/utils/routes";
 
 export default function HeroSection() {
   return (
-    <div className="container grid gap-6 text-center">
+    <div className="container grid gap-6 text-center relative">
       <Heading level="title-secondary" className="max-w-[1100px] m-auto">
         Mehr Kund*innen erreichen & dein Business mit Zen erweitern
       </Heading>
@@ -15,13 +14,7 @@ export default function HeroSection() {
         aus deiner Kunst zu erzielen.
       </Text>
 
-      <Button
-        href={routes.signup}
-        level="primary-lg"
-        className="w-[fit-content] m-auto"
-      >
-        Jetzt Registrieren
-      </Button>
+      <ButtonEmailRegistration buttonLevel="primary-lg" >Jetzt Registrieren</ButtonEmailRegistration>
     </div>
   );
 }

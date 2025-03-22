@@ -1,9 +1,7 @@
-import { navItems } from "@/utils/navItems";
+import { navItems } from "@/utils/data";
 import clsx from "clsx";
 import NavItems from "./navItems";
-import Button from "@/shared/ui/button";
-import { useState } from "react";
-import EmailRegistrationModal from "@/components/artist/emailRegistrationModal";
+import ButtonEmailRegistration from "@/shared/ui/buttonEmailRegistration";
 
 interface Props {
   className: string;
@@ -17,7 +15,8 @@ export default function NavItemsList({ className }: Props) {
           <NavItems text={item.text} link={item.link} />
         </div>
       ))}
-      <EmailRegistrationModal buttonLevel="primary-sm">Registrieren</EmailRegistrationModal>
+
+      <ButtonEmailRegistration buttonLevel="primary-sm" >Registrieren</ButtonEmailRegistration>
     </div>
   );
 }

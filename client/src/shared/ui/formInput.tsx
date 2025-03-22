@@ -62,7 +62,7 @@ export default function FormInput({
             transition={{ duration: 0.2 }}
             role="alert"
           >
-            <Text level="sm" customs="text-alarm pt-1 leading-[1]">
+            <Text level="sm" className="text-alarm pt-1 leading-[1]">
               {errorMessage}
             </Text>
           </motion.div>

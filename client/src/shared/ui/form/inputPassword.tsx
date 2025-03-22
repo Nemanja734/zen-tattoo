@@ -6,15 +6,17 @@ import FormValidationError from "@/utils/motion/formValidationError";
 type Props = {
   className?: string;
   inputName: string;
+  ariaLabel?: string;
 };
 
-export default function InputEmail({
+export default function InputPassword({
   className,
   inputName,
+  ariaLabel,
 }: Props) {
-    const label = "E-Mail";
-    const placeholder = "E-Mail-Addresse"
-    const ariaLabel = "Deine E-Mail-Addressse"
+    const placeholder = "Mindestens 8 Zeichen";
+    const label = "Passwort"
+
   const [placeholderState, setPlaceholderState] = useState(placeholder);
 
   const {
@@ -29,14 +31,14 @@ export default function InputEmail({
       <label htmlFor={inputName}>{label}</label>
 
       <input
-        type="email"
+        type="tel"
         className={input}
         placeholder={placeholderState}
         {...register(inputName, {
           required: { value: true, message: `${label} ist ein Pflichtfeld` },
-          pattern: {
-            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            message: "Gib eine gültige E-Mail-Addresse ein",
+          minLength: {
+            value: 8,
+            message: "Wähle ein Passwort mit mindestens 8 Zeichen.",
           },
         })}
         onFocus={() => setPlaceholderState("")}

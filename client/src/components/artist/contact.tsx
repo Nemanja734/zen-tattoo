@@ -39,7 +39,7 @@ export default function Contact() {
           <Heading level="heading-primary">
             Benötigst du weitere Informationen?
           </Heading>
-          <Text level="base" customs="heading-primary-mb">
+          <Text level="base" className="heading-primary-mb">
             Hinterlasse uns einfach eine Nachricht und wir melden uns zeitnah
             bei dir.
           </Text>
@@ -108,12 +108,12 @@ export default function Contact() {
               <Icon name="mail" color="background" size="base" /> Senden
             </Button>
             {submitStatus === "success" && (
-              <Text level="base" customs="text-primary mt-2">
+              <Text level="base" className="text-primary mt-2">
                 Deine Nachricht wurde erfolgreich gesendet!
               </Text>
             )}
             {submitStatus === "error" && (
-              <Text level="base" customs="text-alarm mt-2">
+              <Text level="base" className="text-alarm mt-2">
                 Etwas ist schiefgelaufen. Bitte versuche es erneut.
               </Text>
             )}

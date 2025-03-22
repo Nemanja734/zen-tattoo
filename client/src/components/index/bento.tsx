@@ -41,7 +41,7 @@ export default function Bento() {
         <Heading level="subheading-primary" className="text-white mb-3">
           Tattoostile im Überblick
         </Heading>
-        <Text level="base" customs="font-bold text-white mb-auto">
+        <Text level="base" className="font-bold text-white mb-auto">
           Es gibt verschiedenste Tattoostile, die jeweils unterschiedliche
           Merkmale haben.
         </Text>
@@ -65,7 +65,7 @@ export default function Bento() {
         <Heading level="subheading-primary" className="text-white mb-3">
           Aftercare nach dem Tattoo
         </Heading>
-        <Text level="base" customs="font-bold text-white mb-auto">
+        <Text level="base" className="font-bold text-white mb-auto">
           Wenn es darum geht, das Tattoo nach dem Termin vor Schmutz und
           Trockenheit zu bewahren.
         </Text>

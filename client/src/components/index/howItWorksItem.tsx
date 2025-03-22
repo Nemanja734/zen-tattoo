@@ -16,7 +16,7 @@ export default function HowItWorksItem({ icon, title, text, index }: Props) {
         <Icon name={icon} size="3xl" color="var(--background)"></Icon>
       </div>
       <div>
-        <Text level="base" customs="font-bold">
+        <Text level="base" className="font-bold">
           Schritt {index + 1}
         </Text>
         <Heading level="subheading-primary">{title}</Heading>

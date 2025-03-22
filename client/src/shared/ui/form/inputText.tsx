@@ -8,7 +8,7 @@ type Props = {
   label: string;
   placeholder: string;
   inputName: string;
-  ariaLabel: string;
+  ariaLabel?: string;
 };
 
 export default function InputText({

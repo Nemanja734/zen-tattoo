@@ -5,16 +5,17 @@ import FormValidationError from "@/utils/motion/formValidationError";
 
 type Props = {
   className?: string;
+  placeholder: string;
   inputName: string;
+  ariaLabel?: string;
 };
 
-export default function InputEmail({
+export default function InputTel({
   className,
+  placeholder,
   inputName,
+  ariaLabel,
 }: Props) {
-    const label = "E-Mail";
-    const placeholder = "E-Mail-Addresse"
-    const ariaLabel = "Deine E-Mail-Addressse"
   const [placeholderState, setPlaceholderState] = useState(placeholder);
 
   const {
@@ -26,17 +27,17 @@ export default function InputEmail({
 
   return (
     <div className={className}>
-      <label htmlFor={inputName}>{label}</label>
+      <label htmlFor={inputName}>Telefonnummer</label>
 
       <input
-        type="email"
+        type="tel"
         className={input}
         placeholder={placeholderState}
         {...register(inputName, {
-          required: { value: true, message: `${label} ist ein Pflichtfeld` },
+          required: { value: true, message: `Telefonnummer ist ein Pflichtfeld` },
           pattern: {
-            value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-            message: "Gib eine gültige E-Mail-Addresse ein",
+            value: /^\+?[0-9\s\-()]{7,}$/,
+            message: "Gib eine gültige Telefonnummer ein",
           },
         })}
         onFocus={() => setPlaceholderState("")}

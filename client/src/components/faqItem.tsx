@@ -26,7 +26,7 @@ export default function FaqItem({
         className="flex justify-between items-center gap-3 md:gap-6 p-4 md:p-8 cursor-pointer"
         onClick={() => setIsOpen((prev) => !prev)}
       >
-        <Text level="base" customs="font-bold">
+        <Text level="base" className="font-bold">
           {question}
         </Text>
         <motion.div
